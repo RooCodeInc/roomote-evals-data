@@ -1,1 +1,1141 @@
-{"format":"roomote-role-evals/v1","publishedAt":"2026-08-04T06:34:42.504Z","evals":[{"id":"coding","name":"Coding — repository implementation","description":"Runs Roomote's production coding harness on a compact set of real repository bugs, pins every auxiliary role to the balanced baseline, and scores delivered PRs against acceptance criteria.","role":"coding","cases":6,"qualityMethod":"task-macro acceptance score","updatedAt":"2026-08-04T05:29:44.435Z","results":[{"model":"google/gemini-3.6-flash","qualityScore":90,"latencyP50Ms":367107,"latencyP95Ms":896864,"costUsd":11.12399895,"costPerCaseUsd":1.853999825,"tokens":5040425,"casesAttempted":6,"metrics":[{"label":"task acceptance","value":"90%","hint":"Macro-average of the acceptance-criteria pass fraction for each repository task — higher is better","sort":0.9027777777777778},{"label":"tasks completed","value":"4/6 (67%)","hint":"Tasks with every acceptance criterion met and a delivered PR — higher is better","sort":0.6666666666666666},{"label":"PR delivery","value":"6/6 (100%)","hint":"Tasks where the coding agent completed Roomote's delivery flow — higher is better","sort":1}]},{"model":"openai/gpt-5.6-terra","qualityScore":79,"latencyP50Ms":179024,"latencyP95Ms":788682,"costUsd":1.8704790500000001,"costPerCaseUsd":0.31174650833333334,"tokens":37090,"casesAttempted":6,"metrics":[{"label":"task acceptance","value":"79%","hint":"Macro-average of the acceptance-criteria pass fraction for each repository task — higher is better","sort":0.7916666666666666},{"label":"tasks completed","value":"3/6 (50%)","hint":"Tasks with every acceptance criterion met and a delivered PR — higher is better","sort":0.5},{"label":"PR delivery","value":"6/6 (100%)","hint":"Tasks where the coding agent completed Roomote's delivery flow — higher is better","sort":1}]},{"model":"anthropic/claude-sonnet-5","qualityScore":74,"latencyP50Ms":370575,"latencyP95Ms":915155,"costUsd":5.3849125,"costPerCaseUsd":0.8974854166666667,"tokens":83120,"casesAttempted":6,"metrics":[{"label":"task acceptance","value":"74%","hint":"Macro-average of the acceptance-criteria pass fraction for each repository task — higher is better","sort":0.736111111111111},{"label":"tasks completed","value":"3/6 (50%)","hint":"Tasks with every acceptance criterion met and a delivered PR — higher is better","sort":0.5},{"label":"PR delivery","value":"5/6 (83%)","hint":"Tasks where the coding agent completed Roomote's delivery flow — higher is better","sort":0.8333333333333334}]},{"model":"anthropic/claude-opus-5","qualityScore":63,"latencyP50Ms":510411,"latencyP95Ms":964464,"costUsd":21.348846249999998,"costPerCaseUsd":3.558141041666666,"tokens":125141,"casesAttempted":6,"metrics":[{"label":"task acceptance","value":"63%","hint":"Macro-average of the acceptance-criteria pass fraction for each repository task — higher is better","sort":0.625},{"label":"tasks completed","value":"3/6 (50%)","hint":"Tasks with every acceptance criterion met and a delivered PR — higher is better","sort":0.5},{"label":"PR delivery","value":"4/6 (67%)","hint":"Tasks where the coding agent completed Roomote's delivery flow — higher is better","sort":0.6666666666666666}]}]},{"id":"router-lookup","name":"Router — external-lookup gate","description":"Runs the production routing prompt over tasks with pasted issue links and measures whether the model asks for an external lookup exactly when the message alone can't route — the signal that would let the router skip the MCP fetch (and its latency) on most links.","role":"helper","cases":29,"qualityMethod":"routing-family macro accuracy","updatedAt":"2026-08-04T03:53:49.471Z","results":[{"model":"anthropic/claude-opus-5","qualityScore":100,"latencyP50Ms":6437,"latencyP95Ms":9133,"costUsd":0.597325,"costPerCaseUsd":0.02059741379310345,"tokens":119465,"casesAttempted":29,"metrics":[{"label":"lookup recall","value":"6/6 (100%)","hint":"asks for the issue when the message alone can't route — higher is better","sort":1},{"label":"false lookup","value":"0/12 (0%)","hint":"asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better","sort":0},{"label":"route accuracy (link only)","value":"12/12 (100%)","hint":"clear-link + lookalike cases routed to the right workspace without fetching","sort":1},{"label":"ambiguous: blind → with issue","value":"5/6 (83%) → 6/6 (100%)","hint":"same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)","sort":1},{"label":"bare-ref extraction","value":"4/4 (100%)","hint":"no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve","sort":1},{"label":"latency p50/p95","value":"6.4s / 9.1s","hint":"wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout","sort":-6436.70066699991}]},{"model":"anthropic/claude-sonnet-5","qualityScore":98,"latencyP50Ms":5111,"latencyP95Ms":8687,"costUsd":0.237648,"costPerCaseUsd":0.008194758620689656,"tokens":118824,"casesAttempted":29,"metrics":[{"label":"lookup recall","value":"6/6 (100%)","hint":"asks for the issue when the message alone can't route — higher is better","sort":1},{"label":"false lookup","value":"1/12 (8%)","hint":"asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better","sort":-0.08333333333333333},{"label":"route accuracy (link only)","value":"12/12 (100%)","hint":"clear-link + lookalike cases routed to the right workspace without fetching","sort":1},{"label":"ambiguous: blind → with issue","value":"3/6 (50%) → 6/6 (100%)","hint":"same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)","sort":1},{"label":"bare-ref extraction","value":"4/4 (100%)","hint":"no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve","sort":1},{"label":"latency p50/p95","value":"5.1s / 8.7s","hint":"wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout","sort":-5111.393916999921}]},{"model":"google/gemini-3.6-flash","qualityScore":97,"latencyP50Ms":2553,"latencyP95Ms":4380,"costUsd":0.1193025,"costPerCaseUsd":0.004113879310344828,"tokens":79535,"casesAttempted":29,"metrics":[{"label":"lookup recall","value":"6/6 (100%)","hint":"asks for the issue when the message alone can't route — higher is better","sort":1},{"label":"false lookup","value":"2/12 (17%)","hint":"asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better","sort":-0.16666666666666666},{"label":"route accuracy (link only)","value":"12/12 (100%)","hint":"clear-link + lookalike cases routed to the right workspace without fetching","sort":1},{"label":"ambiguous: blind → with issue","value":"3/6 (50%) → 6/6 (100%)","hint":"same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)","sort":1},{"label":"bare-ref extraction","value":"4/4 (100%)","hint":"no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve","sort":1},{"label":"latency p50/p95","value":"2.6s / 4.4s","hint":"wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout","sort":-2552.869749999998}]},{"model":"openai/gpt-5.6-terra","qualityScore":95,"latencyP50Ms":3011,"latencyP95Ms":4674,"costUsd":0.07119299999999999,"costPerCaseUsd":0.0024549310344827583,"tokens":71193,"casesAttempted":29,"metrics":[{"label":"lookup recall","value":"6/6 (100%)","hint":"asks for the issue when the message alone can't route — higher is better","sort":1},{"label":"false lookup","value":"0/12 (0%)","hint":"asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better","sort":0},{"label":"route accuracy (link only)","value":"12/12 (100%)","hint":"clear-link + lookalike cases routed to the right workspace without fetching","sort":1},{"label":"ambiguous: blind → with issue","value":"3/6 (50%) → 6/6 (100%)","hint":"same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)","sort":1},{"label":"bare-ref extraction","value":"3/4 (75%)","hint":"no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve","sort":0.75},{"label":"latency p50/p95","value":"3.0s / 4.7s","hint":"wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout","sort":-3010.7365419999696}]}]},{"id":"vision-extraction","name":"Vision — Roomote UI extraction","description":"Runs Roomote's visual-agent instructions over Roomote screenshots and scores objective OCR and UI-evidence extraction.","role":"vision","cases":14,"qualityMethod":"accuracy","updatedAt":"2026-08-04T03:53:49.413Z","results":[{"model":"google/gemini-3.6-flash","qualityScore":100,"latencyP50Ms":2480,"latencyP95Ms":5281,"costUsd":0.029385,"costPerCaseUsd":0.0020989285714285715,"tokens":19590,"casesAttempted":14,"metrics":[{"label":"accuracy","value":"14/14 (100%)","hint":"objective visual extraction cases answered correctly","sort":1},{"label":"answered","value":"14/14","hint":"successful image-model calls; text-only models normally score zero","sort":null},{"label":"latency p50/p95","value":"2.5s / 5.3s","hint":"wall-clock per attempted visual extraction call; failures count as the 60s timeout","sort":null}]},{"model":"anthropic/claude-opus-5","qualityScore":93,"latencyP50Ms":10152,"latencyP95Ms":22233,"costUsd":0.22312500000000002,"costPerCaseUsd":0.0159375,"tokens":44625,"casesAttempted":14,"metrics":[{"label":"accuracy","value":"13/14 (93%)","hint":"objective visual extraction cases answered correctly","sort":0.9285714285714286},{"label":"answered","value":"14/14","hint":"successful image-model calls; text-only models normally score zero","sort":null},{"label":"latency p50/p95","value":"10.2s / 22.2s","hint":"wall-clock per attempted visual extraction call; failures count as the 60s timeout","sort":null}]},{"model":"anthropic/claude-sonnet-5","qualityScore":86,"latencyP50Ms":4555,"latencyP95Ms":10242,"costUsd":0.07832399999999999,"costPerCaseUsd":0.005594571428571428,"tokens":39162,"casesAttempted":14,"metrics":[{"label":"accuracy","value":"12/14 (86%)","hint":"objective visual extraction cases answered correctly","sort":0.8571428571428571},{"label":"answered","value":"14/14","hint":"successful image-model calls; text-only models normally score zero","sort":null},{"label":"latency p50/p95","value":"4.6s / 10.2s","hint":"wall-clock per attempted visual extraction call; failures count as the 60s timeout","sort":null}]},{"model":"openai/gpt-5.6-terra","qualityScore":71,"latencyP50Ms":1313,"latencyP95Ms":33865,"costUsd":0.052580999999999996,"costPerCaseUsd":0.003755785714285714,"tokens":52581,"casesAttempted":14,"metrics":[{"label":"accuracy","value":"10/14 (71%)","hint":"objective visual extraction cases answered correctly","sort":0.7142857142857143},{"label":"answered","value":"14/14","hint":"successful image-model calls; text-only models normally score zero","sort":null},{"label":"latency p50/p95","value":"1.3s / 33.9s","hint":"wall-clock per attempted visual extraction call; failures count as the 60s timeout","sort":null}]}]},{"id":"review","name":"Review — self-review subagent","description":"Runs Roomote's review prompt over delivered PRs and measures how many known flaws it catches (a neutral meta-judge decides) and how often it blocks clean PRs.","role":"codeReview","cases":57,"qualityMethod":"balanced accuracy","updatedAt":"2026-08-04T03:53:49.499Z","results":[{"model":"anthropic/claude-sonnet-5","qualityScore":58,"latencyP50Ms":14192,"latencyP95Ms":60000,"costUsd":1.239474,"costPerCaseUsd":0.010077024390243902,"tokens":619737,"casesAttempted":123,"metrics":[{"label":"catch rate","value":"26/57 (46%)","hint":"known flaws surfaced — higher is better","sort":0.45614035087719296},{"label":"false alarm","value":"19/66 (29%)","hint":"clean PRs blocked — lower is better","sort":-0.2878787878787879},{"label":"latency p50/p95","value":"14.2s / 60.0s","hint":"wall-clock per attempted review call; failures count as the 60s timeout","sort":null}]},{"model":"anthropic/claude-opus-5","qualityScore":58,"latencyP50Ms":30323,"latencyP95Ms":60000,"costUsd":2.79081,"costPerCaseUsd":0.022689512195121952,"tokens":558162,"casesAttempted":123,"metrics":[{"label":"catch rate","value":"27/57 (47%)","hint":"known flaws surfaced — higher is better","sort":0.47368421052631576},{"label":"false alarm","value":"21/66 (32%)","hint":"clean PRs blocked — lower is better","sort":-0.3181818181818182},{"label":"latency p50/p95","value":"30.3s / 60.0s","hint":"wall-clock per attempted review call; failures count as the 60s timeout","sort":null}]},{"model":"google/gemini-3.6-flash","qualityScore":55,"latencyP50Ms":2628,"latencyP95Ms":7336,"costUsd":0.5767755,"costPerCaseUsd":0.004689231707317073,"tokens":384517,"casesAttempted":123,"metrics":[{"label":"catch rate","value":"11/57 (19%)","hint":"known flaws surfaced — higher is better","sort":0.19298245614035087},{"label":"false alarm","value":"6/66 (9%)","hint":"clean PRs blocked — lower is better","sort":-0.09090909090909091},{"label":"latency p50/p95","value":"2.6s / 7.3s","hint":"wall-clock per attempted review call; failures count as the 60s timeout","sort":null}]},{"model":"openai/gpt-5.6-terra","qualityScore":54,"latencyP50Ms":9026,"latencyP95Ms":35242,"costUsd":0.39149,"costPerCaseUsd":0.0031828455284552844,"tokens":391490,"casesAttempted":123,"metrics":[{"label":"catch rate","value":"24/57 (42%)","hint":"known flaws surfaced — higher is better","sort":0.42105263157894735},{"label":"false alarm","value":"22/66 (33%)","hint":"clean PRs blocked — lower is better","sort":-0.3333333333333333},{"label":"latency p50/p95","value":"9.0s / 35.2s","hint":"wall-clock per attempted review call; failures count as the 60s timeout","sort":null}]}]},{"id":"explorer","name":"Explorer — file targeting (proxy)","description":"Given only the goal, the model predicts which files the fix touches; scored against the files the real fix changed (recall on basenames). A cheap proxy for the tool-using explorer subagent.","role":"explore","cases":13,"qualityMethod":"precision/recall F1","updatedAt":"2026-08-04T03:53:49.459Z","results":[{"model":"anthropic/claude-opus-5","qualityScore":43,"latencyP50Ms":7033,"latencyP95Ms":20972,"costUsd":0.076295,"costPerCaseUsd":0.005868846153846154,"tokens":15259,"casesAttempted":13,"metrics":[{"label":"file recall","value":"59%","hint":"of the files the real fix touched, how many were predicted — higher is better","sort":0.5897435897435896},{"label":"precision","value":"34%","hint":"of predicted files, how many were right","sort":0.3384615384615385},{"label":"latency p50/p95","value":"7.0s / 21.0s","hint":"wall-clock per attempted file-targeting call; failures count as the 60s timeout","sort":null}]},{"model":"anthropic/claude-sonnet-5","qualityScore":42,"latencyP50Ms":3205,"latencyP95Ms":5923,"costUsd":0.016328,"costPerCaseUsd":0.001256,"tokens":8164,"casesAttempted":13,"metrics":[{"label":"file recall","value":"51%","hint":"of the files the real fix touched, how many were predicted — higher is better","sort":0.5128205128205128},{"label":"precision","value":"36%","hint":"of predicted files, how many were right","sort":0.36153846153846153},{"label":"latency p50/p95","value":"3.2s / 5.9s","hint":"wall-clock per attempted file-targeting call; failures count as the 60s timeout","sort":null}]},{"model":"openai/gpt-5.6-terra","qualityScore":42,"latencyP50Ms":11928,"latencyP95Ms":60000,"costUsd":0.013444,"costPerCaseUsd":0.001034153846153846,"tokens":13444,"casesAttempted":13,"metrics":[{"label":"file recall","value":"49%","hint":"of the files the real fix touched, how many were predicted — higher is better","sort":0.4871794871794872},{"label":"precision","value":"37%","hint":"of predicted files, how many were right","sort":0.37179487179487175},{"label":"latency p50/p95","value":"11.9s / 60.0s","hint":"wall-clock per attempted file-targeting call; failures count as the 60s timeout","sort":null}]},{"model":"google/gemini-3.6-flash","qualityScore":39,"latencyP50Ms":1499,"latencyP95Ms":2190,"costUsd":0.0057165,"costPerCaseUsd":0.00043973076923076924,"tokens":3811,"casesAttempted":13,"metrics":[{"label":"file recall","value":"53%","hint":"of the files the real fix touched, how many were predicted — higher is better","sort":0.5256410256410257},{"label":"precision","value":"31%","hint":"of predicted files, how many were right","sort":0.3076923076923077},{"label":"latency p50/p95","value":"1.5s / 2.2s","hint":"wall-clock per attempted file-targeting call; failures count as the 60s timeout","sort":null}]}]},{"id":"advisor-decisions","name":"Advisor — stuck-task decisions","description":"Tests whether the Roomote advisor selects the grounded next action for concrete debugging, design, and user-challenge scenarios.","role":"advisor","cases":22,"qualityMethod":"grounded accuracy","updatedAt":"2026-08-04T03:53:49.483Z","results":[{"model":"anthropic/claude-sonnet-5","qualityScore":100,"latencyP50Ms":4939,"latencyP95Ms":7095,"costUsd":0.042499999999999996,"costPerCaseUsd":0.0019318181818181817,"tokens":21250,"casesAttempted":22,"metrics":[{"label":"grounded accuracy","value":"22/22 (100%)","hint":"right action with a rationale tied to the decisive scenario evidence","sort":1},{"label":"choice accuracy","value":"22/22","hint":"right action before checking whether the rationale was grounded","sort":null},{"label":"paired consistency","value":"11/11","hint":"counterfactual pairs where both changed constraints produced the right grounded answer","sort":null},{"label":"answered","value":"22/22","hint":"successful structured advisor calls","sort":null},{"label":"latency p50/p95","value":"4.9s / 7.1s","hint":"wall-clock per attempted advisor call; failures count as the 60s timeout","sort":null}]},{"model":"anthropic/claude-opus-5","qualityScore":100,"latencyP50Ms":9166,"latencyP95Ms":11360,"costUsd":0.12666000000000002,"costPerCaseUsd":0.005757272727272728,"tokens":25332,"casesAttempted":22,"metrics":[{"label":"grounded accuracy","value":"22/22 (100%)","hint":"right action with a rationale tied to the decisive scenario evidence","sort":1},{"label":"choice accuracy","value":"22/22","hint":"right action before checking whether the rationale was grounded","sort":null},{"label":"paired consistency","value":"11/11","hint":"counterfactual pairs where both changed constraints produced the right grounded answer","sort":null},{"label":"answered","value":"22/22","hint":"successful structured advisor calls","sort":null},{"label":"latency p50/p95","value":"9.2s / 11.4s","hint":"wall-clock per attempted advisor call; failures count as the 60s timeout","sort":null}]},{"model":"openai/gpt-5.6-terra","qualityScore":95,"latencyP50Ms":1471,"latencyP95Ms":2078,"costUsd":0.007906999999999999,"costPerCaseUsd":0.00035940909090909084,"tokens":7907,"casesAttempted":22,"metrics":[{"label":"grounded accuracy","value":"21/22 (95%)","hint":"right action with a rationale tied to the decisive scenario evidence","sort":0.9545454545454546},{"label":"choice accuracy","value":"22/22","hint":"right action before checking whether the rationale was grounded","sort":null},{"label":"paired consistency","value":"10/11","hint":"counterfactual pairs where both changed constraints produced the right grounded answer","sort":null},{"label":"answered","value":"22/22","hint":"successful structured advisor calls","sort":null},{"label":"latency p50/p95","value":"1.5s / 2.1s","hint":"wall-clock per attempted advisor call; failures count as the 60s timeout","sort":null}]},{"model":"google/gemini-3.6-flash","qualityScore":95,"latencyP50Ms":2077,"latencyP95Ms":3376,"costUsd":0.015759,"costPerCaseUsd":0.0007163181818181818,"tokens":10506,"casesAttempted":22,"metrics":[{"label":"grounded accuracy","value":"21/22 (95%)","hint":"right action with a rationale tied to the decisive scenario evidence","sort":0.9545454545454546},{"label":"choice accuracy","value":"22/22","hint":"right action before checking whether the rationale was grounded","sort":null},{"label":"paired consistency","value":"10/11","hint":"counterfactual pairs where both changed constraints produced the right grounded answer","sort":null},{"label":"answered","value":"22/22","hint":"successful structured advisor calls","sort":null},{"label":"latency p50/p95","value":"2.1s / 3.4s","hint":"wall-clock per attempted advisor call; failures count as the 60s timeout","sort":null}]}]}]}
+{
+  "format": "roomote-role-evals/v1",
+  "publishedAt": "2026-08-04T13:48:00.586Z",
+  "evals": [
+    {
+      "id": "router-lookup",
+      "name": "Router — external-lookup gate",
+      "description": "Runs the production routing prompt over tasks with pasted issue links and measures whether the model asks for an external lookup exactly when the message alone can't route — the signal that would let the router skip the MCP fetch (and its latency) on most links.",
+      "role": "helper",
+      "cases": 29,
+      "qualityMethod": "routing-family macro accuracy",
+      "updatedAt": "2026-08-04T13:28:23.675Z",
+      "results": [
+        {
+          "model": "anthropic/claude-opus-5",
+          "qualityScore": 100,
+          "latencyP50Ms": 6437,
+          "latencyP95Ms": 9133,
+          "costUsd": 0.597325,
+          "costPerCaseUsd": 0.02059741379310345,
+          "tokens": 119465,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "0/12 (0%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": 0
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "5/6 (83%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "4/4 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "6.4s / 9.1s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
+              "sort": -6436.70066699991
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-sonnet-5",
+          "qualityScore": 98,
+          "latencyP50Ms": 5111,
+          "latencyP95Ms": 8687,
+          "costUsd": 0.237648,
+          "costPerCaseUsd": 0.008194758620689656,
+          "tokens": 118824,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "1/12 (8%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.08333333333333333
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "3/6 (50%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "4/4 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "5.1s / 8.7s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
+              "sort": -5111.393916999921
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.6-flash",
+          "qualityScore": 97,
+          "latencyP50Ms": 2553,
+          "latencyP95Ms": 4380,
+          "costUsd": 0.1193025,
+          "costPerCaseUsd": 0.004113879310344828,
+          "tokens": 79535,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "2/12 (17%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.16666666666666666
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "3/6 (50%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "4/4 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.6s / 4.4s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
+              "sort": -2552.869749999998
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-sol",
+          "qualityScore": 97,
+          "latencyP50Ms": 4619,
+          "latencyP95Ms": 12193,
+          "costUsd": 0.35818000000000005,
+          "costPerCaseUsd": 0.012351034482758623,
+          "tokens": 71636,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "5/6 (83%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 0.8333333333333334
+            },
+            {
+              "label": "false lookup",
+              "value": "0/12 (0%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": 0
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "3/6 (50%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "4/4 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "4.6s / 12.2s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
+              "sort": -4619.306416995823
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-terra",
+          "qualityScore": 95,
+          "latencyP50Ms": 3011,
+          "latencyP95Ms": 4674,
+          "costUsd": 0.07119299999999999,
+          "costPerCaseUsd": 0.0024549310344827583,
+          "tokens": 71193,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "0/12 (0%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": 0
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "3/6 (50%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "3/4 (75%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 0.75
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "3.0s / 4.7s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
+              "sort": -3010.7365419999696
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-luna",
+          "qualityScore": 92,
+          "latencyP50Ms": 3583,
+          "latencyP95Ms": 5610,
+          "costUsd": 0.0072685,
+          "costPerCaseUsd": 0.00025063793103448275,
+          "tokens": 72685,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "2/12 (17%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.16666666666666666
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "3/6 (50%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "3/4 (75%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 0.75
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "3.6s / 5.6s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
+              "sort": -3583.1422500000044
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vision-extraction",
+      "name": "Vision — Roomote UI extraction",
+      "description": "Runs Roomote's visual-agent instructions over Roomote screenshots and scores objective OCR and UI-evidence extraction.",
+      "role": "vision",
+      "cases": 14,
+      "qualityMethod": "accuracy",
+      "updatedAt": "2026-08-04T13:28:23.691Z",
+      "results": [
+        {
+          "model": "google/gemini-3.6-flash",
+          "qualityScore": 100,
+          "latencyP50Ms": 2480,
+          "latencyP95Ms": 5281,
+          "costUsd": 0.029385,
+          "costPerCaseUsd": 0.0020989285714285715,
+          "tokens": 19590,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "14/14 (100%)",
+              "hint": "objective visual extraction cases answered correctly",
+              "sort": 1
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.5s / 5.3s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-opus-5",
+          "qualityScore": 93,
+          "latencyP50Ms": 10152,
+          "latencyP95Ms": 22233,
+          "costUsd": 0.22312500000000002,
+          "costPerCaseUsd": 0.0159375,
+          "tokens": 44625,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "13/14 (93%)",
+              "hint": "objective visual extraction cases answered correctly",
+              "sort": 0.9285714285714286
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "10.2s / 22.2s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-sonnet-5",
+          "qualityScore": 86,
+          "latencyP50Ms": 4555,
+          "latencyP95Ms": 10242,
+          "costUsd": 0.07832399999999999,
+          "costPerCaseUsd": 0.005594571428571428,
+          "tokens": 39162,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "12/14 (86%)",
+              "hint": "objective visual extraction cases answered correctly",
+              "sort": 0.8571428571428571
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "4.6s / 10.2s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-luna",
+          "qualityScore": 79,
+          "latencyP50Ms": 2522,
+          "latencyP95Ms": 28907,
+          "costUsd": 0.0053416,
+          "costPerCaseUsd": 0.00038154285714285714,
+          "tokens": 53416,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "11/14 (79%)",
+              "hint": "objective visual extraction cases answered correctly",
+              "sort": 0.7857142857142857
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.5s / 28.9s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-sol",
+          "qualityScore": 79,
+          "latencyP50Ms": 3290,
+          "latencyP95Ms": 32509,
+          "costUsd": 0.25968,
+          "costPerCaseUsd": 0.01854857142857143,
+          "tokens": 51936,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "11/14 (79%)",
+              "hint": "objective visual extraction cases answered correctly",
+              "sort": 0.7857142857142857
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "3.3s / 32.5s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-terra",
+          "qualityScore": 71,
+          "latencyP50Ms": 1313,
+          "latencyP95Ms": 33865,
+          "costUsd": 0.052580999999999996,
+          "costPerCaseUsd": 0.003755785714285714,
+          "tokens": 52581,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "10/14 (71%)",
+              "hint": "objective visual extraction cases answered correctly",
+              "sort": 0.7142857142857143
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "1.3s / 33.9s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "name": "Review — self-review subagent",
+      "description": "Runs Roomote's review prompt over delivered PRs and measures how many known flaws it catches (a neutral meta-judge decides) and how often it blocks clean PRs.",
+      "role": "codeReview",
+      "cases": 57,
+      "qualityMethod": "balanced accuracy",
+      "updatedAt": "2026-08-04T13:39:51.656Z",
+      "results": [
+        {
+          "model": "anthropic/claude-sonnet-5",
+          "qualityScore": 58,
+          "latencyP50Ms": 14192,
+          "latencyP95Ms": 60000,
+          "costUsd": 1.239474,
+          "costPerCaseUsd": 0.010077024390243902,
+          "tokens": 619737,
+          "casesAttempted": 123,
+          "metrics": [
+            {
+              "label": "catch rate",
+              "value": "26/57 (46%)",
+              "hint": "known flaws surfaced — higher is better",
+              "sort": 0.45614035087719296
+            },
+            {
+              "label": "false alarm",
+              "value": "19/66 (29%)",
+              "hint": "clean PRs blocked — lower is better",
+              "sort": -0.2878787878787879
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "14.2s / 60.0s",
+              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-opus-5",
+          "qualityScore": 58,
+          "latencyP50Ms": 30323,
+          "latencyP95Ms": 60000,
+          "costUsd": 2.79081,
+          "costPerCaseUsd": 0.022689512195121952,
+          "tokens": 558162,
+          "casesAttempted": 123,
+          "metrics": [
+            {
+              "label": "catch rate",
+              "value": "27/57 (47%)",
+              "hint": "known flaws surfaced — higher is better",
+              "sort": 0.47368421052631576
+            },
+            {
+              "label": "false alarm",
+              "value": "21/66 (32%)",
+              "hint": "clean PRs blocked — lower is better",
+              "sort": -0.3181818181818182
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "30.3s / 60.0s",
+              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-luna",
+          "qualityScore": 57,
+          "latencyP50Ms": 11825,
+          "latencyP95Ms": 25327,
+          "costUsd": 0.041789599999999996,
+          "costPerCaseUsd": 0.00033975284552845527,
+          "tokens": 417896,
+          "casesAttempted": 123,
+          "metrics": [
+            {
+              "label": "catch rate",
+              "value": "27/57 (47%)",
+              "hint": "known flaws surfaced — higher is better",
+              "sort": 0.47368421052631576
+            },
+            {
+              "label": "false alarm",
+              "value": "22/66 (33%)",
+              "hint": "clean PRs blocked — lower is better",
+              "sort": -0.3333333333333333
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "11.8s / 25.3s",
+              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.6-flash",
+          "qualityScore": 55,
+          "latencyP50Ms": 2628,
+          "latencyP95Ms": 7336,
+          "costUsd": 0.5767755,
+          "costPerCaseUsd": 0.004689231707317073,
+          "tokens": 384517,
+          "casesAttempted": 123,
+          "metrics": [
+            {
+              "label": "catch rate",
+              "value": "11/57 (19%)",
+              "hint": "known flaws surfaced — higher is better",
+              "sort": 0.19298245614035087
+            },
+            {
+              "label": "false alarm",
+              "value": "6/66 (9%)",
+              "hint": "clean PRs blocked — lower is better",
+              "sort": -0.09090909090909091
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.6s / 7.3s",
+              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-sol",
+          "qualityScore": 55,
+          "latencyP50Ms": 19780,
+          "latencyP95Ms": 60000,
+          "costUsd": 1.6718700000000002,
+          "costPerCaseUsd": 0.013592439024390245,
+          "tokens": 334374,
+          "casesAttempted": 123,
+          "metrics": [
+            {
+              "label": "catch rate",
+              "value": "24/57 (42%)",
+              "hint": "known flaws surfaced — higher is better",
+              "sort": 0.42105263157894735
+            },
+            {
+              "label": "false alarm",
+              "value": "21/66 (32%)",
+              "hint": "clean PRs blocked — lower is better",
+              "sort": -0.3181818181818182
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "19.8s / 60.0s",
+              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-terra",
+          "qualityScore": 54,
+          "latencyP50Ms": 9026,
+          "latencyP95Ms": 35242,
+          "costUsd": 0.39149,
+          "costPerCaseUsd": 0.0031828455284552844,
+          "tokens": 391490,
+          "casesAttempted": 123,
+          "metrics": [
+            {
+              "label": "catch rate",
+              "value": "24/57 (42%)",
+              "hint": "known flaws surfaced — higher is better",
+              "sort": 0.42105263157894735
+            },
+            {
+              "label": "false alarm",
+              "value": "22/66 (33%)",
+              "hint": "clean PRs blocked — lower is better",
+              "sort": -0.3333333333333333
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "9.0s / 35.2s",
+              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explorer",
+      "name": "Explorer — file targeting (proxy)",
+      "description": "Given only the goal, the model predicts which files the fix touches; scored against the files the real fix changed (recall on basenames). A cheap proxy for the tool-using explorer subagent.",
+      "role": "explore",
+      "cases": 13,
+      "qualityMethod": "precision/recall F1",
+      "updatedAt": "2026-08-04T13:28:23.729Z",
+      "results": [
+        {
+          "model": "anthropic/claude-opus-5",
+          "qualityScore": 43,
+          "latencyP50Ms": 7033,
+          "latencyP95Ms": 20972,
+          "costUsd": 0.076295,
+          "costPerCaseUsd": 0.005868846153846154,
+          "tokens": 15259,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "59%",
+              "hint": "of the files the real fix touched, how many were predicted — higher is better",
+              "sort": 0.5897435897435896
+            },
+            {
+              "label": "precision",
+              "value": "34%",
+              "hint": "of predicted files, how many were right",
+              "sort": 0.3384615384615385
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "7.0s / 21.0s",
+              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-sonnet-5",
+          "qualityScore": 42,
+          "latencyP50Ms": 3205,
+          "latencyP95Ms": 5923,
+          "costUsd": 0.016328,
+          "costPerCaseUsd": 0.001256,
+          "tokens": 8164,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "51%",
+              "hint": "of the files the real fix touched, how many were predicted — higher is better",
+              "sort": 0.5128205128205128
+            },
+            {
+              "label": "precision",
+              "value": "36%",
+              "hint": "of predicted files, how many were right",
+              "sort": 0.36153846153846153
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "3.2s / 5.9s",
+              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-terra",
+          "qualityScore": 42,
+          "latencyP50Ms": 11928,
+          "latencyP95Ms": 60000,
+          "costUsd": 0.013444,
+          "costPerCaseUsd": 0.001034153846153846,
+          "tokens": 13444,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "49%",
+              "hint": "of the files the real fix touched, how many were predicted — higher is better",
+              "sort": 0.4871794871794872
+            },
+            {
+              "label": "precision",
+              "value": "37%",
+              "hint": "of predicted files, how many were right",
+              "sort": 0.37179487179487175
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "11.9s / 60.0s",
+              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-sol",
+          "qualityScore": 42,
+          "latencyP50Ms": 34028,
+          "latencyP95Ms": 60000,
+          "costUsd": 0.07593000000000001,
+          "costPerCaseUsd": 0.005840769230769232,
+          "tokens": 15186,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "49%",
+              "hint": "of the files the real fix touched, how many were predicted — higher is better",
+              "sort": 0.4871794871794872
+            },
+            {
+              "label": "precision",
+              "value": "37%",
+              "hint": "of predicted files, how many were right",
+              "sort": 0.37179487179487175
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "34.0s / 60.0s",
+              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.6-flash",
+          "qualityScore": 39,
+          "latencyP50Ms": 1499,
+          "latencyP95Ms": 2190,
+          "costUsd": 0.0057165,
+          "costPerCaseUsd": 0.00043973076923076924,
+          "tokens": 3811,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "53%",
+              "hint": "of the files the real fix touched, how many were predicted — higher is better",
+              "sort": 0.5256410256410257
+            },
+            {
+              "label": "precision",
+              "value": "31%",
+              "hint": "of predicted files, how many were right",
+              "sort": 0.3076923076923077
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "1.5s / 2.2s",
+              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-luna",
+          "qualityScore": 27,
+          "latencyP50Ms": 17012,
+          "latencyP95Ms": 60000,
+          "costUsd": 0.0017663,
+          "costPerCaseUsd": 0.00013586923076923076,
+          "tokens": 17663,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "29%",
+              "hint": "of the files the real fix touched, how many were predicted — higher is better",
+              "sort": 0.2948717948717948
+            },
+            {
+              "label": "precision",
+              "value": "26%",
+              "hint": "of predicted files, how many were right",
+              "sort": 0.2564102564102564
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "17.0s / 60.0s",
+              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "advisor-decisions",
+      "name": "Advisor — stuck-task decisions",
+      "description": "Tests whether the Roomote advisor selects the grounded next action for concrete debugging, design, and user-challenge scenarios.",
+      "role": "advisor",
+      "cases": 22,
+      "qualityMethod": "grounded accuracy",
+      "updatedAt": "2026-08-04T13:28:23.749Z",
+      "results": [
+        {
+          "model": "openai/gpt-5.6-luna",
+          "qualityScore": 100,
+          "latencyP50Ms": 1482,
+          "latencyP95Ms": 3249,
+          "costUsd": 0.0008016,
+          "costPerCaseUsd": 0.00003643636363636364,
+          "tokens": 8016,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "grounded accuracy",
+              "value": "22/22 (100%)",
+              "hint": "right action with a rationale tied to the decisive scenario evidence",
+              "sort": 1
+            },
+            {
+              "label": "choice accuracy",
+              "value": "22/22",
+              "hint": "right action before checking whether the rationale was grounded",
+              "sort": null
+            },
+            {
+              "label": "paired consistency",
+              "value": "11/11",
+              "hint": "counterfactual pairs where both changed constraints produced the right grounded answer",
+              "sort": null
+            },
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "1.5s / 3.2s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-sonnet-5",
+          "qualityScore": 100,
+          "latencyP50Ms": 4939,
+          "latencyP95Ms": 7095,
+          "costUsd": 0.042499999999999996,
+          "costPerCaseUsd": 0.0019318181818181817,
+          "tokens": 21250,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "grounded accuracy",
+              "value": "22/22 (100%)",
+              "hint": "right action with a rationale tied to the decisive scenario evidence",
+              "sort": 1
+            },
+            {
+              "label": "choice accuracy",
+              "value": "22/22",
+              "hint": "right action before checking whether the rationale was grounded",
+              "sort": null
+            },
+            {
+              "label": "paired consistency",
+              "value": "11/11",
+              "hint": "counterfactual pairs where both changed constraints produced the right grounded answer",
+              "sort": null
+            },
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "4.9s / 7.1s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-opus-5",
+          "qualityScore": 100,
+          "latencyP50Ms": 9166,
+          "latencyP95Ms": 11360,
+          "costUsd": 0.12666000000000002,
+          "costPerCaseUsd": 0.005757272727272728,
+          "tokens": 25332,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "grounded accuracy",
+              "value": "22/22 (100%)",
+              "hint": "right action with a rationale tied to the decisive scenario evidence",
+              "sort": 1
+            },
+            {
+              "label": "choice accuracy",
+              "value": "22/22",
+              "hint": "right action before checking whether the rationale was grounded",
+              "sort": null
+            },
+            {
+              "label": "paired consistency",
+              "value": "11/11",
+              "hint": "counterfactual pairs where both changed constraints produced the right grounded answer",
+              "sort": null
+            },
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "9.2s / 11.4s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-terra",
+          "qualityScore": 95,
+          "latencyP50Ms": 1471,
+          "latencyP95Ms": 2078,
+          "costUsd": 0.007906999999999999,
+          "costPerCaseUsd": 0.00035940909090909084,
+          "tokens": 7907,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "grounded accuracy",
+              "value": "21/22 (95%)",
+              "hint": "right action with a rationale tied to the decisive scenario evidence",
+              "sort": 0.9545454545454546
+            },
+            {
+              "label": "choice accuracy",
+              "value": "22/22",
+              "hint": "right action before checking whether the rationale was grounded",
+              "sort": null
+            },
+            {
+              "label": "paired consistency",
+              "value": "10/11",
+              "hint": "counterfactual pairs where both changed constraints produced the right grounded answer",
+              "sort": null
+            },
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "1.5s / 2.1s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.6-flash",
+          "qualityScore": 95,
+          "latencyP50Ms": 2077,
+          "latencyP95Ms": 3376,
+          "costUsd": 0.015759,
+          "costPerCaseUsd": 0.0007163181818181818,
+          "tokens": 10506,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "grounded accuracy",
+              "value": "21/22 (95%)",
+              "hint": "right action with a rationale tied to the decisive scenario evidence",
+              "sort": 0.9545454545454546
+            },
+            {
+              "label": "choice accuracy",
+              "value": "22/22",
+              "hint": "right action before checking whether the rationale was grounded",
+              "sort": null
+            },
+            {
+              "label": "paired consistency",
+              "value": "10/11",
+              "hint": "counterfactual pairs where both changed constraints produced the right grounded answer",
+              "sort": null
+            },
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.1s / 3.4s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-sol",
+          "qualityScore": 95,
+          "latencyP50Ms": 2609,
+          "latencyP95Ms": 4107,
+          "costUsd": 0.039740000000000004,
+          "costPerCaseUsd": 0.0018063636363636365,
+          "tokens": 7948,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "grounded accuracy",
+              "value": "21/22 (95%)",
+              "hint": "right action with a rationale tied to the decisive scenario evidence",
+              "sort": 0.9545454545454546
+            },
+            {
+              "label": "choice accuracy",
+              "value": "22/22",
+              "hint": "right action before checking whether the rationale was grounded",
+              "sort": null
+            },
+            {
+              "label": "paired consistency",
+              "value": "10/11",
+              "hint": "counterfactual pairs where both changed constraints produced the right grounded answer",
+              "sort": null
+            },
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.6s / 4.1s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
