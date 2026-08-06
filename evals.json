@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-06T04:16:53.274Z",
+  "publishedAt": "2026-08-06T15:33:19.353Z",
   "evals": [
     {
       "id": "coding",
@@ -2306,548 +2306,80 @@
     {
       "id": "review",
       "name": "Review — self-review subagent",
-      "description": "Runs Roomote's review prompt over delivered PRs and measures how many known flaws it catches (a neutral meta-judge decides) and how often it blocks clean PRs.",
+      "description": "Runs Roomote's review prompt over a fixed benchmark of shipped diffs and measures how many known flaws it catches (a neutral meta-judge decides) and how often it blocks clean PRs.",
       "role": "codeReview",
-      "cases": 123,
-      "qualityMethod": "balanced accuracy",
-      "updatedAt": "2026-08-04T14:57:23.051Z",
+      "cases": 84,
+      "qualityMethod": "miss-weighted informedness",
+      "updatedAt": "2026-08-06T03:46:14.463Z",
       "results": [
         {
-          "model": "anthropic/claude-fable-5",
-          "qualityScore": 69,
-          "latencyP50Ms": 22339,
-          "latencyP95Ms": 60000,
-          "costUsd": 6.22491,
-          "costPerCaseUsd": 0.0506090243902439,
-          "tokens": 622491,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "32/57 (56%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.5614035087719298
-            },
-            {
-              "label": "false alarm",
-              "value": "12/66 (18%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.18181818181818182
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "22.3s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-opus-5",
-          "qualityScore": 60,
-          "latencyP50Ms": 30666,
-          "latencyP95Ms": 60000,
-          "costUsd": 2.561535,
-          "costPerCaseUsd": 0.02082548780487805,
-          "tokens": 512307,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "29/57 (51%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.5087719298245614
-            },
-            {
-              "label": "false alarm",
-              "value": "20/66 (30%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.30303030303030304
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "30.7s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-sonnet-5",
-          "qualityScore": 58,
-          "latencyP50Ms": 50056,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.591332,
-          "costPerCaseUsd": 0.004807577235772358,
-          "tokens": 295666,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "15/57 (26%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.2631578947368421
-            },
-            {
-              "label": "false alarm",
-              "value": "7/66 (11%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.10606060606060606
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "50.1s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
           "model": "openai/gpt-5.6-luna",
-          "qualityScore": 57,
-          "latencyP50Ms": 11825,
-          "latencyP95Ms": 25327,
-          "costUsd": 0.041789599999999996,
-          "costPerCaseUsd": 0.00033975284552845527,
-          "tokens": 417896,
-          "casesAttempted": 123,
+          "qualityScore": 41,
+          "latencyP50Ms": 25559,
+          "latencyP95Ms": 80670,
+          "costUsd": 0.0503497,
+          "costPerCaseUsd": 0.0005994011904761904,
+          "tokens": 503497,
+          "casesAttempted": 84,
           "metrics": [
             {
               "label": "catch rate",
-              "value": "27/57 (47%)",
+              "value": "13/22 (59%)",
               "hint": "known flaws surfaced — higher is better",
-              "sort": 0.47368421052631576
+              "sort": 0.5909090909090909
             },
             {
               "label": "false alarm",
-              "value": "22/66 (33%)",
+              "value": "23/62 (37%)",
               "hint": "clean PRs blocked — lower is better",
-              "sort": -0.3333333333333333
+              "sort": -0.3709677419354839
             },
             {
-              "label": "latency p50/p95",
-              "value": "11.8s / 25.3s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
+              "label": "issues per review",
+              "value": "1.3",
+              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
               "sort": null
-            }
-          ]
-        },
-        {
-          "model": "x-ai/grok-4.5",
-          "qualityScore": 57,
-          "latencyP50Ms": 27591,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.843618,
-          "costPerCaseUsd": 0.006858682926829268,
-          "tokens": 421809,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "18/57 (32%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.3157894736842105
-            },
-            {
-              "label": "false alarm",
-              "value": "12/66 (18%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.18181818181818182
             },
             {
               "label": "latency p50/p95",
-              "value": "27.6s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-haiku-4.5",
-          "qualityScore": 55,
-          "latencyP50Ms": 1892,
-          "latencyP95Ms": 7185,
-          "costUsd": 0.400398,
-          "costPerCaseUsd": 0.0032552682926829265,
-          "tokens": 400398,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "21/57 (37%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.3684210526315789
-            },
-            {
-              "label": "false alarm",
-              "value": "18/66 (27%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.2727272727272727
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "1.9s / 7.2s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "google/gemini-3.1-pro-preview",
-          "qualityScore": 55,
-          "latencyP50Ms": 18304,
-          "latencyP95Ms": 60000,
-          "costUsd": 1.033788,
-          "costPerCaseUsd": 0.008404780487804877,
-          "tokens": 516894,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "17/57 (30%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.2982456140350877
-            },
-            {
-              "label": "false alarm",
-              "value": "13/66 (20%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.19696969696969696
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "18.3s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-sol",
-          "qualityScore": 55,
-          "latencyP50Ms": 19780,
-          "latencyP95Ms": 60000,
-          "costUsd": 1.6718700000000002,
-          "costPerCaseUsd": 0.013592439024390245,
-          "tokens": 334374,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "24/57 (42%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.42105263157894735
-            },
-            {
-              "label": "false alarm",
-              "value": "21/66 (32%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.3181818181818182
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "19.8s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "moonshotai/kimi-k3",
-          "qualityScore": 55,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.20530500000000002,
-          "costPerCaseUsd": 0.0016691463414634147,
-          "tokens": 68435,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "8/57 (14%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.14035087719298245
-            },
-            {
-              "label": "false alarm",
-              "value": "3/66 (5%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.045454545454545456
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-terra",
-          "qualityScore": 54,
-          "latencyP50Ms": 11607,
-          "latencyP95Ms": 46377,
-          "costUsd": 0.374091,
-          "costPerCaseUsd": 0.003041390243902439,
-          "tokens": 374091,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "22/57 (39%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.38596491228070173
-            },
-            {
-              "label": "false alarm",
-              "value": "20/66 (30%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.30303030303030304
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "11.6s / 46.4s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "deepseek/deepseek-v4-flash-0731",
-          "qualityScore": 54,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.00435285,
-          "costPerCaseUsd": 0.0000353890243902439,
-          "tokens": 48365,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "5/57 (9%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.08771929824561403
-            },
-            {
-              "label": "false alarm",
-              "value": "0/66 (0%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": 0
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "qwen/qwen3.8-max",
-          "qualityScore": 54,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.06829199999999999,
-          "costPerCaseUsd": 0.0005552195121951218,
-          "tokens": 34146,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "7/57 (12%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.12280701754385964
-            },
-            {
-              "label": "false alarm",
-              "value": "3/66 (5%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.045454545454545456
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "z-ai/glm-5.2",
-          "qualityScore": 53,
-          "latencyP50Ms": 17178,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.1893487778,
-          "costPerCaseUsd": 0.0015394209577235772,
-          "tokens": 301223,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "15/57 (26%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.2631578947368421
-            },
-            {
-              "label": "false alarm",
-              "value": "13/66 (20%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.19696969696969696
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "17.2s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "moonshotai/kimi-k2.7-code",
-          "qualityScore": 53,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.09044919,
-          "costPerCaseUsd": 0.0007353592682926829,
-          "tokens": 123903,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "9/57 (16%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.15789473684210525
-            },
-            {
-              "label": "false alarm",
-              "value": "6/66 (9%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.09090909090909091
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "minimax/minimax-m3",
-          "qualityScore": 51,
-          "latencyP50Ms": 1316,
-          "latencyP95Ms": 17932,
-          "costUsd": 0.09138299999999999,
-          "costPerCaseUsd": 0.000742951219512195,
-          "tokens": 304610,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "4/57 (7%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.07017543859649122
-            },
-            {
-              "label": "false alarm",
-              "value": "3/66 (5%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.045454545454545456
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "1.3s / 17.9s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
+              "value": "25.6s / 80.7s",
+              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "google/gemini-3.6-flash",
-          "qualityScore": 51,
-          "latencyP50Ms": 8016,
-          "latencyP95Ms": 28596,
-          "costUsd": 0.9128715000000001,
-          "costPerCaseUsd": 0.0074217195121951225,
-          "tokens": 608581,
-          "casesAttempted": 123,
+          "qualityScore": 25,
+          "latencyP50Ms": 10640,
+          "latencyP95Ms": 55847,
+          "costUsd": 0.842685,
+          "costPerCaseUsd": 0.010031964285714286,
+          "tokens": 561790,
+          "casesAttempted": 84,
           "metrics": [
             {
               "label": "catch rate",
-              "value": "14/57 (25%)",
+              "value": "9/22 (41%)",
               "hint": "known flaws surfaced — higher is better",
-              "sort": 0.24561403508771928
+              "sort": 0.4090909090909091
             },
             {
               "label": "false alarm",
-              "value": "15/66 (23%)",
+              "value": "20/62 (32%)",
               "hint": "clean PRs blocked — lower is better",
-              "sort": -0.22727272727272727
+              "sort": -0.3225806451612903
             },
             {
-              "label": "latency p50/p95",
-              "value": "8.0s / 28.6s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
+              "label": "issues per review",
+              "value": "0.6",
+              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
               "sort": null
-            }
-          ]
-        },
-        {
-          "model": "xiaomi/mimo-v2.5",
-          "qualityScore": 51,
-          "latencyP50Ms": 15244,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.021950180000000003,
-          "costPerCaseUsd": 0.0001784567479674797,
-          "tokens": 156787,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "2/57 (4%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.03508771929824561
-            },
-            {
-              "label": "false alarm",
-              "value": "1/66 (2%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.015151515151515152
             },
             {
               "label": "latency p50/p95",
-              "value": "15.2s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "deepseek/deepseek-v4-pro",
-          "qualityScore": 47,
-          "latencyP50Ms": 40479,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.111593595,
-          "costPerCaseUsd": 0.000907265,
-          "tokens": 256537,
-          "casesAttempted": 123,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "9/57 (16%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.15789473684210525
-            },
-            {
-              "label": "false alarm",
-              "value": "15/66 (23%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.22727272727272727
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "40.5s / 60.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 60s timeout",
+              "value": "10.6s / 55.8s",
+              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
               "sort": null
             }
           ]
