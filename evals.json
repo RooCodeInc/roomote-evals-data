@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-06T03:53:19.369Z",
+  "publishedAt": "2026-08-06T04:16:53.274Z",
   "evals": [
     {
       "id": "coding",
@@ -8,66 +8,12 @@
       "description": "Runs Roomote's production coding harness repeatedly on a compact set of real repository bugs, pins every auxiliary role to the balanced baseline, and reports implementation quality separately from delivery reliability.",
       "role": "coding",
       "cases": 6,
-      "qualityMethod": "task-macro acceptance with 10% delivery penalty",
-      "updatedAt": "2026-08-05T16:45:21.815Z",
+      "qualityMethod": "task-macro implementation acceptance",
+      "updatedAt": "2026-08-06T04:14:36.303Z",
       "results": [
         {
-          "model": "x-ai/grok-4.5",
-          "qualityScore": 78,
-          "latencyP50Ms": 260981,
-          "latencyP95Ms": 1424714,
-          "costUsd": 10.8641796,
-          "costPerCaseUsd": 0.6035655333333333,
-          "tokens": 1798132,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "78%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.7805555555555556
-            },
-            {
-              "label": "implementation acceptance",
-              "value": "79%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
-              "sort": 0.7916666666666669
-            },
-            {
-              "label": "attempt score range",
-              "value": "25–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "9/18 (50%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.5
-            },
-            {
-              "label": "PR delivery",
-              "value": "15/18 (83%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.8333333333333334
-            },
-            {
-              "label": "judge agreement",
-              "value": "100%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 1
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            }
-          ]
-        },
-        {
           "model": "z-ai/glm-5.2",
-          "qualityScore": 78,
+          "qualityScore": 84,
           "latencyP50Ms": 413731,
           "latencyP95Ms": 1770256,
           "costUsd": 8.81399194,
@@ -77,20 +23,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "78%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.7847222222222222
-            },
-            {
-              "label": "implementation acceptance",
               "value": "84%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.8379629629629629
             },
             {
               "label": "attempt score range",
-              "value": "23–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "value": "25–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -121,7 +61,7 @@
         },
         {
           "model": "moonshotai/kimi-k3",
-          "qualityScore": 76,
+          "qualityScore": 80,
           "latencyP50Ms": 405391,
           "latencyP95Ms": 1805896,
           "costUsd": 14.9866308,
@@ -131,20 +71,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "76%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.763425925925926
-            },
-            {
-              "label": "implementation acceptance",
               "value": "80%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.7962962962962963
             },
             {
               "label": "attempt score range",
-              "value": "23–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "value": "25–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -174,85 +108,25 @@
           ]
         },
         {
-          "model": "deepseek/deepseek-v4-flash-0731",
-          "qualityScore": 76,
-          "latencyP50Ms": 477812,
-          "latencyP95Ms": 1492242,
-          "costUsd": 0.9063475919999998,
-          "costPerCaseUsd": 0.05035264399999999,
-          "tokens": 2674157,
+          "model": "x-ai/grok-4.5",
+          "qualityScore": 79,
+          "latencyP50Ms": 260981,
+          "latencyP95Ms": 1424714,
+          "costUsd": 10.8641796,
+          "costPerCaseUsd": 0.6035655333333333,
+          "tokens": 1798132,
           "casesAttempted": 18,
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "76%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.762962962962963
-            },
-            {
-              "label": "implementation acceptance",
               "value": "79%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
-              "sort": 0.7870370370370369
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.7916666666666669
             },
             {
               "label": "attempt score range",
               "value": "25–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "6/18 (33%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.3333333333333333
-            },
-            {
-              "label": "PR delivery",
-              "value": "13/18 (72%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.7222222222222222
-            },
-            {
-              "label": "judge agreement",
-              "value": "98%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9814814814814815
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-sol",
-          "qualityScore": 75,
-          "latencyP50Ms": 420060,
-          "latencyP95Ms": 2175591,
-          "costUsd": 29.023394,
-          "costPerCaseUsd": 1.6124107777777779,
-          "tokens": 128341,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "75%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.7481481481481481
-            },
-            {
-              "label": "implementation acceptance",
-              "value": "76%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
-              "sort": 0.7592592592592592
-            },
-            {
-              "label": "attempt score range",
-              "value": "25–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -282,8 +156,56 @@
           ]
         },
         {
+          "model": "deepseek/deepseek-v4-flash-0731",
+          "qualityScore": 79,
+          "latencyP50Ms": 477812,
+          "latencyP95Ms": 1492242,
+          "costUsd": 0.9063475919999998,
+          "costPerCaseUsd": 0.05035264399999999,
+          "tokens": 2674157,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "79%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.7870370370370369
+            },
+            {
+              "label": "attempt score range",
+              "value": "25–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "6/18 (33%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.3333333333333333
+            },
+            {
+              "label": "PR delivery",
+              "value": "13/18 (72%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.7222222222222222
+            },
+            {
+              "label": "judge agreement",
+              "value": "98%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9814814814814815
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            }
+          ]
+        },
+        {
           "model": "anthropic/claude-opus-5",
-          "qualityScore": 75,
+          "qualityScore": 77,
           "latencyP50Ms": 513226,
           "latencyP95Ms": 2082539,
           "costUsd": 45.24303075,
@@ -293,20 +215,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "75%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.7518518518518519
-            },
-            {
-              "label": "implementation acceptance",
               "value": "77%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.7685185185185185
             },
             {
               "label": "attempt score range",
               "value": "25–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -337,7 +253,7 @@
         },
         {
           "model": "anthropic/claude-fable-5",
-          "qualityScore": 75,
+          "qualityScore": 77,
           "latencyP50Ms": 607015,
           "latencyP95Ms": 1515796,
           "costUsd": 74.187838,
@@ -347,20 +263,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "75%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.7527777777777778
-            },
-            {
-              "label": "implementation acceptance",
               "value": "77%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.773148148148148
             },
             {
               "label": "attempt score range",
               "value": "25–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -390,8 +300,56 @@
           ]
         },
         {
+          "model": "openai/gpt-5.6-sol",
+          "qualityScore": 76,
+          "latencyP50Ms": 420060,
+          "latencyP95Ms": 2175591,
+          "costUsd": 29.023394,
+          "costPerCaseUsd": 1.6124107777777779,
+          "tokens": 128341,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "76%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.7592592592592592
+            },
+            {
+              "label": "attempt score range",
+              "value": "25–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "9/18 (50%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.5
+            },
+            {
+              "label": "PR delivery",
+              "value": "15/18 (83%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.8333333333333334
+            },
+            {
+              "label": "judge agreement",
+              "value": "100%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 1
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            }
+          ]
+        },
+        {
           "model": "qwen/qwen3.8-max",
-          "qualityScore": 74,
+          "qualityScore": 76,
           "latencyP50Ms": 890908,
           "latencyP95Ms": 1235615,
           "costUsd": 18.87952,
@@ -401,20 +359,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "74%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.7361111111111112
-            },
-            {
-              "label": "implementation acceptance",
               "value": "76%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.763888888888889
             },
             {
               "label": "attempt score range",
               "value": "0–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -445,7 +397,7 @@
         },
         {
           "model": "anthropic/claude-sonnet-5",
-          "qualityScore": 72,
+          "qualityScore": 74,
           "latencyP50Ms": 470073,
           "latencyP95Ms": 1927908,
           "costUsd": 15.037384800000002,
@@ -455,20 +407,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "72%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.7212962962962962
-            },
-            {
-              "label": "implementation acceptance",
               "value": "74%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.7407407407407408
             },
             {
               "label": "attempt score range",
-              "value": "30–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "value": "33–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -499,7 +445,7 @@
         },
         {
           "model": "openai/gpt-5.6-luna",
-          "qualityScore": 70,
+          "qualityScore": 72,
           "latencyP50Ms": 356686,
           "latencyP95Ms": 1148937,
           "costUsd": 0.56918227,
@@ -509,20 +455,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "70%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.6990740740740741
-            },
-            {
-              "label": "implementation acceptance",
               "value": "72%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.7175925925925926
             },
             {
               "label": "attempt score range",
               "value": "0–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -552,62 +492,8 @@
           ]
         },
         {
-          "model": "openai/gpt-5.6-terra",
-          "qualityScore": 70,
-          "latencyP50Ms": 382048,
-          "latencyP95Ms": 1544193,
-          "costUsd": 5.26340725,
-          "costPerCaseUsd": 0.2924115138888889,
-          "tokens": 112044,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "70%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.6972222222222223
-            },
-            {
-              "label": "implementation acceptance",
-              "value": "71%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
-              "sort": 0.7083333333333334
-            },
-            {
-              "label": "attempt score range",
-              "value": "25–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "7/18 (39%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.3888888888888889
-            },
-            {
-              "label": "PR delivery",
-              "value": "15/18 (83%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.8333333333333334
-            },
-            {
-              "label": "judge agreement",
-              "value": "98%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9783950617283951
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            }
-          ]
-        },
-        {
           "model": "anthropic/claude-haiku-4.5",
-          "qualityScore": 68,
+          "qualityScore": 71,
           "latencyP50Ms": 295461,
           "latencyP95Ms": 1375100,
           "costUsd": 6.511887399999999,
@@ -617,20 +503,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "68%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.6824074074074074
-            },
-            {
-              "label": "implementation acceptance",
               "value": "71%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.7129629629629629
             },
             {
               "label": "attempt score range",
-              "value": "23–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "value": "25–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -660,8 +540,56 @@
           ]
         },
         {
+          "model": "openai/gpt-5.6-terra",
+          "qualityScore": 71,
+          "latencyP50Ms": 382048,
+          "latencyP95Ms": 1544193,
+          "costUsd": 5.26340725,
+          "costPerCaseUsd": 0.2924115138888889,
+          "tokens": 112044,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "71%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.7083333333333334
+            },
+            {
+              "label": "attempt score range",
+              "value": "25–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "7/18 (39%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.3888888888888889
+            },
+            {
+              "label": "PR delivery",
+              "value": "15/18 (83%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.8333333333333334
+            },
+            {
+              "label": "judge agreement",
+              "value": "98%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9783950617283951
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            }
+          ]
+        },
+        {
           "model": "xiaomi/mimo-v2.5",
-          "qualityScore": 67,
+          "qualityScore": 71,
           "latencyP50Ms": 444609,
           "latencyP95Ms": 1791201,
           "costUsd": 0.3414137272,
@@ -671,20 +599,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "67%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.6662037037037037
-            },
-            {
-              "label": "implementation acceptance",
               "value": "71%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.7083333333333334
             },
             {
               "label": "attempt score range",
-              "value": "23–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "value": "25–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -714,62 +636,8 @@
           ]
         },
         {
-          "model": "deepseek/deepseek-v4-pro",
-          "qualityScore": 67,
-          "latencyP50Ms": 836674,
-          "latencyP95Ms": 1276126,
-          "costUsd": 1.7373195590000001,
-          "costPerCaseUsd": 0.09651775327777778,
-          "tokens": 3374189,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "67%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.6699074074074075
-            },
-            {
-              "label": "implementation acceptance",
-              "value": "70%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
-              "sort": 0.6990740740740741
-            },
-            {
-              "label": "attempt score range",
-              "value": "30–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "5/18 (28%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.2777777777777778
-            },
-            {
-              "label": "PR delivery",
-              "value": "10/18 (56%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.5555555555555556
-            },
-            {
-              "label": "judge agreement",
-              "value": "94%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9413580246913581
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            }
-          ]
-        },
-        {
           "model": "minimax/minimax-m3",
-          "qualityScore": 65,
+          "qualityScore": 70,
           "latencyP50Ms": 409445,
           "latencyP95Ms": 1823447,
           "costUsd": 4.023246299999999,
@@ -779,20 +647,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "65%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.6472222222222223
-            },
-            {
-              "label": "implementation acceptance",
               "value": "70%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.7037037037037037
             },
             {
               "label": "attempt score range",
               "value": "0–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -822,8 +684,56 @@
           ]
         },
         {
+          "model": "deepseek/deepseek-v4-pro",
+          "qualityScore": 70,
+          "latencyP50Ms": 836674,
+          "latencyP95Ms": 1276126,
+          "costUsd": 1.7373195590000001,
+          "costPerCaseUsd": 0.09651775327777778,
+          "tokens": 3374189,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "70%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.6990740740740741
+            },
+            {
+              "label": "attempt score range",
+              "value": "33–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "5/18 (28%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.2777777777777778
+            },
+            {
+              "label": "PR delivery",
+              "value": "10/18 (56%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.5555555555555556
+            },
+            {
+              "label": "judge agreement",
+              "value": "94%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9413580246913581
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            }
+          ]
+        },
+        {
           "model": "google/gemini-3.1-pro-preview",
-          "qualityScore": 57,
+          "qualityScore": 62,
           "latencyP50Ms": 502049,
           "latencyP95Ms": 2077594,
           "costUsd": 17.408670800000003,
@@ -833,20 +743,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "57%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.5685185185185185
-            },
-            {
-              "label": "implementation acceptance",
               "value": "62%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.6157407407407407
             },
             {
               "label": "attempt score range",
               "value": "0–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -877,7 +781,7 @@
         },
         {
           "model": "google/gemini-3.6-flash",
-          "qualityScore": 53,
+          "qualityScore": 57,
           "latencyP50Ms": 283971,
           "latencyP95Ms": 925393,
           "costUsd": 20.141658299999996,
@@ -887,20 +791,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "53%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.5347222222222222
-            },
-            {
-              "label": "implementation acceptance",
               "value": "57%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.5694444444444445
             },
             {
               "label": "attempt score range",
               "value": "0–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
@@ -931,7 +829,7 @@
         },
         {
           "model": "moonshotai/kimi-k2.7-code",
-          "qualityScore": 53,
+          "qualityScore": 54,
           "latencyP50Ms": 434899,
           "latencyP95Ms": 1671190,
           "costUsd": 8.6694817,
@@ -941,20 +839,14 @@
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "53%",
-              "hint": "Task-macro implementation acceptance with a 10% penalty on undelivered attempts — higher is better",
-              "sort": 0.5305555555555556
-            },
-            {
-              "label": "implementation acceptance",
               "value": "54%",
-              "hint": "Diagnostic task-macro acceptance of the produced diff, independent of whether the delivery workflow finished; not used for ranking",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
               "sort": 0.5416666666666667
             },
             {
               "label": "attempt score range",
               "value": "0–100%",
-              "hint": "Observed delivery-adjusted acceptance range across repeated task attempts",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
