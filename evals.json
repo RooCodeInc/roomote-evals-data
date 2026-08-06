@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-06T18:18:38.316Z",
+  "publishedAt": "2026-08-06T20:04:21.877Z",
   "evals": [
     {
       "id": "coding",
@@ -2964,549 +2964,723 @@
     },
     {
       "id": "explorer",
-      "name": "Explorer — file targeting (proxy)",
-      "description": "Given only the goal, the model predicts which files the fix touches; scored against the files the real fix changed (recall on basenames). A cheap proxy for the tool-using explorer subagent.",
+      "name": "Explorer — repository search",
+      "description": "Runs opencode's real explore subagent (production prompt, glob/grep/read tools) against pinned repository checkouts and measures whether it finds the files the real fix modified, and how efficiently.",
       "role": "explore",
       "cases": 13,
-      "qualityMethod": "precision/recall F1",
-      "updatedAt": "2026-08-04T14:35:04.040Z",
+      "qualityMethod": "recall-weighted F2",
+      "updatedAt": "2026-08-06T19:52:47.348Z",
       "results": [
         {
-          "model": "anthropic/claude-fable-5",
-          "qualityScore": 54,
-          "latencyP50Ms": 10427,
-          "latencyP95Ms": 44369,
-          "costUsd": 0.15519000000000002,
-          "costPerCaseUsd": 0.011937692307692309,
-          "tokens": 15519,
+          "model": "openai/gpt-5.6-luna",
+          "qualityScore": 87,
+          "latencyP50Ms": 31330,
+          "latencyP95Ms": 69745,
+          "costUsd": 0.01001242,
+          "costPerCaseUsd": 0.0007701861538461538,
+          "tokens": 2089,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "74%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.7435897435897437
+              "value": "92%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.9230769230769231
             },
             {
               "label": "precision",
-              "value": "43%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.42948717948717946
+              "value": "81%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.8086080586080586
             },
             {
-              "label": "latency p50/p95",
-              "value": "10.4s / 44.4s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "label": "tool calls",
+              "value": "15.8",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -15.76923076923077
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
               "sort": null
-            }
-          ]
-        },
-        {
-          "model": "x-ai/grok-4.5",
-          "qualityScore": 49,
-          "latencyP50Ms": 2423,
-          "latencyP95Ms": 4096,
-          "costUsd": 0.014856,
-          "costPerCaseUsd": 0.0011427692307692306,
-          "tokens": 7428,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "64%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.6410256410256411
-            },
-            {
-              "label": "precision",
-              "value": "39%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.3935897435897436
             },
             {
               "label": "latency p50/p95",
-              "value": "2.4s / 4.1s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-opus-5",
-          "qualityScore": 45,
-          "latencyP50Ms": 8692,
-          "latencyP95Ms": 21561,
-          "costUsd": 0.07181000000000001,
-          "costPerCaseUsd": 0.005523846153846155,
-          "tokens": 14362,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "59%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.5897435897435898
-            },
-            {
-              "label": "precision",
-              "value": "37%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.36868131868131865
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "8.7s / 21.6s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "31.3s / 69.7s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "openai/gpt-5.6-sol",
-          "qualityScore": 42,
-          "latencyP50Ms": 34028,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.07593000000000001,
-          "costPerCaseUsd": 0.005840769230769232,
-          "tokens": 15186,
+          "qualityScore": 85,
+          "latencyP50Ms": 49183,
+          "latencyP95Ms": 129238,
+          "costUsd": 0.5508422500000001,
+          "costPerCaseUsd": 0.04237248076923077,
+          "tokens": 1572,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "49%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.4871794871794872
+              "value": "87%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.8717948717948718
             },
             {
               "label": "precision",
-              "value": "37%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.37179487179487175
+              "value": "87%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.8653846153846154
+            },
+            {
+              "label": "tool calls",
+              "value": "18.5",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -18.46153846153846
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "34.0s / 60.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "49.2s / 129.2s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "google/gemini-3.6-flash",
-          "qualityScore": 41,
-          "latencyP50Ms": 16540,
-          "latencyP95Ms": 50735,
-          "costUsd": 0.0643035,
-          "costPerCaseUsd": 0.0049464230769230766,
-          "tokens": 42869,
+          "qualityScore": 83,
+          "latencyP50Ms": 72337,
+          "latencyP95Ms": 240000,
+          "costUsd": 0.35969745000000003,
+          "costPerCaseUsd": 0.027669034615384617,
+          "tokens": 139993,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "47%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.47435897435897434
+              "value": "85%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.8461538461538461
             },
             {
               "label": "precision",
-              "value": "36%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.3589743589743589
+              "value": "83%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.8282051282051281
             },
             {
-              "label": "latency p50/p95",
-              "value": "16.5s / 50.7s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "label": "tool calls",
+              "value": "20.6",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -20.583333333333332
+            },
+            {
+              "label": "answered",
+              "value": "12/13",
+              "hint": "searches that completed within the time budget",
               "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-sonnet-5",
-          "qualityScore": 39,
-          "latencyP50Ms": 4061,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.01626,
-          "costPerCaseUsd": 0.0012507692307692309,
-          "tokens": 8130,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "51%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.5128205128205128
-            },
-            {
-              "label": "precision",
-              "value": "31%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.3128205128205128
             },
             {
               "label": "latency p50/p95",
-              "value": "4.1s / 60.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "72.3s / 240.0s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "openai/gpt-5.6-terra",
-          "qualityScore": 37,
-          "latencyP50Ms": 10065,
-          "latencyP95Ms": 26407,
-          "costUsd": 0.013477999999999999,
-          "costPerCaseUsd": 0.0010367692307692306,
-          "tokens": 13478,
+          "qualityScore": 80,
+          "latencyP50Ms": 37045,
+          "latencyP95Ms": 106368,
+          "costUsd": 0.13005765,
+          "costPerCaseUsd": 0.010004434615384614,
+          "tokens": 2153,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "41%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.4102564102564103
+              "value": "85%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.8461538461538461
             },
             {
               "label": "precision",
-              "value": "33%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.3333333333333333
+              "value": "77%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.7692307692307693
+            },
+            {
+              "label": "tool calls",
+              "value": "17.5",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -17.46153846153846
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "10.1s / 26.4s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "37.0s / 106.4s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "moonshotai/kimi-k3",
-          "qualityScore": 33,
-          "latencyP50Ms": 45686,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.023061,
-          "costPerCaseUsd": 0.001773923076923077,
-          "tokens": 7687,
+          "model": "x-ai/grok-4.5",
+          "qualityScore": 78,
+          "latencyP50Ms": 24592,
+          "latencyP95Ms": 84370,
+          "costUsd": 0.19629960000000002,
+          "costPerCaseUsd": 0.015099969230769231,
+          "tokens": 47298,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "44%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.43589743589743585
+              "value": "92%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.9230769230769231
             },
             {
               "label": "precision",
-              "value": "27%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.2692307692307692
+              "value": "64%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.6438034188034187
+            },
+            {
+              "label": "tool calls",
+              "value": "13.2",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -13.23076923076923
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "45.7s / 60.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "24.6s / 84.4s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "deepseek/deepseek-v4-pro",
-          "qualityScore": 32,
-          "latencyP50Ms": 21042,
-          "latencyP95Ms": 52975,
-          "costUsd": 0.00639102,
-          "costPerCaseUsd": 0.0004916169230769231,
-          "tokens": 14692,
+          "model": "anthropic/claude-sonnet-5",
+          "qualityScore": 76,
+          "latencyP50Ms": 37961,
+          "latencyP95Ms": 163972,
+          "costUsd": 0.29373150000000003,
+          "costPerCaseUsd": 0.022594730769230773,
+          "tokens": 10179,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "37%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.37179487179487186
+              "value": "92%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.9230769230769231
             },
             {
               "label": "precision",
-              "value": "28%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.2756410256410256
+              "value": "59%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.5913919413919414
+            },
+            {
+              "label": "tool calls",
+              "value": "11.2",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -11.153846153846153
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "21.0s / 53.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "38.0s / 164.0s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "z-ai/glm-5.2",
-          "qualityScore": 31,
-          "latencyP50Ms": 4247,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.0029209600000000002,
-          "costPerCaseUsd": 0.0002246892307692308,
-          "tokens": 2608,
+          "qualityScore": 76,
+          "latencyP50Ms": 48335,
+          "latencyP95Ms": 87725,
+          "costUsd": 0.059028592,
+          "costPerCaseUsd": 0.004540660923076923,
+          "tokens": 40142,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "41%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.4102564102564103
+              "value": "95%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.9487179487179487
             },
             {
               "label": "precision",
-              "value": "24%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.24358974358974358
+              "value": "55%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.552014652014652
+            },
+            {
+              "label": "tool calls",
+              "value": "11.6",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -11.615384615384615
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "4.2s / 60.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "48.3s / 87.7s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "google/gemini-3.1-pro-preview",
-          "qualityScore": 31,
-          "latencyP50Ms": 13700,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.028654,
-          "costPerCaseUsd": 0.002204153846153846,
-          "tokens": 14327,
+          "model": "anthropic/claude-fable-5",
+          "qualityScore": 74,
+          "latencyP50Ms": 38232,
+          "latencyP95Ms": 125397,
+          "costUsd": 1.3802,
+          "costPerCaseUsd": 0.10616923076923078,
+          "tokens": 11690,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "33%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.33333333333333337
+              "value": "92%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.9230769230769231
             },
             {
               "label": "precision",
-              "value": "29%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.2948717948717948
+              "value": "50%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.5046453546453546
+            },
+            {
+              "label": "tool calls",
+              "value": "7.4",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -7.384615384615385
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "13.7s / 60.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "38.2s / 125.4s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "anthropic/claude-haiku-4.5",
-          "qualityScore": 29,
-          "latencyP50Ms": 3128,
-          "latencyP95Ms": 9967,
-          "costUsd": 0.0066029999999999995,
-          "costPerCaseUsd": 0.0005079230769230769,
-          "tokens": 6603,
+          "qualityScore": 73,
+          "latencyP50Ms": 80872,
+          "latencyP95Ms": 171142,
+          "costUsd": 0.08374714999999999,
+          "costPerCaseUsd": 0.0064420884615384606,
+          "tokens": 6595,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "41%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.4102564102564103
+              "value": "92%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.9230769230769231
             },
             {
               "label": "precision",
-              "value": "22%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.2205128205128205
+              "value": "54%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.5366050616050616
+            },
+            {
+              "label": "tool calls",
+              "value": "22.6",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -22.615384615384617
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "3.1s / 10.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "80.9s / 171.1s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "minimax/minimax-m3",
-          "qualityScore": 28,
-          "latencyP50Ms": 1621,
-          "latencyP95Ms": 2135,
-          "costUsd": 0.0014811,
-          "costPerCaseUsd": 0.00011393076923076923,
-          "tokens": 4937,
+          "model": "google/gemini-3.1-pro-preview",
+          "qualityScore": 73,
+          "latencyP50Ms": 124497,
+          "latencyP95Ms": 240000,
+          "costUsd": 0.24277520000000002,
+          "costPerCaseUsd": 0.018675015384615388,
+          "tokens": 84212,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "37%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.37179487179487175
+              "value": "77%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.7692307692307693
             },
             {
               "label": "precision",
-              "value": "23%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.23076923076923078
+              "value": "69%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.6858974358974359
             },
             {
-              "label": "latency p50/p95",
-              "value": "1.6s / 2.1s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "label": "tool calls",
+              "value": "16.3",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -16.272727272727273
+            },
+            {
+              "label": "answered",
+              "value": "11/13",
+              "hint": "searches that completed within the time budget",
               "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-luna",
-          "qualityScore": 27,
-          "latencyP50Ms": 17012,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.0017663,
-          "costPerCaseUsd": 0.00013586923076923076,
-          "tokens": 17663,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "29%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.2948717948717948
-            },
-            {
-              "label": "precision",
-              "value": "26%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.2564102564102564
             },
             {
               "label": "latency p50/p95",
-              "value": "17.0s / 60.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "124.5s / 240.0s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "moonshotai/kimi-k2.7-code",
-          "qualityScore": 27,
-          "latencyP50Ms": 55892,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.01617023,
-          "costPerCaseUsd": 0.0012438638461538462,
-          "tokens": 22151,
+          "qualityScore": 72,
+          "latencyP50Ms": 50235,
+          "latencyP95Ms": 233054,
+          "costUsd": 0.14868789999999998,
+          "costPerCaseUsd": 0.011437530769230767,
+          "tokens": 99383,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "29%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.2948717948717948
+              "value": "85%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.8461538461538461
             },
             {
               "label": "precision",
-              "value": "26%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.2564102564102564
+              "value": "60%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.6047008547008547
+            },
+            {
+              "label": "tool calls",
+              "value": "18.9",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -18.923076923076923
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "55.9s / 60.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "50.2s / 233.1s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "deepseek/deepseek-v4-flash-0731",
-          "qualityScore": 15,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.00070713,
-          "costPerCaseUsd": 0.000054394615384615385,
-          "tokens": 7857,
+          "qualityScore": 72,
+          "latencyP50Ms": 68092,
+          "latencyP95Ms": 126078,
+          "costUsd": 0.029044458000000002,
+          "costPerCaseUsd": 0.002234189076923077,
+          "tokens": 305326,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "15%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.15384615384615385
+              "value": "92%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.9230769230769231
             },
             {
               "label": "precision",
-              "value": "15%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.15384615384615385
+              "value": "53%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.5273279352226721
+            },
+            {
+              "label": "tool calls",
+              "value": "12.5",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -12.461538461538462
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "68.1s / 126.1s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "minimax/minimax-m3",
+          "qualityScore": 71,
+          "latencyP50Ms": 66875,
+          "latencyP95Ms": 236086,
+          "costUsd": 0.04881558000000001,
+          "costPerCaseUsd": 0.0037550446153846164,
+          "tokens": 64656,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "90%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.8974358974358974
+            },
+            {
+              "label": "precision",
+              "value": "52%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.5207264957264958
+            },
+            {
+              "label": "tool calls",
+              "value": "21.9",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -21.923076923076923
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "66.9s / 236.1s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "moonshotai/kimi-k3",
+          "qualityScore": 71,
+          "latencyP50Ms": 72703,
+          "latencyP95Ms": 216785,
+          "costUsd": 0.3505857,
+          "costPerCaseUsd": 0.02696813076923077,
+          "tokens": 51278,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "95%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.9487179487179487
+            },
+            {
+              "label": "precision",
+              "value": "48%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.48039716693562845
+            },
+            {
+              "label": "tool calls",
+              "value": "11.7",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -11.692307692307692
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "72.7s / 216.8s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "deepseek/deepseek-v4-pro",
+          "qualityScore": 69,
+          "latencyP50Ms": 82099,
+          "latencyP95Ms": 156909,
+          "costUsd": 0.026214926999999996,
+          "costPerCaseUsd": 0.002016532846153846,
+          "tokens": 37442,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "92%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.9230769230769229
+            },
+            {
+              "label": "precision",
+              "value": "44%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.4393467643467644
+            },
+            {
+              "label": "tool calls",
+              "value": "20.8",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -20.846153846153847
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "82.1s / 156.9s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-opus-5",
+          "qualityScore": 57,
+          "latencyP50Ms": 52484,
+          "latencyP95Ms": 240000,
+          "costUsd": 0.58485825,
+          "costPerCaseUsd": 0.04498909615384616,
+          "tokens": 10516,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "77%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.7692307692307693
+            },
+            {
+              "label": "precision",
+              "value": "42%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.4225274725274726
+            },
+            {
+              "label": "tool calls",
+              "value": "11.1",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -11.083333333333334
+            },
+            {
+              "label": "answered",
+              "value": "12/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "52.5s / 240.0s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "qwen/qwen3.8-max",
-          "qualityScore": 13,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.0050279999999999995,
-          "costPerCaseUsd": 0.00038676923076923073,
-          "tokens": 2514,
+          "qualityScore": 51,
+          "latencyP50Ms": 71496,
+          "latencyP95Ms": 240000,
+          "costUsd": 0.185196,
+          "costPerCaseUsd": 0.014245846153846154,
+          "tokens": 52998,
           "casesAttempted": 13,
           "metrics": [
             {
               "label": "file recall",
-              "value": "15%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.15384615384615385
+              "value": "72%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.717948717948718
             },
             {
               "label": "precision",
-              "value": "12%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.11538461538461539
+              "value": "35%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.3474358974358974
             },
             {
-              "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "label": "tool calls",
+              "value": "17.0",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -17
+            },
+            {
+              "label": "answered",
+              "value": "10/13",
+              "hint": "searches that completed within the time budget",
               "sort": null
-            }
-          ]
-        },
-        {
-          "model": "xiaomi/mimo-v2.5",
-          "qualityScore": 8,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.00009016,
-          "costPerCaseUsd": 0.000006935384615384616,
-          "tokens": 644,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "10%",
-              "hint": "of the files the real fix touched, how many were predicted — higher is better",
-              "sort": 0.10256410256410256
-            },
-            {
-              "label": "precision",
-              "value": "6%",
-              "hint": "of predicted files, how many were right",
-              "sort": 0.0641025641025641
             },
             {
               "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted file-targeting call; failures count as the 60s timeout",
+              "value": "71.5s / 240.0s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
           ]
