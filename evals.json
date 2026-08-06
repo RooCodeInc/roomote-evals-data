@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-06T16:19:43.537Z",
+  "publishedAt": "2026-08-06T17:55:48.646Z",
   "evals": [
     {
       "id": "coding",
@@ -4274,6 +4274,989 @@
               "label": "latency p50/p95",
               "value": "6.1s / 60.0s",
               "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "advisor",
+      "name": "Advisor",
+      "description": "Runs the advisor prompt over consultations from its three production modes (upfront plans, stuck agents, user challenges) and grades free-form guidance against ground-truth answer keys; challenge stances are graded mechanically.",
+      "role": "advisor",
+      "cases": 32,
+      "qualityMethod": "mode-averaged plan score",
+      "updatedAt": "2026-08-06T17:25:00.232Z",
+      "results": [
+        {
+          "model": "anthropic/claude-opus-5",
+          "qualityScore": 81,
+          "latencyP50Ms": 79617,
+          "latencyP95Ms": 126975,
+          "costUsd": 0.9497450000000001,
+          "costPerCaseUsd": 0.029679531250000002,
+          "tokens": 189949,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "95%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.9500000000000001
+            },
+            {
+              "label": "unstick mode",
+              "value": "67%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "challenge mode",
+              "value": "81%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.8055555555555555
+            },
+            {
+              "label": "stance accuracy",
+              "value": "10/12",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.8333333333333334
+            },
+            {
+              "label": "file recall",
+              "value": "80%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.8018518518518518
+            },
+            {
+              "label": "answered",
+              "value": "32/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "79.6s / 127.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-luna",
+          "qualityScore": 80,
+          "latencyP50Ms": 46102,
+          "latencyP95Ms": 107127,
+          "costUsd": 0.010758799999999999,
+          "costPerCaseUsd": 0.00033621249999999997,
+          "tokens": 107588,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "97%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.9722222222222222
+            },
+            {
+              "label": "unstick mode",
+              "value": "68%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.6818181818181818
+            },
+            {
+              "label": "challenge mode",
+              "value": "75%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.75
+            },
+            {
+              "label": "stance accuracy",
+              "value": "9/12",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.75
+            },
+            {
+              "label": "file recall",
+              "value": "39%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.3888888888888889
+            },
+            {
+              "label": "answered",
+              "value": "32/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "46.1s / 107.1s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "x-ai/grok-4.5",
+          "qualityScore": 76,
+          "latencyP50Ms": 52024,
+          "latencyP95Ms": 87404,
+          "costUsd": 0.17065,
+          "costPerCaseUsd": 0.0053328125,
+          "tokens": 85325,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "97%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.9722222222222222
+            },
+            {
+              "label": "unstick mode",
+              "value": "55%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.5454545454545454
+            },
+            {
+              "label": "challenge mode",
+              "value": "75%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.75
+            },
+            {
+              "label": "stance accuracy",
+              "value": "9/12",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.75
+            },
+            {
+              "label": "file recall",
+              "value": "64%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.6351851851851852
+            },
+            {
+              "label": "answered",
+              "value": "32/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "52.0s / 87.4s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-terra",
+          "qualityScore": 73,
+          "latencyP50Ms": 55545,
+          "latencyP95Ms": 115814,
+          "costUsd": 0.09102199999999999,
+          "costPerCaseUsd": 0.0028444374999999997,
+          "tokens": 91022,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "100%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 1
+            },
+            {
+              "label": "unstick mode",
+              "value": "59%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.5909090909090908
+            },
+            {
+              "label": "challenge mode",
+              "value": "61%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.6111111111111112
+            },
+            {
+              "label": "stance accuracy",
+              "value": "8/12",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "file recall",
+              "value": "51%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.5092592592592592
+            },
+            {
+              "label": "answered",
+              "value": "32/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "55.5s / 115.8s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-fable-5",
+          "qualityScore": 73,
+          "latencyP50Ms": 63330,
+          "latencyP95Ms": 88546,
+          "costUsd": 1.37334,
+          "costPerCaseUsd": 0.042916875,
+          "tokens": 137334,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "92%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.9222222222222223
+            },
+            {
+              "label": "unstick mode",
+              "value": "56%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.5606060606060606
+            },
+            {
+              "label": "challenge mode",
+              "value": "69%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.6944444444444443
+            },
+            {
+              "label": "stance accuracy",
+              "value": "10/12",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.8333333333333334
+            },
+            {
+              "label": "file recall",
+              "value": "76%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.7648148148148147
+            },
+            {
+              "label": "answered",
+              "value": "32/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "63.3s / 88.5s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-sol",
+          "qualityScore": 73,
+          "latencyP50Ms": 69710,
+          "latencyP95Ms": 161661,
+          "costUsd": 0.588585,
+          "costPerCaseUsd": 0.01839328125,
+          "tokens": 117717,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "89%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.8888888888888888
+            },
+            {
+              "label": "unstick mode",
+              "value": "64%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.6363636363636362
+            },
+            {
+              "label": "challenge mode",
+              "value": "67%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "stance accuracy",
+              "value": "8/12",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "file recall",
+              "value": "49%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.4870370370370371
+            },
+            {
+              "label": "answered",
+              "value": "32/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "69.7s / 161.7s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.6-flash",
+          "qualityScore": 67,
+          "latencyP50Ms": 42850,
+          "latencyP95Ms": 72655,
+          "costUsd": 0.1779675,
+          "costPerCaseUsd": 0.005561484375,
+          "tokens": 118645,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "92%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.9166666666666666
+            },
+            {
+              "label": "unstick mode",
+              "value": "56%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.5606060606060607
+            },
+            {
+              "label": "challenge mode",
+              "value": "53%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.5277777777777778
+            },
+            {
+              "label": "stance accuracy",
+              "value": "7/12",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.5833333333333334
+            },
+            {
+              "label": "file recall",
+              "value": "83%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.8259259259259258
+            },
+            {
+              "label": "answered",
+              "value": "32/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "42.8s / 72.7s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-sonnet-5",
+          "qualityScore": 67,
+          "latencyP50Ms": 65825,
+          "latencyP95Ms": 152399,
+          "costUsd": 0.37706999999999996,
+          "costPerCaseUsd": 0.011783437499999999,
+          "tokens": 188535,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "97%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.9722222222222222
+            },
+            {
+              "label": "unstick mode",
+              "value": "48%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.4848484848484848
+            },
+            {
+              "label": "challenge mode",
+              "value": "56%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.5555555555555555
+            },
+            {
+              "label": "stance accuracy",
+              "value": "7/12",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.5833333333333334
+            },
+            {
+              "label": "file recall",
+              "value": "67%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.6685185185185185
+            },
+            {
+              "label": "answered",
+              "value": "32/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "65.8s / 152.4s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.1-pro-preview",
+          "qualityScore": 66,
+          "latencyP50Ms": 42481,
+          "latencyP95Ms": 85645,
+          "costUsd": 0.22457,
+          "costPerCaseUsd": 0.0070178125,
+          "tokens": 112285,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "94%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.9444444444444444
+            },
+            {
+              "label": "unstick mode",
+              "value": "41%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.409090909090909
+            },
+            {
+              "label": "challenge mode",
+              "value": "64%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.6388888888888888
+            },
+            {
+              "label": "stance accuracy",
+              "value": "8/12",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "file recall",
+              "value": "65%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.6537037037037037
+            },
+            {
+              "label": "answered",
+              "value": "32/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "42.5s / 85.6s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "moonshotai/kimi-k3",
+          "qualityScore": 59,
+          "latencyP50Ms": 54873,
+          "latencyP95Ms": 300000,
+          "costUsd": 0.18882300000000002,
+          "costPerCaseUsd": 0.005900718750000001,
+          "tokens": 62941,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "81%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.8111111111111111
+            },
+            {
+              "label": "unstick mode",
+              "value": "38%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.37878787878787884
+            },
+            {
+              "label": "challenge mode",
+              "value": "58%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.5833333333333334
+            },
+            {
+              "label": "stance accuracy",
+              "value": "7/9",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.7777777777777778
+            },
+            {
+              "label": "file recall",
+              "value": "71%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.712962962962963
+            },
+            {
+              "label": "answered",
+              "value": "25/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "54.9s / 300.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-haiku-4.5",
+          "qualityScore": 54,
+          "latencyP50Ms": 58486,
+          "latencyP95Ms": 300000,
+          "costUsd": 0.13933099999999998,
+          "costPerCaseUsd": 0.0043540937499999995,
+          "tokens": 139331,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "63%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.6296296296296295
+            },
+            {
+              "label": "unstick mode",
+              "value": "41%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.409090909090909
+            },
+            {
+              "label": "challenge mode",
+              "value": "58%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.5833333333333334
+            },
+            {
+              "label": "stance accuracy",
+              "value": "8/11",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.7272727272727273
+            },
+            {
+              "label": "file recall",
+              "value": "35%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.35
+            },
+            {
+              "label": "answered",
+              "value": "27/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "58.5s / 300.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "deepseek/deepseek-v4-pro",
+          "qualityScore": 52,
+          "latencyP50Ms": 60760,
+          "latencyP95Ms": 300000,
+          "costUsd": 0.03486612,
+          "costPerCaseUsd": 0.00108956625,
+          "tokens": 80152,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "58%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.5833333333333334
+            },
+            {
+              "label": "unstick mode",
+              "value": "45%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.4545454545454545
+            },
+            {
+              "label": "challenge mode",
+              "value": "53%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.5277777777777778
+            },
+            {
+              "label": "stance accuracy",
+              "value": "7/11",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.6363636363636364
+            },
+            {
+              "label": "file recall",
+              "value": "39%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.3888888888888889
+            },
+            {
+              "label": "answered",
+              "value": "28/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "60.8s / 300.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "z-ai/glm-5.2",
+          "qualityScore": 50,
+          "latencyP50Ms": 43979,
+          "latencyP95Ms": 219941,
+          "costUsd": 0.045814860000000006,
+          "costPerCaseUsd": 0.0014317143750000002,
+          "tokens": 83910,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "61%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.6111111111111112
+            },
+            {
+              "label": "unstick mode",
+              "value": "41%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.409090909090909
+            },
+            {
+              "label": "challenge mode",
+              "value": "47%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.47222222222222227
+            },
+            {
+              "label": "stance accuracy",
+              "value": "7/12",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.5833333333333334
+            },
+            {
+              "label": "file recall",
+              "value": "42%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.4166666666666667
+            },
+            {
+              "label": "answered",
+              "value": "31/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "44.0s / 219.9s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "minimax/minimax-m3",
+          "qualityScore": 50,
+          "latencyP50Ms": 52289,
+          "latencyP95Ms": 300000,
+          "costUsd": 0.0174723,
+          "costPerCaseUsd": 0.000546009375,
+          "tokens": 58241,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "89%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.8888888888888888
+            },
+            {
+              "label": "unstick mode",
+              "value": "21%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.2121212121212121
+            },
+            {
+              "label": "challenge mode",
+              "value": "39%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.3888888888888889
+            },
+            {
+              "label": "stance accuracy",
+              "value": "5/11",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.45454545454545453
+            },
+            {
+              "label": "file recall",
+              "value": "70%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.6962962962962962
+            },
+            {
+              "label": "answered",
+              "value": "29/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "52.3s / 300.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "qwen/qwen3.8-max",
+          "qualityScore": 48,
+          "latencyP50Ms": 214790,
+          "latencyP95Ms": 300000,
+          "costUsd": 0.380986,
+          "costPerCaseUsd": 0.0119058125,
+          "tokens": 190493,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "53%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.5277777777777778
+            },
+            {
+              "label": "unstick mode",
+              "value": "45%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.45454545454545453
+            },
+            {
+              "label": "challenge mode",
+              "value": "44%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.4444444444444444
+            },
+            {
+              "label": "stance accuracy",
+              "value": "6/11",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.5454545454545454
+            },
+            {
+              "label": "file recall",
+              "value": "40%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.39629629629629626
+            },
+            {
+              "label": "answered",
+              "value": "25/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "214.8s / 300.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "moonshotai/kimi-k2.7-code",
+          "qualityScore": 43,
+          "latencyP50Ms": 62250,
+          "latencyP95Ms": 300000,
+          "costUsd": 0.0637546,
+          "costPerCaseUsd": 0.00199233125,
+          "tokens": 91078,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "36%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.3611111111111111
+            },
+            {
+              "label": "unstick mode",
+              "value": "41%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.409090909090909
+            },
+            {
+              "label": "challenge mode",
+              "value": "53%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.5277777777777778
+            },
+            {
+              "label": "stance accuracy",
+              "value": "7/8",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.875
+            },
+            {
+              "label": "file recall",
+              "value": "21%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.21296296296296294
+            },
+            {
+              "label": "answered",
+              "value": "23/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "62.3s / 300.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "deepseek/deepseek-v4-flash-0731",
+          "qualityScore": 38,
+          "latencyP50Ms": 94212,
+          "latencyP95Ms": 300000,
+          "costUsd": 0.0063837,
+          "costPerCaseUsd": 0.000199490625,
+          "tokens": 70930,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "66%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.6555555555555556
+            },
+            {
+              "label": "unstick mode",
+              "value": "18%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.18181818181818182
+            },
+            {
+              "label": "challenge mode",
+              "value": "31%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.3055555555555555
+            },
+            {
+              "label": "stance accuracy",
+              "value": "4/9",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.4444444444444444
+            },
+            {
+              "label": "file recall",
+              "value": "25%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.24814814814814815
+            },
+            {
+              "label": "answered",
+              "value": "22/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "94.2s / 300.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "xiaomi/mimo-v2.5",
+          "qualityScore": 30,
+          "latencyP50Ms": 100267,
+          "latencyP95Ms": 300000,
+          "costUsd": 0.005238100000000001,
+          "costPerCaseUsd": 0.00016369062500000002,
+          "tokens": 37415,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "30%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.2962962962962963
+            },
+            {
+              "label": "unstick mode",
+              "value": "24%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.2424242424242424
+            },
+            {
+              "label": "challenge mode",
+              "value": "36%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.36111111111111116
+            },
+            {
+              "label": "stance accuracy",
+              "value": "6/9",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "file recall",
+              "value": "24%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.23888888888888887
+            },
+            {
+              "label": "answered",
+              "value": "17/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "100.3s / 300.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
               "sort": null
             }
           ]
