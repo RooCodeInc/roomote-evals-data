@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-07T17:05:50.715Z",
+  "publishedAt": "2026-08-07T17:08:18.526Z",
   "evals": [
     {
       "id": "coding",
@@ -938,64 +938,16 @@
       "role": "helper",
       "cases": 29,
       "qualityMethod": "routing-family macro accuracy",
-      "updatedAt": "2026-08-05T04:54:25.468Z",
+      "updatedAt": "2026-08-07T14:37:24.004Z",
       "results": [
         {
-          "model": "anthropic/claude-opus-5",
+          "model": "anthropic/claude-fable-5@low",
           "qualityScore": 100,
-          "latencyP50Ms": 6001,
-          "latencyP95Ms": 9742,
-          "costUsd": 0.5975450000000001,
-          "costPerCaseUsd": 0.020605000000000005,
-          "tokens": 119509,
-          "casesAttempted": 29,
-          "metrics": [
-            {
-              "label": "lookup recall",
-              "value": "6/6 (100%)",
-              "hint": "asks for the issue when the message alone can't route — higher is better",
-              "sort": 1
-            },
-            {
-              "label": "false lookup",
-              "value": "0/12 (0%)",
-              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
-              "sort": 0
-            },
-            {
-              "label": "route accuracy (link only)",
-              "value": "12/12 (100%)",
-              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
-              "sort": 1
-            },
-            {
-              "label": "ambiguous: blind → with issue",
-              "value": "5/6 (83%) → 6/6 (100%)",
-              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
-              "sort": 1
-            },
-            {
-              "label": "bare-ref extraction",
-              "value": "4/4 (100%)",
-              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
-              "sort": 1
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "6.0s / 9.7s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -6001.18520800001
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-fable-5",
-          "qualityScore": 100,
-          "latencyP50Ms": 7601,
-          "latencyP95Ms": 14277,
-          "costUsd": 1.1914500000000001,
-          "costPerCaseUsd": 0.04108448275862069,
-          "tokens": 119145,
+          "latencyP50Ms": 6726,
+          "latencyP95Ms": 10945,
+          "costUsd": 1.15673,
+          "costPerCaseUsd": 0.039887241379310344,
+          "tokens": 115673,
           "casesAttempted": 29,
           "metrics": [
             {
@@ -1030,68 +982,20 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "7.6s / 14.3s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -7600.6446670000005
+              "value": "6.7s / 10.9s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -6726.366751999994
             }
           ]
         },
         {
-          "model": "moonshotai/kimi-k3",
-          "qualityScore": 100,
-          "latencyP50Ms": 19583,
-          "latencyP95Ms": 32592,
-          "costUsd": 0.256149,
-          "costPerCaseUsd": 0.008832724137931035,
-          "tokens": 85383,
-          "casesAttempted": 29,
-          "metrics": [
-            {
-              "label": "lookup recall",
-              "value": "6/6 (100%)",
-              "hint": "asks for the issue when the message alone can't route — higher is better",
-              "sort": 1
-            },
-            {
-              "label": "false lookup",
-              "value": "0/12 (0%)",
-              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
-              "sort": 0
-            },
-            {
-              "label": "route accuracy (link only)",
-              "value": "12/12 (100%)",
-              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
-              "sort": 1
-            },
-            {
-              "label": "ambiguous: blind → with issue",
-              "value": "3/6 (50%) → 6/6 (100%)",
-              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
-              "sort": 1
-            },
-            {
-              "label": "bare-ref extraction",
-              "value": "4/4 (100%)",
-              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
-              "sort": 1
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "19.6s / 32.6s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -19583.238207999995
-            }
-          ]
-        },
-        {
-          "model": "google/gemini-3.6-flash",
+          "model": "anthropic/claude-opus-5@low",
           "qualityScore": 98,
-          "latencyP50Ms": 4958,
-          "latencyP95Ms": 9884,
-          "costUsd": 0.147174,
-          "costPerCaseUsd": 0.005074965517241379,
-          "tokens": 98116,
+          "latencyP50Ms": 4010,
+          "latencyP95Ms": 6364,
+          "costUsd": 0.57711,
+          "costPerCaseUsd": 0.019900344827586208,
+          "tokens": 115422,
           "casesAttempted": 29,
           "metrics": [
             {
@@ -1126,33 +1030,33 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "5.0s / 9.9s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -4958.295042000711
+              "value": "4.0s / 6.4s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -4010.2417520000017
             }
           ]
         },
         {
-          "model": "openai/gpt-5.6-sol",
+          "model": "google/gemini-3.6-flash@low",
           "qualityScore": 97,
-          "latencyP50Ms": 4619,
-          "latencyP95Ms": 12193,
-          "costUsd": 0.35818000000000005,
-          "costPerCaseUsd": 0.012351034482758623,
-          "tokens": 71636,
+          "latencyP50Ms": 2602,
+          "latencyP95Ms": 5352,
+          "costUsd": 0.120477,
+          "costPerCaseUsd": 0.004154379310344828,
+          "tokens": 80318,
           "casesAttempted": 29,
           "metrics": [
             {
               "label": "lookup recall",
-              "value": "5/6 (83%)",
+              "value": "6/6 (100%)",
               "hint": "asks for the issue when the message alone can't route — higher is better",
-              "sort": 0.8333333333333334
+              "sort": 1
             },
             {
               "label": "false lookup",
-              "value": "0/12 (0%)",
+              "value": "2/12 (17%)",
               "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
-              "sort": 0
+              "sort": -0.16666666666666666
             },
             {
               "label": "route accuracy (link only)",
@@ -1162,7 +1066,7 @@
             },
             {
               "label": "ambiguous: blind → with issue",
-              "value": "3/6 (50%) → 6/6 (100%)",
+              "value": "2/6 (33%) → 6/6 (100%)",
               "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
               "sort": 1
             },
@@ -1174,20 +1078,164 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "4.6s / 12.2s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -4619.306416995823
+              "value": "2.6s / 5.4s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -2602.0940420000006
             }
           ]
         },
         {
-          "model": "openai/gpt-5.6-terra",
+          "model": "google/gemini-3.1-pro-preview@low",
+          "qualityScore": 97,
+          "latencyP50Ms": 6012,
+          "latencyP95Ms": 8146,
+          "costUsd": 0.181058,
+          "costPerCaseUsd": 0.006243379310344827,
+          "tokens": 90529,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "2/12 (17%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.16666666666666666
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "2/6 (33%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "4/4 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "6.0s / 8.1s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -6012.331418999995
+            }
+          ]
+        },
+        {
+          "model": "moonshotai/kimi-k3@low",
+          "qualityScore": 97,
+          "latencyP50Ms": 7115,
+          "latencyP95Ms": 10215,
+          "costUsd": 0.230718,
+          "costPerCaseUsd": 0.007955793103448277,
+          "tokens": 76906,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "2/12 (17%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.16666666666666666
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "4/6 (67%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "4/4 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "7.1s / 10.2s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -7114.712753
+            }
+          ]
+        },
+        {
+          "model": "x-ai/grok-4.5@low",
           "qualityScore": 95,
-          "latencyP50Ms": 3256,
-          "latencyP95Ms": 6757,
-          "costUsd": 0.071154,
-          "costPerCaseUsd": 0.0024535862068965518,
-          "tokens": 71154,
+          "latencyP50Ms": 3377,
+          "latencyP95Ms": 10999,
+          "costUsd": 0.165466,
+          "costPerCaseUsd": 0.005705724137931034,
+          "tokens": 82733,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "3/12 (25%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.25
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "4/6 (67%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "4/4 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "3.4s / 11.0s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -3376.991793000001
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-terra@low",
+          "qualityScore": 95,
+          "latencyP50Ms": 3483,
+          "latencyP95Ms": 8989,
+          "costUsd": 0.070682,
+          "costPerCaseUsd": 0.002437310344827586,
+          "tokens": 70682,
           "casesAttempted": 29,
           "metrics": [
             {
@@ -1222,20 +1270,68 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "3.3s / 6.8s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -3255.7975420000002
+              "value": "3.5s / 9.0s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -3483.0650010000027
             }
           ]
         },
         {
-          "model": "google/gemini-3.1-pro-preview",
+          "model": "openai/gpt-5.6-luna@low",
+          "qualityScore": 95,
+          "latencyP50Ms": 4046,
+          "latencyP95Ms": 6784,
+          "costUsd": 0.0071842,
+          "costPerCaseUsd": 0.0002477310344827586,
+          "tokens": 71842,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "3/12 (25%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.25
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "3/6 (50%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "4/4 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "4.0s / 6.8s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -4046.4095430000016
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-sonnet-5@low",
           "qualityScore": 93,
-          "latencyP50Ms": 7597,
-          "latencyP95Ms": 12194,
-          "costUsd": 0.192602,
-          "costPerCaseUsd": 0.006641448275862069,
-          "tokens": 96301,
+          "latencyP50Ms": 4778,
+          "latencyP95Ms": 7145,
+          "costUsd": 0.23166799999999999,
+          "costPerCaseUsd": 0.00798855172413793,
+          "tokens": 115834,
           "casesAttempted": 29,
           "metrics": [
             {
@@ -1258,54 +1354,6 @@
             },
             {
               "label": "ambiguous: blind → with issue",
-              "value": "3/6 (50%) → 6/6 (100%)",
-              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
-              "sort": 1
-            },
-            {
-              "label": "bare-ref extraction",
-              "value": "4/4 (100%)",
-              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
-              "sort": 1
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "7.6s / 12.2s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -7597.3028750000085
-            }
-          ]
-        },
-        {
-          "model": "x-ai/grok-4.5",
-          "qualityScore": 93,
-          "latencyP50Ms": 7968,
-          "latencyP95Ms": 16792,
-          "costUsd": 0.17658,
-          "costPerCaseUsd": 0.006088965517241379,
-          "tokens": 88290,
-          "casesAttempted": 29,
-          "metrics": [
-            {
-              "label": "lookup recall",
-              "value": "5/6 (83%)",
-              "hint": "asks for the issue when the message alone can't route — higher is better",
-              "sort": 0.8333333333333334
-            },
-            {
-              "label": "false lookup",
-              "value": "2/12 (17%)",
-              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
-              "sort": -0.16666666666666666
-            },
-            {
-              "label": "route accuracy (link only)",
-              "value": "12/12 (100%)",
-              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
-              "sort": 1
-            },
-            {
-              "label": "ambiguous: blind → with issue",
               "value": "4/6 (67%) → 6/6 (100%)",
               "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
               "sort": 1
@@ -1318,75 +1366,27 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "8.0s / 16.8s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -7968.31625
+              "value": "4.8s / 7.1s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -4778.385334999999
             }
           ]
         },
         {
-          "model": "openai/gpt-5.6-luna",
+          "model": "openai/gpt-5.6-sol@low",
           "qualityScore": 92,
-          "latencyP50Ms": 3583,
-          "latencyP95Ms": 5610,
-          "costUsd": 0.0072685,
-          "costPerCaseUsd": 0.00025063793103448275,
-          "tokens": 72685,
+          "latencyP50Ms": 4626,
+          "latencyP95Ms": 6782,
+          "costUsd": 0.353105,
+          "costPerCaseUsd": 0.01217603448275862,
+          "tokens": 70621,
           "casesAttempted": 29,
           "metrics": [
             {
               "label": "lookup recall",
-              "value": "6/6 (100%)",
+              "value": "5/6 (83%)",
               "hint": "asks for the issue when the message alone can't route — higher is better",
-              "sort": 1
-            },
-            {
-              "label": "false lookup",
-              "value": "2/12 (17%)",
-              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
-              "sort": -0.16666666666666666
-            },
-            {
-              "label": "route accuracy (link only)",
-              "value": "12/12 (100%)",
-              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
-              "sort": 1
-            },
-            {
-              "label": "ambiguous: blind → with issue",
-              "value": "3/6 (50%) → 6/6 (100%)",
-              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
-              "sort": 1
-            },
-            {
-              "label": "bare-ref extraction",
-              "value": "3/4 (75%)",
-              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
-              "sort": 0.75
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "3.6s / 5.6s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -3583.1422500000044
-            }
-          ]
-        },
-        {
-          "model": "deepseek/deepseek-v4-pro",
-          "qualityScore": 88,
-          "latencyP50Ms": 11084,
-          "latencyP95Ms": 38596,
-          "costUsd": 0.037346055,
-          "costPerCaseUsd": 0.001287795,
-          "tokens": 85853,
-          "casesAttempted": 29,
-          "metrics": [
-            {
-              "label": "lookup recall",
-              "value": "4/6 (67%)",
-              "hint": "asks for the issue when the message alone can't route — higher is better",
-              "sort": 0.6666666666666666
+              "sort": 0.8333333333333334
             },
             {
               "label": "false lookup",
@@ -1414,20 +1414,116 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "11.1s / 38.6s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -11083.564875000011
+              "value": "4.6s / 6.8s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -4626.010127000001
             }
           ]
         },
         {
-          "model": "qwen/qwen3.8-max",
+          "model": "z-ai/glm-5.2@low",
+          "qualityScore": 88,
+          "latencyP50Ms": 3309,
+          "latencyP95Ms": 12491,
+          "costUsd": 0.0547732,
+          "costPerCaseUsd": 0.0018887310344827587,
+          "tokens": 72070,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "4/12 (33%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.3333333333333333
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "5/6 (83%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "3/4 (75%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 0.75
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "3.3s / 12.5s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -3309.312625999999
+            }
+          ]
+        },
+        {
+          "model": "deepseek/deepseek-v4-flash-0731@low",
+          "qualityScore": 88,
+          "latencyP50Ms": 8672,
+          "latencyP95Ms": 54259,
+          "costUsd": 0.0071946,
+          "costPerCaseUsd": 0.0002480896551724138,
+          "tokens": 79940,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "4/6 (67%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "false lookup",
+              "value": "0/12 (0%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": 0
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "2/6 (33%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "3/4 (75%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 0.75
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "8.7s / 54.3s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -8671.818712000008
+            }
+          ]
+        },
+        {
+          "model": "minimax/minimax-m3@low",
           "qualityScore": 87,
-          "latencyP50Ms": 17426,
-          "latencyP95Ms": 43418,
-          "costUsd": 0.199738,
-          "costPerCaseUsd": 0.00688751724137931,
-          "tokens": 99869,
+          "latencyP50Ms": 1704,
+          "latencyP95Ms": 6522,
+          "costUsd": 0.021799799999999998,
+          "costPerCaseUsd": 0.0007517172413793103,
+          "tokens": 72666,
           "casesAttempted": 29,
           "metrics": [
             {
@@ -1450,54 +1546,6 @@
             },
             {
               "label": "ambiguous: blind → with issue",
-              "value": "2/6 (33%) → 6/6 (100%)",
-              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
-              "sort": 1
-            },
-            {
-              "label": "bare-ref extraction",
-              "value": "4/4 (100%)",
-              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
-              "sort": 1
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "17.4s / 43.4s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -17425.777333000005
-            }
-          ]
-        },
-        {
-          "model": "minimax/minimax-m3",
-          "qualityScore": 85,
-          "latencyP50Ms": 2703,
-          "latencyP95Ms": 4333,
-          "costUsd": 0.0217584,
-          "costPerCaseUsd": 0.0007502896551724138,
-          "tokens": 72528,
-          "casesAttempted": 29,
-          "metrics": [
-            {
-              "label": "lookup recall",
-              "value": "6/6 (100%)",
-              "hint": "asks for the issue when the message alone can't route — higher is better",
-              "sort": 1
-            },
-            {
-              "label": "false lookup",
-              "value": "9/12 (75%)",
-              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
-              "sort": -0.75
-            },
-            {
-              "label": "route accuracy (link only)",
-              "value": "12/12 (100%)",
-              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
-              "sort": 1
-            },
-            {
-              "label": "ambiguous: blind → with issue",
               "value": "3/6 (50%) → 6/6 (100%)",
               "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
               "sort": 1
@@ -1510,20 +1558,20 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "2.7s / 4.3s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -2703.366249999999
+              "value": "1.7s / 6.5s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -1704.2723760000008
             }
           ]
         },
         {
-          "model": "anthropic/claude-haiku-4.5",
-          "qualityScore": 83,
-          "latencyP50Ms": 2671,
-          "latencyP95Ms": 5236,
-          "costUsd": 0.087167,
-          "costPerCaseUsd": 0.003005758620689655,
-          "tokens": 87167,
+          "model": "qwen/qwen3.8-max@low",
+          "qualityScore": 87,
+          "latencyP50Ms": 11558,
+          "latencyP95Ms": 17488,
+          "costUsd": 0.17954399999999998,
+          "costPerCaseUsd": 0.006191172413793103,
+          "tokens": 89772,
           "casesAttempted": 29,
           "metrics": [
             {
@@ -1534,57 +1582,9 @@
             },
             {
               "label": "false lookup",
-              "value": "7/12 (58%)",
+              "value": "8/12 (67%)",
               "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
-              "sort": -0.5833333333333334
-            },
-            {
-              "label": "route accuracy (link only)",
-              "value": "12/12 (100%)",
-              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
-              "sort": 1
-            },
-            {
-              "label": "ambiguous: blind → with issue",
-              "value": "4/6 (67%) → 6/6 (100%)",
-              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
-              "sort": 1
-            },
-            {
-              "label": "bare-ref extraction",
-              "value": "3/4 (75%)",
-              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
-              "sort": 0.75
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "2.7s / 5.2s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -2670.579417000001
-            }
-          ]
-        },
-        {
-          "model": "z-ai/glm-5.2",
-          "qualityScore": 82,
-          "latencyP50Ms": 1855,
-          "latencyP95Ms": 2986,
-          "costUsd": 0.05276224,
-          "costPerCaseUsd": 0.0018193875862068966,
-          "tokens": 69424,
-          "casesAttempted": 29,
-          "metrics": [
-            {
-              "label": "lookup recall",
-              "value": "6/6 (100%)",
-              "hint": "asks for the issue when the message alone can't route — higher is better",
-              "sort": 1
-            },
-            {
-              "label": "false lookup",
-              "value": "11/12 (92%)",
-              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
-              "sort": -0.9166666666666666
+              "sort": -0.6666666666666666
             },
             {
               "label": "route accuracy (link only)",
@@ -1606,27 +1606,27 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "1.9s / 3.0s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -1855.0466670000023
+              "value": "11.6s / 17.5s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -11557.701964000007
             }
           ]
         },
         {
-          "model": "anthropic/claude-sonnet-5",
-          "qualityScore": 78,
-          "latencyP50Ms": 11916,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.20706,
-          "costPerCaseUsd": 0.00714,
-          "tokens": 103530,
+          "model": "anthropic/claude-haiku-4.5@low",
+          "qualityScore": 87,
+          "latencyP50Ms": 16142,
+          "latencyP95Ms": 120000,
+          "costUsd": 0.120487,
+          "costPerCaseUsd": 0.004154724137931034,
+          "tokens": 120487,
           "casesAttempted": 29,
           "metrics": [
             {
               "label": "lookup recall",
-              "value": "4/6 (67%)",
+              "value": "6/6 (100%)",
               "hint": "asks for the issue when the message alone can't route — higher is better",
-              "sort": 0.6666666666666666
+              "sort": 1
             },
             {
               "label": "false lookup",
@@ -1636,95 +1636,47 @@
             },
             {
               "label": "route accuracy (link only)",
-              "value": "10/12 (83%)",
+              "value": "11/12 (92%)",
               "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
-              "sort": 0.8333333333333334
+              "sort": 0.9166666666666666
             },
             {
               "label": "ambiguous: blind → with issue",
-              "value": "3/6 (50%) → 5/6 (83%)",
-              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
-              "sort": 0.8333333333333334
-            },
-            {
-              "label": "bare-ref extraction",
-              "value": "3/4 (75%)",
-              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
-              "sort": 0.75
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "11.9s / 60.0s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -11915.89158299996
-            }
-          ]
-        },
-        {
-          "model": "moonshotai/kimi-k2.7-code",
-          "qualityScore": 77,
-          "latencyP50Ms": 12277,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.05173072,
-          "costPerCaseUsd": 0.0017838179310344828,
-          "tokens": 70864,
-          "casesAttempted": 29,
-          "metrics": [
-            {
-              "label": "lookup recall",
-              "value": "4/6 (67%)",
-              "hint": "asks for the issue when the message alone can't route — higher is better",
-              "sort": 0.6666666666666666
-            },
-            {
-              "label": "false lookup",
-              "value": "1/12 (8%)",
-              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
-              "sort": -0.08333333333333333
-            },
-            {
-              "label": "route accuracy (link only)",
-              "value": "12/12 (100%)",
-              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
-              "sort": 1
-            },
-            {
-              "label": "ambiguous: blind → with issue",
-              "value": "1/6 (17%) → 6/6 (100%)",
+              "value": "3/6 (50%) → 6/6 (100%)",
               "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
               "sort": 1
             },
             {
               "label": "bare-ref extraction",
-              "value": "1/4 (25%)",
+              "value": "2/4 (50%)",
               "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
-              "sort": 0.25
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "12.3s / 60.0s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -12276.65737499998
-            }
-          ]
-        },
-        {
-          "model": "deepseek/deepseek-v4-flash-0731",
-          "qualityScore": 75,
-          "latencyP50Ms": 19858,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.006345,
-          "costPerCaseUsd": 0.00021879310344827586,
-          "tokens": 70500,
-          "casesAttempted": 29,
-          "metrics": [
-            {
-              "label": "lookup recall",
-              "value": "3/6 (50%)",
-              "hint": "asks for the issue when the message alone can't route — higher is better",
               "sort": 0.5
             },
             {
+              "label": "latency p50/p95",
+              "value": "16.1s / 120.0s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -16142.201841000002
+            }
+          ]
+        },
+        {
+          "model": "deepseek/deepseek-v4-pro@low",
+          "qualityScore": 85,
+          "latencyP50Ms": 17379,
+          "latencyP95Ms": 120000,
+          "costUsd": 0.036874080000000004,
+          "costPerCaseUsd": 0.0012715200000000002,
+          "tokens": 84768,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "4/6 (67%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 0.6666666666666666
+            },
+            {
               "label": "false lookup",
               "value": "0/12 (0%)",
               "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
@@ -1738,55 +1690,7 @@
             },
             {
               "label": "ambiguous: blind → with issue",
-              "value": "2/6 (33%) → 6/6 (100%)",
-              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
-              "sort": 1
-            },
-            {
-              "label": "bare-ref extraction",
-              "value": "1/4 (25%)",
-              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
-              "sort": 0.25
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "19.9s / 60.0s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -19858.36158299999
-            }
-          ]
-        },
-        {
-          "model": "xiaomi/mimo-v2.5",
-          "qualityScore": 65,
-          "latencyP50Ms": 12570,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.009367680000000001,
-          "costPerCaseUsd": 0.0003230234482758621,
-          "tokens": 66912,
-          "casesAttempted": 29,
-          "metrics": [
-            {
-              "label": "lookup recall",
-              "value": "4/6 (67%)",
-              "hint": "asks for the issue when the message alone can't route — higher is better",
-              "sort": 0.6666666666666666
-            },
-            {
-              "label": "false lookup",
-              "value": "12/12 (100%)",
-              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
-              "sort": -1
-            },
-            {
-              "label": "route accuracy (link only)",
-              "value": "12/12 (100%)",
-              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
-              "sort": 1
-            },
-            {
-              "label": "ambiguous: blind → with issue",
-              "value": "3/6 (50%) → 5/6 (83%)",
+              "value": "4/6 (67%) → 5/6 (83%)",
               "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
               "sort": 0.8333333333333334
             },
@@ -1798,9 +1702,57 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "12.6s / 60.0s",
-              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -12570.016749999995
+              "value": "17.4s / 120.0s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -17378.848715999993
+            }
+          ]
+        },
+        {
+          "model": "moonshotai/kimi-k2.7-code@low",
+          "qualityScore": 80,
+          "latencyP50Ms": 17485,
+          "latencyP95Ms": 120000,
+          "costUsd": 0.0543571,
+          "costPerCaseUsd": 0.0018743827586206897,
+          "tokens": 77653,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "5/6 (83%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 0.8333333333333334
+            },
+            {
+              "label": "false lookup",
+              "value": "0/12 (0%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": 0
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "11/12 (92%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 0.9166666666666666
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "3/6 (50%) → 5/6 (83%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 0.8333333333333334
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "2/4 (50%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 0.5
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "17.5s / 120.0s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -17485.1458
             }
           ]
         }
