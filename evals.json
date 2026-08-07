@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-07T04:43:27.955Z",
+  "publishedAt": "2026-08-07T04:46:48.768Z",
   "evals": [
     {
       "id": "coding",
@@ -9,47 +9,47 @@
       "role": "coding",
       "cases": 6,
       "qualityMethod": "task-macro implementation acceptance",
-      "updatedAt": "2026-08-06T15:34:33.855Z",
+      "updatedAt": "2026-08-06T18:43:36.636Z",
       "results": [
         {
-          "model": "z-ai/glm-5.2",
-          "qualityScore": 84,
-          "latencyP50Ms": 413731,
-          "latencyP95Ms": 1770256,
-          "costUsd": 8.81399194,
-          "costPerCaseUsd": 0.48966621888888884,
-          "tokens": 4217353,
+          "model": "openai/gpt-5.6-terra",
+          "qualityScore": 94,
+          "latencyP50Ms": 1287236,
+          "latencyP95Ms": 5132749,
+          "costUsd": 5.0563235,
+          "costPerCaseUsd": 0.28090686111111113,
+          "tokens": 107324,
           "casesAttempted": 18,
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "84%",
+              "value": "94%",
               "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.8379629629629629
+              "sort": 0.9351851851851851
             },
             {
               "label": "attempt score range",
-              "value": "25–100%",
+              "value": "67–100%",
               "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
               "label": "tasks completed",
-              "value": "4/18 (22%)",
+              "value": "10/18 (56%)",
               "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.2222222222222222
+              "sort": 0.5555555555555556
             },
             {
               "label": "PR delivery",
-              "value": "6/18 (33%)",
+              "value": "13/18 (72%)",
               "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.3333333333333333
+              "sort": 0.7222222222222222
             },
             {
               "label": "judge agreement",
-              "value": "98%",
+              "value": "99%",
               "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.976851851851852
+              "sort": 0.9876543209876544
             },
             {
               "label": "valid attempts",
@@ -59,115 +59,7 @@
             },
             {
               "label": "gate overrides",
-              "value": "7/54 criteria",
-              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "moonshotai/kimi-k3",
-          "qualityScore": 80,
-          "latencyP50Ms": 405391,
-          "latencyP95Ms": 1805896,
-          "costUsd": 14.9866308,
-          "costPerCaseUsd": 0.8325906000000001,
-          "tokens": 2475034,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "80%",
-              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.7962962962962963
-            },
-            {
-              "label": "attempt score range",
-              "value": "25–100%",
-              "hint": "Observed implementation-acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "5/18 (28%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.2777777777777778
-            },
-            {
-              "label": "PR delivery",
-              "value": "11/18 (61%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.6111111111111112
-            },
-            {
-              "label": "judge agreement",
-              "value": "100%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 1
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            },
-            {
-              "label": "gate overrides",
-              "value": "11/54 criteria",
-              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "x-ai/grok-4.5",
-          "qualityScore": 79,
-          "latencyP50Ms": 260981,
-          "latencyP95Ms": 1424714,
-          "costUsd": 10.8641796,
-          "costPerCaseUsd": 0.6035655333333333,
-          "tokens": 1798132,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "79%",
-              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.7916666666666669
-            },
-            {
-              "label": "attempt score range",
-              "value": "25–100%",
-              "hint": "Observed implementation-acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "9/18 (50%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.5
-            },
-            {
-              "label": "PR delivery",
-              "value": "15/18 (83%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.8333333333333334
-            },
-            {
-              "label": "judge agreement",
-              "value": "100%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 1
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            },
-            {
-              "label": "gate overrides",
-              "value": "12/54 criteria",
+              "value": "1/54 criteria",
               "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
               "sort": null
             }
@@ -175,347 +67,23 @@
         },
         {
           "model": "deepseek/deepseek-v4-flash-0731",
-          "qualityScore": 79,
-          "latencyP50Ms": 477812,
-          "latencyP95Ms": 1492242,
-          "costUsd": 0.9063475919999998,
-          "costPerCaseUsd": 0.05035264399999999,
-          "tokens": 2674157,
+          "qualityScore": 94,
+          "latencyP50Ms": 2178732,
+          "latencyP95Ms": 6890191,
+          "costUsd": 0.979611462,
+          "costPerCaseUsd": 0.054422859000000004,
+          "tokens": 5082237,
           "casesAttempted": 18,
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "79%",
+              "value": "94%",
               "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.7870370370370369
+              "sort": 0.9398148148148149
             },
             {
               "label": "attempt score range",
-              "value": "25–100%",
-              "hint": "Observed implementation-acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "6/18 (33%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.3333333333333333
-            },
-            {
-              "label": "PR delivery",
-              "value": "13/18 (72%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.7222222222222222
-            },
-            {
-              "label": "judge agreement",
-              "value": "98%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9814814814814815
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            },
-            {
-              "label": "gate overrides",
-              "value": "8/54 criteria",
-              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-opus-5",
-          "qualityScore": 77,
-          "latencyP50Ms": 513226,
-          "latencyP95Ms": 2082539,
-          "costUsd": 45.24303075,
-          "costPerCaseUsd": 2.5135017083333335,
-          "tokens": 244156,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "77%",
-              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.7685185185185185
-            },
-            {
-              "label": "attempt score range",
-              "value": "25–100%",
-              "hint": "Observed implementation-acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "6/18 (33%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.3333333333333333
-            },
-            {
-              "label": "PR delivery",
-              "value": "14/18 (78%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.7777777777777778
-            },
-            {
-              "label": "judge agreement",
-              "value": "98%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9830246913580248
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            },
-            {
-              "label": "gate overrides",
-              "value": "11/54 criteria",
-              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-fable-5",
-          "qualityScore": 77,
-          "latencyP50Ms": 607015,
-          "latencyP95Ms": 1515796,
-          "costUsd": 74.187838,
-          "costPerCaseUsd": 4.121546555555556,
-          "tokens": 207457,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "77%",
-              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.773148148148148
-            },
-            {
-              "label": "attempt score range",
-              "value": "25–100%",
-              "hint": "Observed implementation-acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "7/18 (39%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.3888888888888889
-            },
-            {
-              "label": "PR delivery",
-              "value": "13/18 (72%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.7222222222222222
-            },
-            {
-              "label": "judge agreement",
-              "value": "100%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 1
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            },
-            {
-              "label": "gate overrides",
-              "value": "12/54 criteria",
-              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-sol",
-          "qualityScore": 76,
-          "latencyP50Ms": 420060,
-          "latencyP95Ms": 2175591,
-          "costUsd": 29.023394,
-          "costPerCaseUsd": 1.6124107777777779,
-          "tokens": 128341,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "76%",
-              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.7592592592592592
-            },
-            {
-              "label": "attempt score range",
-              "value": "25–100%",
-              "hint": "Observed implementation-acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "9/18 (50%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.5
-            },
-            {
-              "label": "PR delivery",
-              "value": "15/18 (83%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.8333333333333334
-            },
-            {
-              "label": "judge agreement",
-              "value": "100%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 1
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            },
-            {
-              "label": "gate overrides",
-              "value": "13/54 criteria",
-              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "qwen/qwen3.8-max",
-          "qualityScore": 76,
-          "latencyP50Ms": 890908,
-          "latencyP95Ms": 1235615,
-          "costUsd": 18.87952,
-          "costPerCaseUsd": 1.0488622222222221,
-          "tokens": 4172723,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "76%",
-              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.763888888888889
-            },
-            {
-              "label": "attempt score range",
-              "value": "0–100%",
-              "hint": "Observed implementation-acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "7/18 (39%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.3888888888888889
-            },
-            {
-              "label": "PR delivery",
-              "value": "10/18 (56%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.5555555555555556
-            },
-            {
-              "label": "judge agreement",
-              "value": "99%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9869281045751634
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            },
-            {
-              "label": "gate overrides",
-              "value": "11/54 criteria",
-              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-sonnet-5",
-          "qualityScore": 74,
-          "latencyP50Ms": 470073,
-          "latencyP95Ms": 1927908,
-          "costUsd": 15.037384800000002,
-          "costPerCaseUsd": 0.8354102666666667,
-          "tokens": 229377,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "74%",
-              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.7407407407407408
-            },
-            {
-              "label": "attempt score range",
-              "value": "33–100%",
-              "hint": "Observed implementation-acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "6/18 (33%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.3333333333333333
-            },
-            {
-              "label": "PR delivery",
-              "value": "13/18 (72%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.7222222222222222
-            },
-            {
-              "label": "judge agreement",
-              "value": "98%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9814814814814815
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            },
-            {
-              "label": "gate overrides",
-              "value": "14/54 criteria",
-              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-luna",
-          "qualityScore": 72,
-          "latencyP50Ms": 356686,
-          "latencyP95Ms": 1148937,
-          "costUsd": 0.56918227,
-          "costPerCaseUsd": 0.03162123722222222,
-          "tokens": 177952,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "72%",
-              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.7175925925925926
-            },
-            {
-              "label": "attempt score range",
-              "value": "0–100%",
+              "value": "67–100%",
               "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
@@ -527,15 +95,69 @@
             },
             {
               "label": "PR delivery",
+              "value": "8/18 (44%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.4444444444444444
+            },
+            {
+              "label": "judge agreement",
+              "value": "96%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9629629629629631
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "1/54 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "x-ai/grok-4.5",
+          "qualityScore": 90,
+          "latencyP50Ms": 1454812,
+          "latencyP95Ms": 2609701,
+          "costUsd": 9.7964092,
+          "costPerCaseUsd": 0.5442449555555555,
+          "tokens": 1709288,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "90%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.9027777777777778
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "11/18 (61%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.6111111111111112
+            },
+            {
+              "label": "PR delivery",
               "value": "14/18 (78%)",
               "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
               "sort": 0.7777777777777778
             },
             {
               "label": "judge agreement",
-              "value": "99%",
+              "value": "98%",
               "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9938271604938271
+              "sort": 0.9803921568627452
             },
             {
               "label": "valid attempts",
@@ -545,51 +167,51 @@
             },
             {
               "label": "gate overrides",
-              "value": "14/54 criteria",
+              "value": "0/54 criteria",
               "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
               "sort": null
             }
           ]
         },
         {
-          "model": "anthropic/claude-haiku-4.5",
-          "qualityScore": 71,
-          "latencyP50Ms": 295461,
-          "latencyP95Ms": 1375100,
-          "costUsd": 6.511887399999999,
-          "costPerCaseUsd": 0.3617715222222222,
-          "tokens": 235613,
+          "model": "openai/gpt-5.6-sol",
+          "qualityScore": 89,
+          "latencyP50Ms": 1262702,
+          "latencyP95Ms": 6257985,
+          "costUsd": 28.044159999999998,
+          "costPerCaseUsd": 1.5580088888888888,
+          "tokens": 126471,
           "casesAttempted": 18,
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "71%",
+              "value": "89%",
               "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.7129629629629629
+              "sort": 0.8935185185185185
             },
             {
               "label": "attempt score range",
-              "value": "25–100%",
+              "value": "0–100%",
               "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
               "label": "tasks completed",
-              "value": "4/18 (22%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.2222222222222222
-            },
-            {
-              "label": "PR delivery",
               "value": "10/18 (56%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
               "sort": 0.5555555555555556
             },
             {
+              "label": "PR delivery",
+              "value": "13/18 (72%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.7222222222222222
+            },
+            {
               "label": "judge agreement",
-              "value": "95%",
+              "value": "100%",
               "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9459876543209877
+              "sort": 1
             },
             {
               "label": "valid attempts",
@@ -599,31 +221,85 @@
             },
             {
               "label": "gate overrides",
-              "value": "10/54 criteria",
+              "value": "2/54 criteria",
               "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
               "sort": null
             }
           ]
         },
         {
-          "model": "openai/gpt-5.6-terra",
-          "qualityScore": 71,
-          "latencyP50Ms": 382048,
-          "latencyP95Ms": 1544193,
-          "costUsd": 5.26340725,
-          "costPerCaseUsd": 0.2924115138888889,
-          "tokens": 112044,
+          "model": "z-ai/glm-5.2",
+          "qualityScore": 87,
+          "latencyP50Ms": 1182749,
+          "latencyP95Ms": 4111788,
+          "costUsd": 5.877383801199999,
+          "costPerCaseUsd": 0.3265213222888888,
+          "tokens": 4388847,
           "casesAttempted": 18,
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "71%",
+              "value": "87%",
               "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.7083333333333334
+              "sort": 0.8657407407407408
             },
             {
               "label": "attempt score range",
-              "value": "25–100%",
+              "value": "0–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "9/18 (50%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.5
+            },
+            {
+              "label": "PR delivery",
+              "value": "9/18 (50%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.5
+            },
+            {
+              "label": "judge agreement",
+              "value": "98%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9803921568627452
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "0/54 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "qwen/qwen3.8-max",
+          "qualityScore": 87,
+          "latencyP50Ms": 2414999,
+          "latencyP95Ms": 7360637,
+          "costUsd": 21.054027999999995,
+          "costPerCaseUsd": 1.1696682222222219,
+          "tokens": 6004590,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "87%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.8703703703703706
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–100%",
               "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
@@ -632,60 +308,6 @@
               "value": "7/18 (39%)",
               "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
               "sort": 0.3888888888888889
-            },
-            {
-              "label": "PR delivery",
-              "value": "15/18 (83%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.8333333333333334
-            },
-            {
-              "label": "judge agreement",
-              "value": "98%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9783950617283951
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            },
-            {
-              "label": "gate overrides",
-              "value": "15/54 criteria",
-              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "xiaomi/mimo-v2.5",
-          "qualityScore": 71,
-          "latencyP50Ms": 444609,
-          "latencyP95Ms": 1791201,
-          "costUsd": 0.3414137272,
-          "costPerCaseUsd": 0.01896742928888889,
-          "tokens": 1623513,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "71%",
-              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.7083333333333334
-            },
-            {
-              "label": "attempt score range",
-              "value": "25–100%",
-              "hint": "Observed implementation-acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "3/18 (17%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.16666666666666666
             },
             {
               "label": "PR delivery",
@@ -707,27 +329,27 @@
             },
             {
               "label": "gate overrides",
-              "value": "12/54 criteria",
+              "value": "1/54 criteria",
               "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
               "sort": null
             }
           ]
         },
         {
-          "model": "minimax/minimax-m3",
-          "qualityScore": 70,
-          "latencyP50Ms": 409445,
-          "latencyP95Ms": 1823447,
-          "costUsd": 4.023246299999999,
-          "costPerCaseUsd": 0.2235136833333333,
-          "tokens": 2598565,
+          "model": "anthropic/claude-sonnet-5",
+          "qualityScore": 82,
+          "latencyP50Ms": 1877743,
+          "latencyP95Ms": 7915283,
+          "costUsd": 22.1880139,
+          "costPerCaseUsd": 1.232667438888889,
+          "tokens": 332174,
           "casesAttempted": 18,
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "70%",
+              "value": "82%",
               "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.7037037037037037
+              "sort": 0.8240740740740741
             },
             {
               "label": "attempt score range",
@@ -737,21 +359,21 @@
             },
             {
               "label": "tasks completed",
-              "value": "2/18 (11%)",
+              "value": "8/18 (44%)",
               "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.1111111111111111
+              "sort": 0.4444444444444444
             },
             {
               "label": "PR delivery",
-              "value": "3/18 (17%)",
+              "value": "9/18 (50%)",
               "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.16666666666666666
+              "sort": 0.5
             },
             {
               "label": "judge agreement",
-              "value": "98%",
+              "value": "96%",
               "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9814814814814815
+              "sort": 0.9624183006535946
             },
             {
               "label": "valid attempts",
@@ -761,39 +383,39 @@
             },
             {
               "label": "gate overrides",
-              "value": "5/54 criteria",
+              "value": "2/54 criteria",
               "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
               "sort": null
             }
           ]
         },
         {
-          "model": "deepseek/deepseek-v4-pro",
-          "qualityScore": 70,
-          "latencyP50Ms": 836674,
-          "latencyP95Ms": 1276126,
-          "costUsd": 1.7373195590000001,
-          "costPerCaseUsd": 0.09651775327777778,
-          "tokens": 3374189,
+          "model": "anthropic/claude-opus-5",
+          "qualityScore": 82,
+          "latencyP50Ms": 1990310,
+          "latencyP95Ms": 4903416,
+          "costUsd": 52.738673500000004,
+          "costPerCaseUsd": 2.929926305555556,
+          "tokens": 302677,
           "casesAttempted": 18,
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "70%",
+              "value": "82%",
               "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.6990740740740741
+              "sort": 0.8240740740740741
             },
             {
               "label": "attempt score range",
-              "value": "33–100%",
+              "value": "0–100%",
               "hint": "Observed implementation-acceptance range across repeated task attempts",
               "sort": null
             },
             {
               "label": "tasks completed",
-              "value": "5/18 (28%)",
+              "value": "8/18 (44%)",
               "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.2777777777777778
+              "sort": 0.4444444444444444
             },
             {
               "label": "PR delivery",
@@ -803,9 +425,9 @@
             },
             {
               "label": "judge agreement",
-              "value": "94%",
+              "value": "100%",
               "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9413580246913581
+              "sort": 1
             },
             {
               "label": "valid attempts",
@@ -815,7 +437,277 @@
             },
             {
               "label": "gate overrides",
-              "value": "13/54 criteria",
+              "value": "1/54 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "deepseek/deepseek-v4-pro",
+          "qualityScore": 82,
+          "latencyP50Ms": 2121063,
+          "latencyP95Ms": 3603298,
+          "costUsd": 1.754984851,
+          "costPerCaseUsd": 0.09749915838888888,
+          "tokens": 3520437,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "82%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.8194444444444445
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "6/18 (33%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.3333333333333333
+            },
+            {
+              "label": "PR delivery",
+              "value": "9/18 (50%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.5
+            },
+            {
+              "label": "judge agreement",
+              "value": "96%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9591503267973858
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "1/54 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-fable-5",
+          "qualityScore": 79,
+          "latencyP50Ms": 2025961,
+          "latencyP95Ms": 5252948,
+          "costUsd": 70.61794950000001,
+          "costPerCaseUsd": 3.923219416666667,
+          "tokens": 210512,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "79%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.7916666666666666
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "7/18 (39%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.3888888888888889
+            },
+            {
+              "label": "PR delivery",
+              "value": "9/18 (50%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.5
+            },
+            {
+              "label": "judge agreement",
+              "value": "98%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9777777777777779
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "0/54 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-luna",
+          "qualityScore": 78,
+          "latencyP50Ms": 1501891,
+          "latencyP95Ms": 6635916,
+          "costUsd": 0.46184182999999995,
+          "costPerCaseUsd": 0.02565787944444444,
+          "tokens": 87679,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "78%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.7777777777777777
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "10/18 (56%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.5555555555555556
+            },
+            {
+              "label": "PR delivery",
+              "value": "13/18 (72%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.7222222222222222
+            },
+            {
+              "label": "judge agreement",
+              "value": "99%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9861111111111112
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "2/54 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "moonshotai/kimi-k2.7-code",
+          "qualityScore": 71,
+          "latencyP50Ms": 1915097,
+          "latencyP95Ms": 5096011,
+          "costUsd": 8.8181062,
+          "costPerCaseUsd": 0.48989478888888893,
+          "tokens": 3158329,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "71%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.7083333333333334
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "6/18 (33%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.3333333333333333
+            },
+            {
+              "label": "PR delivery",
+              "value": "6/18 (33%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.3333333333333333
+            },
+            {
+              "label": "judge agreement",
+              "value": "98%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9801587301587302
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "2/54 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "moonshotai/kimi-k3",
+          "qualityScore": 71,
+          "latencyP50Ms": 1965998,
+          "latencyP95Ms": 5197759,
+          "costUsd": 20.0620503,
+          "costPerCaseUsd": 1.11455835,
+          "tokens": 2825579,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "71%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.7083333333333334
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "7/18 (39%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.3888888888888889
+            },
+            {
+              "label": "PR delivery",
+              "value": "7/18 (39%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.3888888888888889
+            },
+            {
+              "label": "judge agreement",
+              "value": "100%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 1
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "0/54 criteria",
               "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
               "sort": null
             }
@@ -823,19 +715,127 @@
         },
         {
           "model": "google/gemini-3.1-pro-preview",
-          "qualityScore": 62,
-          "latencyP50Ms": 502049,
-          "latencyP95Ms": 2077594,
-          "costUsd": 17.408670800000003,
-          "costPerCaseUsd": 0.967148377777778,
-          "tokens": 6593936,
+          "qualityScore": 68,
+          "latencyP50Ms": 1523722,
+          "latencyP95Ms": 6312669,
+          "costUsd": 14.510306000000002,
+          "costPerCaseUsd": 0.8061281111111112,
+          "tokens": 5789395,
           "casesAttempted": 18,
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "62%",
+              "value": "68%",
               "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.6157407407407407
+              "sort": 0.6805555555555555
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "0/18 (0%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0
+            },
+            {
+              "label": "PR delivery",
+              "value": "0/18 (0%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0
+            },
+            {
+              "label": "judge agreement",
+              "value": "97%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9739583333333334
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "7/54 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-haiku-4.5",
+          "qualityScore": 67,
+          "latencyP50Ms": 903347,
+          "latencyP95Ms": 2612444,
+          "costUsd": 3.6412258,
+          "costPerCaseUsd": 0.2022903222222222,
+          "tokens": 163654,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "67%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–100%",
+              "hint": "Observed implementation-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "0/18 (0%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0
+            },
+            {
+              "label": "PR delivery",
+              "value": "1/18 (6%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.05555555555555555
+            },
+            {
+              "label": "judge agreement",
+              "value": "95%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9481481481481481
+            },
+            {
+              "label": "valid attempts",
+              "value": "18/18",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "6/54 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "minimax/minimax-m3",
+          "qualityScore": 56,
+          "latencyP50Ms": 2028707,
+          "latencyP95Ms": 6050361,
+          "costUsd": 2.4687370199999994,
+          "costPerCaseUsd": 0.13715205666666663,
+          "tokens": 1896328,
+          "casesAttempted": 18,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "56%",
+              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
+              "sort": 0.5555555555555555
             },
             {
               "label": "attempt score range",
@@ -851,15 +851,15 @@
             },
             {
               "label": "PR delivery",
-              "value": "4/18 (22%)",
+              "value": "1/18 (6%)",
               "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.2222222222222222
+              "sort": 0.05555555555555555
             },
             {
               "label": "judge agreement",
-              "value": "98%",
+              "value": "97%",
               "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9754901960784313
+              "sort": 0.9652777777777777
             },
             {
               "label": "valid attempts",
@@ -869,7 +869,7 @@
             },
             {
               "label": "gate overrides",
-              "value": "13/54 criteria",
+              "value": "0/54 criteria",
               "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
               "sort": null
             }
@@ -877,73 +877,19 @@
         },
         {
           "model": "google/gemini-3.6-flash",
-          "qualityScore": 57,
-          "latencyP50Ms": 283971,
-          "latencyP95Ms": 925393,
-          "costUsd": 20.141658299999996,
-          "costPerCaseUsd": 1.1189810166666665,
-          "tokens": 8682580,
+          "qualityScore": 49,
+          "latencyP50Ms": 1391146,
+          "latencyP95Ms": 6452957,
+          "costUsd": 23.75438805,
+          "costPerCaseUsd": 1.319688225,
+          "tokens": 10276301,
           "casesAttempted": 18,
           "metrics": [
             {
               "label": "task acceptance",
-              "value": "57%",
+              "value": "49%",
               "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.5694444444444445
-            },
-            {
-              "label": "attempt score range",
-              "value": "0–100%",
-              "hint": "Observed implementation-acceptance range across repeated task attempts",
-              "sort": null
-            },
-            {
-              "label": "tasks completed",
-              "value": "4/18 (22%)",
-              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
-              "sort": 0.2222222222222222
-            },
-            {
-              "label": "PR delivery",
-              "value": "4/18 (22%)",
-              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.2222222222222222
-            },
-            {
-              "label": "judge agreement",
-              "value": "97%",
-              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.9747474747474748
-            },
-            {
-              "label": "valid attempts",
-              "value": "18/18",
-              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
-              "sort": 1
-            },
-            {
-              "label": "gate overrides",
-              "value": "3/54 criteria",
-              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "moonshotai/kimi-k2.7-code",
-          "qualityScore": 54,
-          "latencyP50Ms": 434899,
-          "latencyP95Ms": 1671190,
-          "costUsd": 8.6694817,
-          "costPerCaseUsd": 0.48163787222222226,
-          "tokens": 2530806,
-          "casesAttempted": 18,
-          "metrics": [
-            {
-              "label": "task acceptance",
-              "value": "54%",
-              "hint": "Task-macro acceptance of the produced implementation; PR delivery does not affect this score — higher is better",
-              "sort": 0.5416666666666667
+              "sort": 0.4861111111111111
             },
             {
               "label": "attempt score range",
@@ -959,15 +905,15 @@
             },
             {
               "label": "PR delivery",
-              "value": "10/18 (56%)",
+              "value": "5/18 (28%)",
               "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
-              "sort": 0.5555555555555556
+              "sort": 0.2777777777777778
             },
             {
               "label": "judge agreement",
-              "value": "95%",
+              "value": "98%",
               "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
-              "sort": 0.952991452991453
+              "sort": 0.9753086419753088
             },
             {
               "label": "valid attempts",
@@ -977,7 +923,7 @@
             },
             {
               "label": "gate overrides",
-              "value": "8/54 criteria",
+              "value": "0/54 criteria",
               "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
               "sort": null
             }
