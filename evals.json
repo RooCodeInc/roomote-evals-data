@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-07T15:05:06.502Z",
+  "publishedAt": "2026-08-07T15:06:31.021Z",
   "evals": [
     {
       "id": "coding",
@@ -2367,7 +2367,7 @@
       "updatedAt": "2026-08-06T03:46:14.463Z",
       "results": [
         {
-          "model": "anthropic/claude-fable-5@high",
+          "model": "anthropic/claude-fable-5",
           "qualityScore": 60,
           "latencyP50Ms": 22874,
           "latencyP95Ms": 60416,
@@ -2403,7 +2403,7 @@
           ]
         },
         {
-          "model": "anthropic/claude-sonnet-5@high",
+          "model": "anthropic/claude-sonnet-5",
           "qualityScore": 53,
           "latencyP50Ms": 37374,
           "latencyP95Ms": 169790,
@@ -2439,7 +2439,7 @@
           ]
         },
         {
-          "model": "moonshotai/kimi-k3@high",
+          "model": "moonshotai/kimi-k3",
           "qualityScore": 50,
           "latencyP50Ms": 21271,
           "latencyP95Ms": 138419,
@@ -2475,7 +2475,7 @@
           ]
         },
         {
-          "model": "anthropic/claude-opus-5@high",
+          "model": "anthropic/claude-opus-5",
           "qualityScore": 43,
           "latencyP50Ms": 27355,
           "latencyP95Ms": 86149,
@@ -2511,7 +2511,7 @@
           ]
         },
         {
-          "model": "deepseek/deepseek-v4-pro@high",
+          "model": "deepseek/deepseek-v4-pro",
           "qualityScore": 43,
           "latencyP50Ms": 58747,
           "latencyP95Ms": 900000,
@@ -2547,7 +2547,7 @@
           ]
         },
         {
-          "model": "openai/gpt-5.6-terra@high",
+          "model": "openai/gpt-5.6-terra",
           "qualityScore": 42,
           "latencyP50Ms": 12905,
           "latencyP95Ms": 46441,
@@ -2583,7 +2583,7 @@
           ]
         },
         {
-          "model": "x-ai/grok-4.5@high",
+          "model": "x-ai/grok-4.5",
           "qualityScore": 42,
           "latencyP50Ms": 27795,
           "latencyP95Ms": 101701,
@@ -2619,7 +2619,7 @@
           ]
         },
         {
-          "model": "openai/gpt-5.6-luna@high",
+          "model": "openai/gpt-5.6-luna",
           "qualityScore": 41,
           "latencyP50Ms": 25559,
           "latencyP95Ms": 80670,
@@ -2655,7 +2655,7 @@
           ]
         },
         {
-          "model": "openai/gpt-5.6-sol@high",
+          "model": "openai/gpt-5.6-sol",
           "qualityScore": 40,
           "latencyP50Ms": 24083,
           "latencyP95Ms": 114050,
@@ -2691,7 +2691,7 @@
           ]
         },
         {
-          "model": "google/gemini-3.1-pro-preview@high",
+          "model": "google/gemini-3.1-pro-preview",
           "qualityScore": 36,
           "latencyP50Ms": 16996,
           "latencyP95Ms": 121598,
@@ -2727,7 +2727,7 @@
           ]
         },
         {
-          "model": "z-ai/glm-5.2@high",
+          "model": "z-ai/glm-5.2",
           "qualityScore": 34,
           "latencyP50Ms": 18631,
           "latencyP95Ms": 900000,
@@ -2763,7 +2763,7 @@
           ]
         },
         {
-          "model": "deepseek/deepseek-v4-flash-0731@high",
+          "model": "deepseek/deepseek-v4-flash-0731",
           "qualityScore": 34,
           "latencyP50Ms": 668396,
           "latencyP95Ms": 900000,
@@ -2799,7 +2799,7 @@
           ]
         },
         {
-          "model": "anthropic/claude-haiku-4.5@high",
+          "model": "anthropic/claude-haiku-4.5",
           "qualityScore": 31,
           "latencyP50Ms": 76092,
           "latencyP95Ms": 140592,
@@ -2835,7 +2835,7 @@
           ]
         },
         {
-          "model": "moonshotai/kimi-k2.7-code@high",
+          "model": "moonshotai/kimi-k2.7-code",
           "qualityScore": 29,
           "latencyP50Ms": 151175,
           "latencyP95Ms": 900000,
@@ -2871,7 +2871,7 @@
           ]
         },
         {
-          "model": "xiaomi/mimo-v2.5@high",
+          "model": "xiaomi/mimo-v2.5",
           "qualityScore": 27,
           "latencyP50Ms": 900000,
           "latencyP95Ms": 900000,
@@ -2907,7 +2907,7 @@
           ]
         },
         {
-          "model": "qwen/qwen3.8-max@high",
+          "model": "qwen/qwen3.8-max",
           "qualityScore": 26,
           "latencyP50Ms": 179397,
           "latencyP95Ms": 427408,
@@ -2943,7 +2943,7 @@
           ]
         },
         {
-          "model": "google/gemini-3.6-flash@high",
+          "model": "google/gemini-3.6-flash",
           "qualityScore": 25,
           "latencyP50Ms": 10640,
           "latencyP95Ms": 55847,
@@ -2979,7 +2979,7 @@
           ]
         },
         {
-          "model": "minimax/minimax-m3@high",
+          "model": "minimax/minimax-m3",
           "qualityScore": 9,
           "latencyP50Ms": 865,
           "latencyP95Ms": 900000,
@@ -3026,7 +3026,7 @@
       "updatedAt": "2026-08-06T19:52:47.348Z",
       "results": [
         {
-          "model": "openai/gpt-5.6-luna",
+          "model": "openai/gpt-5.6-luna@low",
           "qualityScore": 87,
           "latencyP50Ms": 31330,
           "latencyP95Ms": 69745,
@@ -3068,7 +3068,7 @@
           ]
         },
         {
-          "model": "openai/gpt-5.6-sol",
+          "model": "openai/gpt-5.6-sol@low",
           "qualityScore": 85,
           "latencyP50Ms": 49183,
           "latencyP95Ms": 129238,
@@ -3110,7 +3110,7 @@
           ]
         },
         {
-          "model": "google/gemini-3.6-flash",
+          "model": "google/gemini-3.6-flash@low",
           "qualityScore": 83,
           "latencyP50Ms": 72337,
           "latencyP95Ms": 240000,
@@ -3152,7 +3152,7 @@
           ]
         },
         {
-          "model": "openai/gpt-5.6-terra",
+          "model": "openai/gpt-5.6-terra@low",
           "qualityScore": 80,
           "latencyP50Ms": 37045,
           "latencyP95Ms": 106368,
@@ -3194,7 +3194,7 @@
           ]
         },
         {
-          "model": "x-ai/grok-4.5",
+          "model": "x-ai/grok-4.5@low",
           "qualityScore": 78,
           "latencyP50Ms": 24592,
           "latencyP95Ms": 84370,
@@ -3236,7 +3236,7 @@
           ]
         },
         {
-          "model": "anthropic/claude-sonnet-5",
+          "model": "anthropic/claude-sonnet-5@low",
           "qualityScore": 76,
           "latencyP50Ms": 37961,
           "latencyP95Ms": 163972,
@@ -3278,7 +3278,7 @@
           ]
         },
         {
-          "model": "z-ai/glm-5.2",
+          "model": "z-ai/glm-5.2@low",
           "qualityScore": 76,
           "latencyP50Ms": 48335,
           "latencyP95Ms": 87725,
@@ -3320,7 +3320,7 @@
           ]
         },
         {
-          "model": "anthropic/claude-fable-5",
+          "model": "anthropic/claude-fable-5@low",
           "qualityScore": 74,
           "latencyP50Ms": 38232,
           "latencyP95Ms": 125397,
@@ -3362,7 +3362,7 @@
           ]
         },
         {
-          "model": "anthropic/claude-haiku-4.5",
+          "model": "anthropic/claude-haiku-4.5@low",
           "qualityScore": 73,
           "latencyP50Ms": 80872,
           "latencyP95Ms": 171142,
@@ -3404,7 +3404,7 @@
           ]
         },
         {
-          "model": "google/gemini-3.1-pro-preview",
+          "model": "google/gemini-3.1-pro-preview@low",
           "qualityScore": 73,
           "latencyP50Ms": 124497,
           "latencyP95Ms": 240000,
@@ -3446,7 +3446,7 @@
           ]
         },
         {
-          "model": "moonshotai/kimi-k2.7-code",
+          "model": "moonshotai/kimi-k2.7-code@low",
           "qualityScore": 72,
           "latencyP50Ms": 50235,
           "latencyP95Ms": 233054,
@@ -3488,7 +3488,7 @@
           ]
         },
         {
-          "model": "deepseek/deepseek-v4-flash-0731",
+          "model": "deepseek/deepseek-v4-flash-0731@low",
           "qualityScore": 72,
           "latencyP50Ms": 68092,
           "latencyP95Ms": 126078,
@@ -3530,7 +3530,7 @@
           ]
         },
         {
-          "model": "minimax/minimax-m3",
+          "model": "minimax/minimax-m3@low",
           "qualityScore": 71,
           "latencyP50Ms": 66875,
           "latencyP95Ms": 236086,
@@ -3572,7 +3572,7 @@
           ]
         },
         {
-          "model": "moonshotai/kimi-k3",
+          "model": "moonshotai/kimi-k3@low",
           "qualityScore": 71,
           "latencyP50Ms": 72703,
           "latencyP95Ms": 216785,
@@ -3614,7 +3614,7 @@
           ]
         },
         {
-          "model": "deepseek/deepseek-v4-pro",
+          "model": "deepseek/deepseek-v4-pro@low",
           "qualityScore": 69,
           "latencyP50Ms": 82099,
           "latencyP95Ms": 156909,
@@ -3656,7 +3656,7 @@
           ]
         },
         {
-          "model": "anthropic/claude-opus-5",
+          "model": "anthropic/claude-opus-5@low",
           "qualityScore": 57,
           "latencyP50Ms": 52484,
           "latencyP95Ms": 240000,
@@ -3698,7 +3698,7 @@
           ]
         },
         {
-          "model": "qwen/qwen3.8-max",
+          "model": "qwen/qwen3.8-max@low",
           "qualityScore": 51,
           "latencyP50Ms": 71496,
           "latencyP95Ms": 240000,
