@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-07T15:06:31.021Z",
+  "publishedAt": "2026-08-07T17:05:50.715Z",
   "evals": [
     {
       "id": "coding",
@@ -1809,26 +1809,26 @@
     {
       "id": "vision-extraction",
       "name": "Vision — Roomote UI extraction",
-      "description": "Runs Roomote's visual-agent instructions over Roomote screenshots and scores objective OCR and UI-evidence extraction.",
+      "description": "Runs Roomote's visual-agent instructions over Roomote screenshots and grades each extraction answer against a ground-truth answer key, one narrow judge check per fact.",
       "role": "vision",
       "cases": 14,
       "qualityMethod": "accuracy",
-      "updatedAt": "2026-08-04T15:17:57.763Z",
+      "updatedAt": "2026-08-06T21:29:59.349Z",
       "results": [
         {
-          "model": "google/gemini-3.6-flash",
+          "model": "google/gemini-3.6-flash@low",
           "qualityScore": 100,
-          "latencyP50Ms": 4023,
-          "latencyP95Ms": 5944,
-          "costUsd": 0.034239,
-          "costPerCaseUsd": 0.002445642857142857,
-          "tokens": 22826,
+          "latencyP50Ms": 2247,
+          "latencyP95Ms": 11294,
+          "costUsd": 0.0299295,
+          "costPerCaseUsd": 0.0021378214285714286,
+          "tokens": 19953,
           "casesAttempted": 14,
           "metrics": [
             {
               "label": "accuracy",
               "value": "14/14 (100%)",
-              "hint": "objective visual extraction cases answered correctly",
+              "hint": "cases whose answers state every answer-key fact",
               "sort": 1
             },
             {
@@ -1839,26 +1839,26 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "4.0s / 5.9s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "2.2s / 11.3s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "anthropic/claude-fable-5",
+          "model": "anthropic/claude-fable-5@low",
           "qualityScore": 100,
-          "latencyP50Ms": 8606,
-          "latencyP95Ms": 17753,
-          "costUsd": 0.40542000000000006,
-          "costPerCaseUsd": 0.028958571428571434,
-          "tokens": 40542,
+          "latencyP50Ms": 6443,
+          "latencyP95Ms": 13505,
+          "costUsd": 0.38478,
+          "costPerCaseUsd": 0.027484285714285715,
+          "tokens": 38478,
           "casesAttempted": 14,
           "metrics": [
             {
               "label": "accuracy",
               "value": "14/14 (100%)",
-              "hint": "objective visual extraction cases answered correctly",
+              "hint": "cases whose answers state every answer-key fact",
               "sort": 1
             },
             {
@@ -1869,26 +1869,26 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "8.6s / 17.8s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "6.4s / 13.5s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "google/gemini-3.1-pro-preview",
+          "model": "google/gemini-3.1-pro-preview@low",
           "qualityScore": 93,
-          "latencyP50Ms": 3205,
-          "latencyP95Ms": 16128,
-          "costUsd": 0.03904,
-          "costPerCaseUsd": 0.0027885714285714285,
-          "tokens": 19520,
+          "latencyP50Ms": 3158,
+          "latencyP95Ms": 12035,
+          "costUsd": 0.039709999999999995,
+          "costPerCaseUsd": 0.002836428571428571,
+          "tokens": 19855,
           "casesAttempted": 14,
           "metrics": [
             {
               "label": "accuracy",
               "value": "13/14 (93%)",
-              "hint": "objective visual extraction cases answered correctly",
+              "hint": "cases whose answers state every answer-key fact",
               "sort": 0.9285714285714286
             },
             {
@@ -1899,26 +1899,26 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "3.2s / 16.1s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "3.2s / 12.0s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "x-ai/grok-4.5",
+          "model": "x-ai/grok-4.5@low",
           "qualityScore": 86,
-          "latencyP50Ms": 2061,
-          "latencyP95Ms": 23634,
-          "costUsd": 0.057027999999999995,
-          "costPerCaseUsd": 0.004073428571428571,
-          "tokens": 28514,
+          "latencyP50Ms": 1651,
+          "latencyP95Ms": 10739,
+          "costUsd": 0.053371999999999996,
+          "costPerCaseUsd": 0.003812285714285714,
+          "tokens": 26686,
           "casesAttempted": 14,
           "metrics": [
             {
               "label": "accuracy",
               "value": "12/14 (86%)",
-              "hint": "objective visual extraction cases answered correctly",
+              "hint": "cases whose answers state every answer-key fact",
               "sort": 0.8571428571428571
             },
             {
@@ -1929,26 +1929,206 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "2.1s / 23.6s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "1.7s / 10.7s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "moonshotai/kimi-k3",
+          "model": "openai/gpt-5.6-sol@low",
           "qualityScore": 86,
-          "latencyP50Ms": 5014,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.119019,
-          "costPerCaseUsd": 0.008501357142857142,
-          "tokens": 39673,
+          "latencyP50Ms": 1917,
+          "latencyP95Ms": 28466,
+          "costUsd": 0.256365,
+          "costPerCaseUsd": 0.018311785714285714,
+          "tokens": 51273,
           "casesAttempted": 14,
           "metrics": [
             {
               "label": "accuracy",
               "value": "12/14 (86%)",
-              "hint": "objective visual extraction cases answered correctly",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0.8571428571428571
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "1.9s / 28.5s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-terra@low",
+          "qualityScore": 86,
+          "latencyP50Ms": 1996,
+          "latencyP95Ms": 44719,
+          "costUsd": 0.053237,
+          "costPerCaseUsd": 0.0038026428571428573,
+          "tokens": 53237,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "12/14 (86%)",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0.8571428571428571
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.0s / 44.7s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-luna@low",
+          "qualityScore": 86,
+          "latencyP50Ms": 2108,
+          "latencyP95Ms": 17525,
+          "costUsd": 0.0051426,
+          "costPerCaseUsd": 0.0003673285714285714,
+          "tokens": 51426,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "12/14 (86%)",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0.8571428571428571
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.1s / 17.5s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-haiku-4.5@low",
+          "qualityScore": 86,
+          "latencyP50Ms": 4909,
+          "latencyP95Ms": 32421,
+          "costUsd": 0.027448,
+          "costPerCaseUsd": 0.0019605714285714287,
+          "tokens": 27448,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "12/14 (86%)",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0.8571428571428571
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "4.9s / 32.4s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-sonnet-5@low",
+          "qualityScore": 86,
+          "latencyP50Ms": 5004,
+          "latencyP95Ms": 11093,
+          "costUsd": 0.07658,
+          "costPerCaseUsd": 0.00547,
+          "tokens": 38290,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "12/14 (86%)",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0.8571428571428571
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "5.0s / 11.1s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-opus-5@low",
+          "qualityScore": 86,
+          "latencyP50Ms": 7673,
+          "latencyP95Ms": 20564,
+          "costUsd": 0.20843,
+          "costPerCaseUsd": 0.014887857142857144,
+          "tokens": 41686,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "12/14 (86%)",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0.8571428571428571
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "7.7s / 20.6s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "moonshotai/kimi-k3@low",
+          "qualityScore": 86,
+          "latencyP50Ms": 8011,
+          "latencyP95Ms": 120000,
+          "costUsd": 0.164547,
+          "costPerCaseUsd": 0.011753357142857144,
+          "tokens": 54849,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "12/14 (86%)",
+              "hint": "cases whose answers state every answer-key fact",
               "sort": 0.8571428571428571
             },
             {
@@ -1959,116 +2139,26 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "5.0s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "8.0s / 120.0s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "anthropic/claude-sonnet-5",
-          "qualityScore": 86,
-          "latencyP50Ms": 6940,
-          "latencyP95Ms": 9768,
-          "costUsd": 0.07948,
-          "costPerCaseUsd": 0.005677142857142857,
-          "tokens": 39740,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "12/14 (86%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.8571428571428571
-            },
-            {
-              "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "6.9s / 9.8s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-opus-5",
-          "qualityScore": 86,
-          "latencyP50Ms": 9360,
-          "latencyP95Ms": 18203,
-          "costUsd": 0.218455,
-          "costPerCaseUsd": 0.015603928571428572,
-          "tokens": 43691,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "12/14 (86%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.8571428571428571
-            },
-            {
-              "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "9.4s / 18.2s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "qwen/qwen3.8-max",
-          "qualityScore": 86,
-          "latencyP50Ms": 15846,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.046689999999999995,
-          "costPerCaseUsd": 0.003335,
-          "tokens": 23345,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "12/14 (86%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.8571428571428571
-            },
-            {
-              "label": "answered",
-              "value": "12/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "15.8s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-luna",
+          "model": "minimax/minimax-m3@low",
           "qualityScore": 79,
-          "latencyP50Ms": 2522,
-          "latencyP95Ms": 28907,
-          "costUsd": 0.0053416,
-          "costPerCaseUsd": 0.00038154285714285714,
-          "tokens": 53416,
+          "latencyP50Ms": 2753,
+          "latencyP95Ms": 9924,
+          "costUsd": 0.0060033,
+          "costPerCaseUsd": 0.00042880714285714285,
+          "tokens": 20011,
           "casesAttempted": 14,
           "metrics": [
             {
               "label": "accuracy",
               "value": "11/14 (79%)",
-              "hint": "objective visual extraction cases answered correctly",
+              "hint": "cases whose answers state every answer-key fact",
               "sort": 0.7857142857142857
             },
             {
@@ -2079,197 +2169,77 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "2.5s / 28.9s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "2.8s / 9.9s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "openai/gpt-5.6-sol",
-          "qualityScore": 79,
-          "latencyP50Ms": 3290,
-          "latencyP95Ms": 32509,
-          "costUsd": 0.25968,
-          "costPerCaseUsd": 0.01854857142857143,
-          "tokens": 51936,
+          "model": "qwen/qwen3.8-max@low",
+          "qualityScore": 64,
+          "latencyP50Ms": 8698,
+          "latencyP95Ms": 120000,
+          "costUsd": 0.035838,
+          "costPerCaseUsd": 0.002559857142857143,
+          "tokens": 17919,
           "casesAttempted": 14,
           "metrics": [
             {
               "label": "accuracy",
-              "value": "11/14 (79%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7857142857142857
+              "value": "9/14 (64%)",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0.6428571428571429
             },
             {
               "label": "answered",
-              "value": "14/14",
+              "value": "10/14",
               "hint": "successful image-model calls; text-only models normally score zero",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "3.3s / 32.5s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "8.7s / 120.0s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "moonshotai/kimi-k2.7-code",
-          "qualityScore": 79,
-          "latencyP50Ms": 3481,
-          "latencyP95Ms": 8124,
-          "costUsd": 0.02545145,
-          "costPerCaseUsd": 0.0018179607142857143,
-          "tokens": 34865,
+          "model": "moonshotai/kimi-k2.7-code@low",
+          "qualityScore": 57,
+          "latencyP50Ms": 9464,
+          "latencyP95Ms": 120000,
+          "costUsd": 0.0205492,
+          "costPerCaseUsd": 0.0014678,
+          "tokens": 29356,
           "casesAttempted": 14,
           "metrics": [
             {
               "label": "accuracy",
-              "value": "11/14 (79%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7857142857142857
+              "value": "8/14 (57%)",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0.5714285714285714
             },
             {
               "label": "answered",
-              "value": "14/14",
+              "value": "10/14",
               "hint": "successful image-model calls; text-only models normally score zero",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "3.5s / 8.1s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "9.5s / 120.0s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "anthropic/claude-haiku-4.5",
-          "qualityScore": 79,
-          "latencyP50Ms": 3721,
-          "latencyP95Ms": 8562,
-          "costUsd": 0.020694999999999998,
-          "costPerCaseUsd": 0.0014782142857142856,
-          "tokens": 20695,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "11/14 (79%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7857142857142857
-            },
-            {
-              "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "3.7s / 8.6s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "minimax/minimax-m3",
-          "qualityScore": 71,
-          "latencyP50Ms": 1958,
-          "latencyP95Ms": 4427,
-          "costUsd": 0.0038594999999999996,
-          "costPerCaseUsd": 0.0002756785714285714,
-          "tokens": 12865,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "10/14 (71%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7142857142857143
-            },
-            {
-              "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "2.0s / 4.4s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-terra",
-          "qualityScore": 71,
-          "latencyP50Ms": 2396,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.036900999999999996,
-          "costPerCaseUsd": 0.002635785714285714,
-          "tokens": 36901,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "10/14 (71%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7142857142857143
-            },
-            {
-              "label": "answered",
-              "value": "13/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "2.4s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "xiaomi/mimo-v2.5",
-          "qualityScore": 71,
-          "latencyP50Ms": 3900,
-          "latencyP95Ms": 36919,
-          "costUsd": 0.005183780000000001,
-          "costPerCaseUsd": 0.00037027000000000007,
-          "tokens": 37027,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "10/14 (71%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7142857142857143
-            },
-            {
-              "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "3.9s / 36.9s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "deepseek/deepseek-v4-flash-0731",
+          "model": "deepseek/deepseek-v4-flash-0731@low",
           "qualityScore": 0,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
+          "latencyP50Ms": 120000,
+          "latencyP95Ms": 120000,
           "costUsd": 0,
           "costPerCaseUsd": 0,
           "tokens": 0,
@@ -2278,7 +2248,7 @@
             {
               "label": "accuracy",
               "value": "0/14 (0%)",
-              "hint": "objective visual extraction cases answered correctly",
+              "hint": "cases whose answers state every answer-key fact",
               "sort": 0
             },
             {
@@ -2289,17 +2259,17 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "120.0s / 120.0s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "deepseek/deepseek-v4-pro",
+          "model": "deepseek/deepseek-v4-pro@low",
           "qualityScore": 0,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
+          "latencyP50Ms": 120000,
+          "latencyP95Ms": 120000,
           "costUsd": 0,
           "costPerCaseUsd": 0,
           "tokens": 0,
@@ -2308,7 +2278,7 @@
             {
               "label": "accuracy",
               "value": "0/14 (0%)",
-              "hint": "objective visual extraction cases answered correctly",
+              "hint": "cases whose answers state every answer-key fact",
               "sort": 0
             },
             {
@@ -2319,17 +2289,17 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "120.0s / 120.0s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "z-ai/glm-5.2",
+          "model": "z-ai/glm-5.2@low",
           "qualityScore": 0,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
+          "latencyP50Ms": 120000,
+          "latencyP95Ms": 120000,
           "costUsd": 0,
           "costPerCaseUsd": 0,
           "tokens": 0,
@@ -2338,7 +2308,7 @@
             {
               "label": "accuracy",
               "value": "0/14 (0%)",
-              "hint": "objective visual extraction cases answered correctly",
+              "hint": "cases whose answers state every answer-key fact",
               "sort": 0
             },
             {
@@ -2349,8 +2319,8 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "120.0s / 120.0s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
           ]
