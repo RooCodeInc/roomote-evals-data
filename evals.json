@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-07T04:46:48.768Z",
+  "publishedAt": "2026-08-07T06:07:51.892Z",
   "evals": [
     {
       "id": "coding",
@@ -1085,13 +1085,13 @@
           ]
         },
         {
-          "model": "google/gemini-3.6-flash",
-          "qualityScore": 98,
-          "latencyP50Ms": 4958,
-          "latencyP95Ms": 9884,
-          "costUsd": 0.147174,
-          "costPerCaseUsd": 0.005074965517241379,
-          "tokens": 98116,
+          "model": "google/gemini-3.6-flash@low",
+          "qualityScore": 97,
+          "latencyP50Ms": 2553,
+          "latencyP95Ms": 4380,
+          "costUsd": 0.1193025,
+          "costPerCaseUsd": 0.004113879310344828,
+          "tokens": 79535,
           "casesAttempted": 29,
           "metrics": [
             {
@@ -1102,9 +1102,9 @@
             },
             {
               "label": "false lookup",
-              "value": "1/12 (8%)",
+              "value": "2/12 (17%)",
               "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
-              "sort": -0.08333333333333333
+              "sort": -0.16666666666666666
             },
             {
               "label": "route accuracy (link only)",
@@ -1126,9 +1126,9 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "5.0s / 9.9s",
+              "value": "2.6s / 4.4s",
               "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
-              "sort": -4958.295042000711
+              "sort": -2552.869749999998
             }
           ]
         },
@@ -1421,6 +1421,54 @@
           ]
         },
         {
+          "model": "mistralai/ministral-14b-2512",
+          "qualityScore": 87,
+          "latencyP50Ms": 2200,
+          "latencyP95Ms": 3000,
+          "costUsd": 0.0114852,
+          "costPerCaseUsd": 0.0003960413793103448,
+          "tokens": 57426,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "4/4 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "8/12 (67%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.6666666666666666
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "2/4 (50%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "1/1 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.2s / 3.0s",
+              "hint": "wall-clock per routing call through the zen gateway — the router runs this before every task, lower is better",
+              "sort": -2180.722250000108
+            }
+          ]
+        },
+        {
           "model": "qwen/qwen3.8-max",
           "qualityScore": 87,
           "latencyP50Ms": 17426,
@@ -1517,6 +1565,54 @@
           ]
         },
         {
+          "model": "qwen/qwen3.7-plus",
+          "qualityScore": 85,
+          "latencyP50Ms": 14200,
+          "latencyP95Ms": 20000,
+          "costUsd": 0.02835872,
+          "costPerCaseUsd": 0.0009778868965517242,
+          "tokens": 88621,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "9/12 (75%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.75
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "2/6 (33%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "4/4 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "14.2s / 20.0s",
+              "hint": "wall-clock per routing call through the zen gateway — the router runs this before every task, lower is better",
+              "sort": -14162.005000000005
+            }
+          ]
+        },
+        {
           "model": "anthropic/claude-haiku-4.5",
           "qualityScore": 83,
           "latencyP50Ms": 2671,
@@ -1561,6 +1657,54 @@
               "value": "2.7s / 5.2s",
               "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
               "sort": -2670.579417000001
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.5-flash-lite",
+          "qualityScore": 82,
+          "latencyP50Ms": 1200,
+          "latencyP95Ms": 1700,
+          "costUsd": 0.0213813,
+          "costPerCaseUsd": 0.0007372862068965517,
+          "tokens": 71271,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "5/6 (83%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 0.8333333333333334
+            },
+            {
+              "label": "false lookup",
+              "value": "6/12 (50%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.5
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "3/6 (50%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "3/4 (75%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 0.75
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "1.2s / 1.7s",
+              "hint": "wall-clock per routing call through the zen gateway — the router runs this before every task, lower is better",
+              "sort": -1229.6121669999557
             }
           ]
         },
@@ -1803,44 +1947,206 @@
               "sort": -12570.016749999995
             }
           ]
+        },
+        {
+          "model": "openai/gpt-5.4-mini",
+          "qualityScore": 0,
+          "latencyP50Ms": 60000,
+          "latencyP95Ms": 60000,
+          "costUsd": 0,
+          "costPerCaseUsd": 0,
+          "tokens": 0,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "0/6 (0%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 0
+            },
+            {
+              "label": "false lookup",
+              "value": "0/12 (0%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": 0
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "0/12 (0%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 0
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "0/6 (0%) → 0/6 (0%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 0
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "0/4 (0%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 0
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "60.0s / 60.0s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 60s timeout",
+              "sort": -60000
+            }
+          ]
         }
       ]
     },
     {
-      "id": "vision-extraction",
-      "name": "Vision — Roomote UI extraction",
-      "description": "Runs Roomote's visual-agent instructions over Roomote screenshots and scores objective OCR and UI-evidence extraction.",
-      "role": "vision",
-      "cases": 14,
-      "qualityMethod": "accuracy",
-      "updatedAt": "2026-08-04T15:17:57.763Z",
+      "id": "advisor-decisions",
+      "name": "Advisor — stuck-task decisions",
+      "description": "Tests whether the Roomote advisor selects the grounded next action for concrete debugging, design, and user-challenge scenarios.",
+      "role": "advisor",
+      "cases": 22,
+      "qualityMethod": "primary metric",
+      "updatedAt": "2026-08-04T14:31:55.700Z",
       "results": [
         {
-          "model": "google/gemini-3.6-flash",
+          "model": "openai/gpt-5.4-mini",
           "qualityScore": 100,
-          "latencyP50Ms": 4023,
-          "latencyP95Ms": 5944,
-          "costUsd": 0.034239,
-          "costPerCaseUsd": 0.002445642857142857,
-          "tokens": 22826,
-          "casesAttempted": 14,
+          "latencyP50Ms": 1247,
+          "latencyP95Ms": 1671,
+          "costUsd": 0.00625875,
+          "costPerCaseUsd": 0.0002844886363636364,
+          "tokens": 8345,
+          "casesAttempted": 22,
           "metrics": [
             {
-              "label": "accuracy",
-              "value": "14/14 (100%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 1
-            },
-            {
               "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "4.0s / 5.9s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "1.2s / 1.7s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-luna",
+          "qualityScore": 100,
+          "latencyP50Ms": 1482,
+          "latencyP95Ms": 3249,
+          "costUsd": 0.0008016,
+          "costPerCaseUsd": 0.00003643636363636364,
+          "tokens": 8016,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "1.5s / 3.2s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "minimax/minimax-m3",
+          "qualityScore": 100,
+          "latencyP50Ms": 2536,
+          "latencyP95Ms": 8961,
+          "costUsd": 0.0035217,
+          "costPerCaseUsd": 0.00016007727272727274,
+          "tokens": 11739,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.5s / 9.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-sonnet-4.6",
+          "qualityScore": 100,
+          "latencyP50Ms": 4665,
+          "latencyP95Ms": 5753,
+          "costUsd": 0.042042,
+          "costPerCaseUsd": 0.0019110000000000002,
+          "tokens": 14014,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "4.7s / 5.8s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "x-ai/grok-4.5",
+          "qualityScore": 100,
+          "latencyP50Ms": 4722,
+          "latencyP95Ms": 7073,
+          "costUsd": 0.036337999999999995,
+          "costPerCaseUsd": 0.0016517272727272726,
+          "tokens": 18169,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "4.7s / 7.1s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-sonnet-5",
+          "qualityScore": 100,
+          "latencyP50Ms": 6710,
+          "latencyP95Ms": 10107,
+          "costUsd": 0.04523,
+          "costPerCaseUsd": 0.002055909090909091,
+          "tokens": 22615,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "6.7s / 10.1s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
               "sort": null
             }
           ]
@@ -1848,1893 +2154,407 @@
         {
           "model": "anthropic/claude-fable-5",
           "qualityScore": 100,
-          "latencyP50Ms": 8606,
-          "latencyP95Ms": 17753,
-          "costUsd": 0.40542000000000006,
-          "costPerCaseUsd": 0.028958571428571434,
-          "tokens": 40542,
-          "casesAttempted": 14,
+          "latencyP50Ms": 7741,
+          "latencyP95Ms": 11931,
+          "costUsd": 0.21146,
+          "costPerCaseUsd": 0.009611818181818181,
+          "tokens": 21146,
+          "casesAttempted": 22,
           "metrics": [
             {
-              "label": "accuracy",
-              "value": "14/14 (100%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 1
-            },
-            {
               "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "8.6s / 17.8s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "google/gemini-3.1-pro-preview",
-          "qualityScore": 93,
-          "latencyP50Ms": 3205,
-          "latencyP95Ms": 16128,
-          "costUsd": 0.03904,
-          "costPerCaseUsd": 0.0027885714285714285,
-          "tokens": 19520,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "13/14 (93%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.9285714285714286
-            },
-            {
-              "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "3.2s / 16.1s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "x-ai/grok-4.5",
-          "qualityScore": 86,
-          "latencyP50Ms": 2061,
-          "latencyP95Ms": 23634,
-          "costUsd": 0.057027999999999995,
-          "costPerCaseUsd": 0.004073428571428571,
-          "tokens": 28514,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "12/14 (86%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.8571428571428571
-            },
-            {
-              "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "2.1s / 23.6s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "moonshotai/kimi-k3",
-          "qualityScore": 86,
-          "latencyP50Ms": 5014,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.119019,
-          "costPerCaseUsd": 0.008501357142857142,
-          "tokens": 39673,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "12/14 (86%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.8571428571428571
-            },
-            {
-              "label": "answered",
-              "value": "13/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "5.0s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-sonnet-5",
-          "qualityScore": 86,
-          "latencyP50Ms": 6940,
-          "latencyP95Ms": 9768,
-          "costUsd": 0.07948,
-          "costPerCaseUsd": 0.005677142857142857,
-          "tokens": 39740,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "12/14 (86%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.8571428571428571
-            },
-            {
-              "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "6.9s / 9.8s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-opus-5",
-          "qualityScore": 86,
-          "latencyP50Ms": 9360,
-          "latencyP95Ms": 18203,
-          "costUsd": 0.218455,
-          "costPerCaseUsd": 0.015603928571428572,
-          "tokens": 43691,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "12/14 (86%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.8571428571428571
-            },
-            {
-              "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "9.4s / 18.2s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "7.7s / 11.9s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "qwen/qwen3.8-max",
-          "qualityScore": 86,
-          "latencyP50Ms": 15846,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.046689999999999995,
-          "costPerCaseUsd": 0.003335,
-          "tokens": 23345,
-          "casesAttempted": 14,
+          "qualityScore": 100,
+          "latencyP50Ms": 7926,
+          "latencyP95Ms": 11707,
+          "costUsd": 0.030604,
+          "costPerCaseUsd": 0.001391090909090909,
+          "tokens": 15302,
+          "casesAttempted": 22,
           "metrics": [
             {
-              "label": "accuracy",
-              "value": "12/14 (86%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.8571428571428571
-            },
-            {
               "label": "answered",
-              "value": "12/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "15.8s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "7.9s / 11.7s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "openai/gpt-5.6-luna",
-          "qualityScore": 79,
-          "latencyP50Ms": 2522,
-          "latencyP95Ms": 28907,
-          "costUsd": 0.0053416,
-          "costPerCaseUsd": 0.00038154285714285714,
-          "tokens": 53416,
-          "casesAttempted": 14,
+          "model": "anthropic/claude-opus-5",
+          "qualityScore": 100,
+          "latencyP50Ms": 10551,
+          "latencyP95Ms": 14914,
+          "costUsd": 0.12824000000000002,
+          "costPerCaseUsd": 0.00582909090909091,
+          "tokens": 25648,
+          "casesAttempted": 22,
           "metrics": [
             {
-              "label": "accuracy",
-              "value": "11/14 (79%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7857142857142857
-            },
-            {
               "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "2.5s / 28.9s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "10.6s / 14.9s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "openai/gpt-5.6-sol",
-          "qualityScore": 79,
-          "latencyP50Ms": 3290,
-          "latencyP95Ms": 32509,
-          "costUsd": 0.25968,
-          "costPerCaseUsd": 0.01854857142857143,
-          "tokens": 51936,
-          "casesAttempted": 14,
+          "model": "deepseek/deepseek-v4-pro",
+          "qualityScore": 100,
+          "latencyP50Ms": 11316,
+          "latencyP95Ms": 33308,
+          "costUsd": 0.0059629800000000005,
+          "costPerCaseUsd": 0.0002710445454545455,
+          "tokens": 13708,
+          "casesAttempted": 22,
           "metrics": [
             {
-              "label": "accuracy",
-              "value": "11/14 (79%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7857142857142857
-            },
-            {
               "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "3.3s / 32.5s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "11.3s / 33.3s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "moonshotai/kimi-k2.7-code",
-          "qualityScore": 79,
-          "latencyP50Ms": 3481,
-          "latencyP95Ms": 8124,
-          "costUsd": 0.02545145,
-          "costPerCaseUsd": 0.0018179607142857143,
-          "tokens": 34865,
-          "casesAttempted": 14,
+          "model": "qwen/qwen3.7-plus",
+          "qualityScore": 100,
+          "latencyP50Ms": 12661,
+          "latencyP95Ms": 28365,
+          "costUsd": 0.00798112,
+          "costPerCaseUsd": 0.0003627781818181818,
+          "tokens": 24941,
+          "casesAttempted": 22,
           "metrics": [
             {
-              "label": "accuracy",
-              "value": "11/14 (79%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7857142857142857
-            },
-            {
               "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "3.5s / 8.1s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "12.7s / 28.4s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
               "sort": null
             }
           ]
         },
         {
-          "model": "anthropic/claude-haiku-4.5",
-          "qualityScore": 79,
-          "latencyP50Ms": 3721,
-          "latencyP95Ms": 8562,
-          "costUsd": 0.020694999999999998,
-          "costPerCaseUsd": 0.0014782142857142856,
-          "tokens": 20695,
-          "casesAttempted": 14,
+          "model": "moonshotai/kimi-k3",
+          "qualityScore": 100,
+          "latencyP50Ms": 13323,
+          "latencyP95Ms": 17878,
+          "costUsd": 0.047754,
+          "costPerCaseUsd": 0.0021706363636363637,
+          "tokens": 15918,
+          "casesAttempted": 22,
           "metrics": [
             {
-              "label": "accuracy",
-              "value": "11/14 (79%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7857142857142857
-            },
-            {
               "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "3.7s / 8.6s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "minimax/minimax-m3",
-          "qualityScore": 71,
-          "latencyP50Ms": 1958,
-          "latencyP95Ms": 4427,
-          "costUsd": 0.0038594999999999996,
-          "costPerCaseUsd": 0.0002756785714285714,
-          "tokens": 12865,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "10/14 (71%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7142857142857143
-            },
-            {
-              "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "2.0s / 4.4s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "13.3s / 17.9s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "openai/gpt-5.6-terra",
-          "qualityScore": 71,
-          "latencyP50Ms": 2396,
-          "latencyP95Ms": 60000,
-          "costUsd": 0.036900999999999996,
-          "costPerCaseUsd": 0.002635785714285714,
-          "tokens": 36901,
-          "casesAttempted": 14,
+          "qualityScore": 95,
+          "latencyP50Ms": 1915,
+          "latencyP95Ms": 5785,
+          "costUsd": 0.007967,
+          "costPerCaseUsd": 0.00036213636363636363,
+          "tokens": 7967,
+          "casesAttempted": 22,
           "metrics": [
             {
-              "label": "accuracy",
-              "value": "10/14 (71%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7142857142857143
-            },
-            {
               "label": "answered",
-              "value": "13/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "2.4s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "1.9s / 5.8s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.6-flash@low",
+          "qualityScore": 95,
+          "latencyP50Ms": 2077,
+          "latencyP95Ms": 3376,
+          "costUsd": 0.015759,
+          "costPerCaseUsd": 0.0007163181818181818,
+          "tokens": 10506,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.1s / 3.4s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "openai/gpt-5.6-sol",
+          "qualityScore": 95,
+          "latencyP50Ms": 2609,
+          "latencyP95Ms": 4107,
+          "costUsd": 0.039740000000000004,
+          "costPerCaseUsd": 0.0018063636363636365,
+          "tokens": 7948,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.6s / 4.1s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "anthropic/claude-haiku-4.5",
+          "qualityScore": 95,
+          "latencyP50Ms": 2923,
+          "latencyP95Ms": 3751,
+          "costUsd": 0.013705,
+          "costPerCaseUsd": 0.0006229545454545455,
+          "tokens": 13705,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "2.9s / 3.8s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "z-ai/glm-5.2",
+          "qualityScore": 95,
+          "latencyP50Ms": 4992,
+          "latencyP95Ms": 14911,
+          "costUsd": 0.009651306,
+          "costPerCaseUsd": 0.0004386957272727273,
+          "tokens": 9991,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "21/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "5.0s / 14.9s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.1-pro-preview",
+          "qualityScore": 95,
+          "latencyP50Ms": 7922,
+          "latencyP95Ms": 9613,
+          "costUsd": 0.047886,
+          "costPerCaseUsd": 0.0021766363636363637,
+          "tokens": 23943,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "7.9s / 9.6s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "xiaomi/mimo-v2.5",
-          "qualityScore": 71,
-          "latencyP50Ms": 3900,
-          "latencyP95Ms": 36919,
-          "costUsd": 0.005183780000000001,
-          "costPerCaseUsd": 0.00037027000000000007,
-          "tokens": 37027,
-          "casesAttempted": 14,
+          "qualityScore": 95,
+          "latencyP50Ms": 17948,
+          "latencyP95Ms": 32808,
+          "costUsd": 0.00194278,
+          "costPerCaseUsd": 0.00008830818181818182,
+          "tokens": 13877,
+          "casesAttempted": 22,
           "metrics": [
             {
-              "label": "accuracy",
-              "value": "10/14 (71%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0.7142857142857143
-            },
-            {
               "label": "answered",
-              "value": "14/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "3.9s / 36.9s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
+              "value": "17.9s / 32.8s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.5-flash-lite",
+          "qualityScore": 91,
+          "latencyP50Ms": 1017,
+          "latencyP95Ms": 1898,
+          "costUsd": 0.0023307,
+          "costPerCaseUsd": 0.00010594090909090908,
+          "tokens": 7769,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "1.0s / 1.9s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "mistralai/ministral-14b-2512",
+          "qualityScore": 86,
+          "latencyP50Ms": 1794,
+          "latencyP95Ms": 3406,
+          "costUsd": 0.0017204,
+          "costPerCaseUsd": 0.0000782,
+          "tokens": 8602,
+          "casesAttempted": 22,
+          "metrics": [
+            {
+              "label": "answered",
+              "value": "22/22",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "1.8s / 3.4s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "deepseek/deepseek-v4-flash-0731",
-          "qualityScore": 0,
-          "latencyP50Ms": 60000,
+          "qualityScore": 86,
+          "latencyP50Ms": 19645,
           "latencyP95Ms": 60000,
-          "costUsd": 0,
-          "costPerCaseUsd": 0,
-          "tokens": 0,
-          "casesAttempted": 14,
+          "costUsd": 0.00111699,
+          "costPerCaseUsd": 0.000050772272727272726,
+          "tokens": 12411,
+          "casesAttempted": 22,
           "metrics": [
-            {
-              "label": "accuracy",
-              "value": "0/14 (0%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0
-            },
             {
               "label": "answered",
-              "value": "0/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
+              "value": "19/22",
+              "hint": "successful structured advisor calls",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "deepseek/deepseek-v4-pro",
-          "qualityScore": 0,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
-          "costUsd": 0,
-          "costPerCaseUsd": 0,
-          "tokens": 0,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "0/14 (0%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0
-            },
-            {
-              "label": "answered",
-              "value": "0/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "z-ai/glm-5.2",
-          "qualityScore": 0,
-          "latencyP50Ms": 60000,
-          "latencyP95Ms": 60000,
-          "costUsd": 0,
-          "costPerCaseUsd": 0,
-          "tokens": 0,
-          "casesAttempted": 14,
-          "metrics": [
-            {
-              "label": "accuracy",
-              "value": "0/14 (0%)",
-              "hint": "objective visual extraction cases answered correctly",
-              "sort": 0
-            },
-            {
-              "label": "answered",
-              "value": "0/14",
-              "hint": "successful image-model calls; text-only models normally score zero",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "60.0s / 60.0s",
-              "hint": "wall-clock per attempted visual extraction call; failures count as the 60s timeout",
-              "sort": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "review",
-      "name": "Review — self-review subagent",
-      "description": "Runs Roomote's review prompt over a fixed benchmark of shipped diffs and measures how many known flaws it catches (a neutral meta-judge decides) and how often it blocks clean PRs.",
-      "role": "codeReview",
-      "cases": 84,
-      "qualityMethod": "miss-weighted informedness",
-      "updatedAt": "2026-08-06T03:46:14.463Z",
-      "results": [
-        {
-          "model": "anthropic/claude-fable-5",
-          "qualityScore": 60,
-          "latencyP50Ms": 22874,
-          "latencyP95Ms": 60416,
-          "costUsd": 5.027100000000001,
-          "costPerCaseUsd": 0.05984642857142858,
-          "tokens": 502710,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "16/22 (73%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.7272727272727273
-            },
-            {
-              "label": "false alarm",
-              "value": "16/62 (26%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.25806451612903225
-            },
-            {
-              "label": "issues per review",
-              "value": "3.5",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "22.9s / 60.4s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-sonnet-5",
-          "qualityScore": 53,
-          "latencyP50Ms": 37374,
-          "latencyP95Ms": 169790,
-          "costUsd": 1.587016,
-          "costPerCaseUsd": 0.01889304761904762,
-          "tokens": 793508,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "16/22 (73%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.7272727272727273
-            },
-            {
-              "label": "false alarm",
-              "value": "25/62 (40%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.4032258064516129
-            },
-            {
-              "label": "issues per review",
-              "value": "2.8",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "37.4s / 169.8s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "moonshotai/kimi-k3",
-          "qualityScore": 50,
-          "latencyP50Ms": 21271,
-          "latencyP95Ms": 138419,
-          "costUsd": 0.973179,
-          "costPerCaseUsd": 0.011585464285714286,
-          "tokens": 324393,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "14/22 (64%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.6363636363636364
-            },
-            {
-              "label": "false alarm",
-              "value": "17/62 (27%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.27419354838709675
-            },
-            {
-              "label": "issues per review",
-              "value": "4.6",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "21.3s / 138.4s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-opus-5",
-          "qualityScore": 43,
-          "latencyP50Ms": 27355,
-          "latencyP95Ms": 86149,
-          "costUsd": 2.9476250000000004,
-          "costPerCaseUsd": 0.035090773809523815,
-          "tokens": 589525,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "15/22 (68%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.6818181818181818
-            },
-            {
-              "label": "false alarm",
-              "value": "31/62 (50%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.5
-            },
-            {
-              "label": "issues per review",
-              "value": "3.8",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "27.4s / 86.1s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "deepseek/deepseek-v4-pro",
-          "qualityScore": 43,
-          "latencyP50Ms": 58747,
-          "latencyP95Ms": 900000,
-          "costUsd": 0.141468525,
-          "costPerCaseUsd": 0.0016841491071428573,
-          "tokens": 325215,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "13/22 (59%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.5909090909090909
-            },
-            {
-              "label": "false alarm",
-              "value": "20/62 (32%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.3225806451612903
-            },
-            {
-              "label": "issues per review",
-              "value": "1.3",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "58.7s / 900.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-terra",
-          "qualityScore": 42,
-          "latencyP50Ms": 12905,
-          "latencyP95Ms": 46441,
-          "costUsd": 0.317967,
-          "costPerCaseUsd": 0.0037853214285714287,
-          "tokens": 317967,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "13/22 (59%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.5909090909090909
-            },
-            {
-              "label": "false alarm",
-              "value": "21/62 (34%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.3387096774193548
-            },
-            {
-              "label": "issues per review",
-              "value": "1.2",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "12.9s / 46.4s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "x-ai/grok-4.5",
-          "qualityScore": 42,
-          "latencyP50Ms": 27795,
-          "latencyP95Ms": 101701,
-          "costUsd": 0.827322,
-          "costPerCaseUsd": 0.00984907142857143,
-          "tokens": 413661,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "12/22 (55%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.5454545454545454
-            },
-            {
-              "label": "false alarm",
-              "value": "15/62 (24%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.24193548387096775
-            },
-            {
-              "label": "issues per review",
-              "value": "1.5",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "27.8s / 101.7s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-luna",
-          "qualityScore": 41,
-          "latencyP50Ms": 25559,
-          "latencyP95Ms": 80670,
-          "costUsd": 0.0503497,
-          "costPerCaseUsd": 0.0005994011904761904,
-          "tokens": 503497,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "13/22 (59%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.5909090909090909
-            },
-            {
-              "label": "false alarm",
-              "value": "23/62 (37%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.3709677419354839
-            },
-            {
-              "label": "issues per review",
-              "value": "1.3",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "25.6s / 80.7s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-sol",
-          "qualityScore": 40,
-          "latencyP50Ms": 24083,
-          "latencyP95Ms": 114050,
-          "costUsd": 1.8176900000000002,
-          "costPerCaseUsd": 0.02163916666666667,
-          "tokens": 363538,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "13/22 (59%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.5909090909090909
-            },
-            {
-              "label": "false alarm",
-              "value": "24/62 (39%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.3870967741935484
-            },
-            {
-              "label": "issues per review",
-              "value": "1.3",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "24.1s / 114.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "google/gemini-3.1-pro-preview",
-          "qualityScore": 36,
-          "latencyP50Ms": 16996,
-          "latencyP95Ms": 121598,
-          "costUsd": 1.515826,
-          "costPerCaseUsd": 0.018045547619047617,
-          "tokens": 757913,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "11/22 (50%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.5
-            },
-            {
-              "label": "false alarm",
-              "value": "17/62 (27%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.27419354838709675
-            },
-            {
-              "label": "issues per review",
-              "value": "0.7",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "17.0s / 121.6s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "z-ai/glm-5.2",
-          "qualityScore": 34,
-          "latencyP50Ms": 18631,
-          "latencyP95Ms": 900000,
-          "costUsd": 0.22247556000000002,
-          "costPerCaseUsd": 0.0026485185714285714,
-          "tokens": 292731,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "9/22 (41%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.4090909090909091
-            },
-            {
-              "label": "false alarm",
-              "value": "9/62 (15%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.14516129032258066
-            },
-            {
-              "label": "issues per review",
-              "value": "2.3",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "18.6s / 900.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "deepseek/deepseek-v4-flash-0731",
-          "qualityScore": 34,
-          "latencyP50Ms": 668396,
-          "latencyP95Ms": 900000,
-          "costUsd": 0.01725705,
-          "costPerCaseUsd": 0.00020544107142857142,
-          "tokens": 191745,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "8/22 (36%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.36363636363636365
-            },
-            {
-              "label": "false alarm",
-              "value": "3/62 (5%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.04838709677419355
-            },
-            {
-              "label": "issues per review",
-              "value": "1.9",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "668.4s / 900.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-haiku-4.5",
-          "qualityScore": 31,
-          "latencyP50Ms": 76092,
-          "latencyP95Ms": 140592,
-          "costUsd": 1.014545,
-          "costPerCaseUsd": 0.012077916666666667,
-          "tokens": 1014545,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "11/22 (50%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.5
-            },
-            {
-              "label": "false alarm",
-              "value": "23/62 (37%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.3709677419354839
-            },
-            {
-              "label": "issues per review",
-              "value": "1.8",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "76.1s / 140.6s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
+              "value": "19.6s / 60.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
               "sort": null
             }
           ]
         },
         {
           "model": "moonshotai/kimi-k2.7-code",
-          "qualityScore": 29,
-          "latencyP50Ms": 151175,
-          "latencyP95Ms": 900000,
-          "costUsd": 0.34112329999999996,
-          "costPerCaseUsd": 0.004060991666666666,
-          "tokens": 487319,
-          "casesAttempted": 84,
+          "qualityScore": 82,
+          "latencyP50Ms": 6135,
+          "latencyP95Ms": 60000,
+          "costUsd": 0.00780078,
+          "costPerCaseUsd": 0.0003545809090909091,
+          "tokens": 10686,
+          "casesAttempted": 22,
           "metrics": [
-            {
-              "label": "catch rate",
-              "value": "9/22 (41%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.4090909090909091
-            },
-            {
-              "label": "false alarm",
-              "value": "15/62 (24%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.24193548387096775
-            },
-            {
-              "label": "issues per review",
-              "value": "4.2",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "151.2s / 900.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "xiaomi/mimo-v2.5",
-          "qualityScore": 27,
-          "latencyP50Ms": 900000,
-          "latencyP95Ms": 900000,
-          "costUsd": 0.010014760000000001,
-          "costPerCaseUsd": 0.00011922333333333334,
-          "tokens": 71534,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "6/22 (27%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.2727272727272727
-            },
-            {
-              "label": "false alarm",
-              "value": "0/62 (0%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": 0
-            },
-            {
-              "label": "issues per review",
-              "value": "1.0",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "900.0s / 900.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "qwen/qwen3.8-max",
-          "qualityScore": 26,
-          "latencyP50Ms": 179397,
-          "latencyP95Ms": 427408,
-          "costUsd": 1.657772,
-          "costPerCaseUsd": 0.019735380952380952,
-          "tokens": 828886,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "14/22 (64%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.6363636363636364
-            },
-            {
-              "label": "false alarm",
-              "value": "47/62 (76%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.7580645161290323
-            },
-            {
-              "label": "issues per review",
-              "value": "6.1",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "179.4s / 427.4s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "google/gemini-3.6-flash",
-          "qualityScore": 25,
-          "latencyP50Ms": 10640,
-          "latencyP95Ms": 55847,
-          "costUsd": 0.842685,
-          "costPerCaseUsd": 0.010031964285714286,
-          "tokens": 561790,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "9/22 (41%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.4090909090909091
-            },
-            {
-              "label": "false alarm",
-              "value": "20/62 (32%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": -0.3225806451612903
-            },
-            {
-              "label": "issues per review",
-              "value": "0.6",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "10.6s / 55.8s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "minimax/minimax-m3",
-          "qualityScore": 9,
-          "latencyP50Ms": 865,
-          "latencyP95Ms": 900000,
-          "costUsd": 0.0497667,
-          "costPerCaseUsd": 0.0005924607142857143,
-          "tokens": 165889,
-          "casesAttempted": 84,
-          "metrics": [
-            {
-              "label": "catch rate",
-              "value": "2/22 (9%)",
-              "hint": "known flaws surfaced — higher is better",
-              "sort": 0.09090909090909091
-            },
-            {
-              "label": "false alarm",
-              "value": "0/62 (0%)",
-              "hint": "clean PRs blocked — lower is better",
-              "sort": 0
-            },
-            {
-              "label": "issues per review",
-              "value": "0.3",
-              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "0.9s / 900.0s",
-              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
-              "sort": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "explorer",
-      "name": "Explorer — repository search",
-      "description": "Runs opencode's real explore subagent (production prompt, glob/grep/read tools) against pinned repository checkouts and measures whether it finds the files the real fix modified, and how efficiently.",
-      "role": "explore",
-      "cases": 13,
-      "qualityMethod": "recall-weighted F2",
-      "updatedAt": "2026-08-06T19:52:47.348Z",
-      "results": [
-        {
-          "model": "openai/gpt-5.6-luna",
-          "qualityScore": 87,
-          "latencyP50Ms": 31330,
-          "latencyP95Ms": 69745,
-          "costUsd": 0.01001242,
-          "costPerCaseUsd": 0.0007701861538461538,
-          "tokens": 2089,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "92%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.9230769230769231
-            },
-            {
-              "label": "precision",
-              "value": "81%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.8086080586080586
-            },
-            {
-              "label": "tool calls",
-              "value": "15.8",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -15.76923076923077
-            },
             {
               "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
+              "value": "18/22",
+              "hint": "successful structured advisor calls",
               "sort": null
             },
             {
               "label": "latency p50/p95",
-              "value": "31.3s / 69.7s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-sol",
-          "qualityScore": 85,
-          "latencyP50Ms": 49183,
-          "latencyP95Ms": 129238,
-          "costUsd": 0.5508422500000001,
-          "costPerCaseUsd": 0.04237248076923077,
-          "tokens": 1572,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "87%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.8717948717948718
-            },
-            {
-              "label": "precision",
-              "value": "87%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.8653846153846154
-            },
-            {
-              "label": "tool calls",
-              "value": "18.5",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -18.46153846153846
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "49.2s / 129.2s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "google/gemini-3.6-flash",
-          "qualityScore": 83,
-          "latencyP50Ms": 72337,
-          "latencyP95Ms": 240000,
-          "costUsd": 0.35969745000000003,
-          "costPerCaseUsd": 0.027669034615384617,
-          "tokens": 139993,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "85%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.8461538461538461
-            },
-            {
-              "label": "precision",
-              "value": "83%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.8282051282051281
-            },
-            {
-              "label": "tool calls",
-              "value": "20.6",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -20.583333333333332
-            },
-            {
-              "label": "answered",
-              "value": "12/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "72.3s / 240.0s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "openai/gpt-5.6-terra",
-          "qualityScore": 80,
-          "latencyP50Ms": 37045,
-          "latencyP95Ms": 106368,
-          "costUsd": 0.13005765,
-          "costPerCaseUsd": 0.010004434615384614,
-          "tokens": 2153,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "85%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.8461538461538461
-            },
-            {
-              "label": "precision",
-              "value": "77%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.7692307692307693
-            },
-            {
-              "label": "tool calls",
-              "value": "17.5",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -17.46153846153846
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "37.0s / 106.4s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "x-ai/grok-4.5",
-          "qualityScore": 78,
-          "latencyP50Ms": 24592,
-          "latencyP95Ms": 84370,
-          "costUsd": 0.19629960000000002,
-          "costPerCaseUsd": 0.015099969230769231,
-          "tokens": 47298,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "92%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.9230769230769231
-            },
-            {
-              "label": "precision",
-              "value": "64%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.6438034188034187
-            },
-            {
-              "label": "tool calls",
-              "value": "13.2",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -13.23076923076923
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "24.6s / 84.4s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-sonnet-5",
-          "qualityScore": 76,
-          "latencyP50Ms": 37961,
-          "latencyP95Ms": 163972,
-          "costUsd": 0.29373150000000003,
-          "costPerCaseUsd": 0.022594730769230773,
-          "tokens": 10179,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "92%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.9230769230769231
-            },
-            {
-              "label": "precision",
-              "value": "59%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.5913919413919414
-            },
-            {
-              "label": "tool calls",
-              "value": "11.2",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -11.153846153846153
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "38.0s / 164.0s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "z-ai/glm-5.2",
-          "qualityScore": 76,
-          "latencyP50Ms": 48335,
-          "latencyP95Ms": 87725,
-          "costUsd": 0.059028592,
-          "costPerCaseUsd": 0.004540660923076923,
-          "tokens": 40142,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "95%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.9487179487179487
-            },
-            {
-              "label": "precision",
-              "value": "55%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.552014652014652
-            },
-            {
-              "label": "tool calls",
-              "value": "11.6",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -11.615384615384615
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "48.3s / 87.7s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-fable-5",
-          "qualityScore": 74,
-          "latencyP50Ms": 38232,
-          "latencyP95Ms": 125397,
-          "costUsd": 1.3802,
-          "costPerCaseUsd": 0.10616923076923078,
-          "tokens": 11690,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "92%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.9230769230769231
-            },
-            {
-              "label": "precision",
-              "value": "50%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.5046453546453546
-            },
-            {
-              "label": "tool calls",
-              "value": "7.4",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -7.384615384615385
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "38.2s / 125.4s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-haiku-4.5",
-          "qualityScore": 73,
-          "latencyP50Ms": 80872,
-          "latencyP95Ms": 171142,
-          "costUsd": 0.08374714999999999,
-          "costPerCaseUsd": 0.0064420884615384606,
-          "tokens": 6595,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "92%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.9230769230769231
-            },
-            {
-              "label": "precision",
-              "value": "54%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.5366050616050616
-            },
-            {
-              "label": "tool calls",
-              "value": "22.6",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -22.615384615384617
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "80.9s / 171.1s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "google/gemini-3.1-pro-preview",
-          "qualityScore": 73,
-          "latencyP50Ms": 124497,
-          "latencyP95Ms": 240000,
-          "costUsd": 0.24277520000000002,
-          "costPerCaseUsd": 0.018675015384615388,
-          "tokens": 84212,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "77%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.7692307692307693
-            },
-            {
-              "label": "precision",
-              "value": "69%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.6858974358974359
-            },
-            {
-              "label": "tool calls",
-              "value": "16.3",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -16.272727272727273
-            },
-            {
-              "label": "answered",
-              "value": "11/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "124.5s / 240.0s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "moonshotai/kimi-k2.7-code",
-          "qualityScore": 72,
-          "latencyP50Ms": 50235,
-          "latencyP95Ms": 233054,
-          "costUsd": 0.14868789999999998,
-          "costPerCaseUsd": 0.011437530769230767,
-          "tokens": 99383,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "85%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.8461538461538461
-            },
-            {
-              "label": "precision",
-              "value": "60%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.6047008547008547
-            },
-            {
-              "label": "tool calls",
-              "value": "18.9",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -18.923076923076923
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "50.2s / 233.1s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "deepseek/deepseek-v4-flash-0731",
-          "qualityScore": 72,
-          "latencyP50Ms": 68092,
-          "latencyP95Ms": 126078,
-          "costUsd": 0.029044458000000002,
-          "costPerCaseUsd": 0.002234189076923077,
-          "tokens": 305326,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "92%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.9230769230769231
-            },
-            {
-              "label": "precision",
-              "value": "53%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.5273279352226721
-            },
-            {
-              "label": "tool calls",
-              "value": "12.5",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -12.461538461538462
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "68.1s / 126.1s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "minimax/minimax-m3",
-          "qualityScore": 71,
-          "latencyP50Ms": 66875,
-          "latencyP95Ms": 236086,
-          "costUsd": 0.04881558000000001,
-          "costPerCaseUsd": 0.0037550446153846164,
-          "tokens": 64656,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "90%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.8974358974358974
-            },
-            {
-              "label": "precision",
-              "value": "52%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.5207264957264958
-            },
-            {
-              "label": "tool calls",
-              "value": "21.9",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -21.923076923076923
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "66.9s / 236.1s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "moonshotai/kimi-k3",
-          "qualityScore": 71,
-          "latencyP50Ms": 72703,
-          "latencyP95Ms": 216785,
-          "costUsd": 0.3505857,
-          "costPerCaseUsd": 0.02696813076923077,
-          "tokens": 51278,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "95%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.9487179487179487
-            },
-            {
-              "label": "precision",
-              "value": "48%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.48039716693562845
-            },
-            {
-              "label": "tool calls",
-              "value": "11.7",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -11.692307692307692
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "72.7s / 216.8s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "deepseek/deepseek-v4-pro",
-          "qualityScore": 69,
-          "latencyP50Ms": 82099,
-          "latencyP95Ms": 156909,
-          "costUsd": 0.026214926999999996,
-          "costPerCaseUsd": 0.002016532846153846,
-          "tokens": 37442,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "92%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.9230769230769229
-            },
-            {
-              "label": "precision",
-              "value": "44%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.4393467643467644
-            },
-            {
-              "label": "tool calls",
-              "value": "20.8",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -20.846153846153847
-            },
-            {
-              "label": "answered",
-              "value": "13/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "82.1s / 156.9s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "anthropic/claude-opus-5",
-          "qualityScore": 57,
-          "latencyP50Ms": 52484,
-          "latencyP95Ms": 240000,
-          "costUsd": 0.58485825,
-          "costPerCaseUsd": 0.04498909615384616,
-          "tokens": 10516,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "77%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.7692307692307693
-            },
-            {
-              "label": "precision",
-              "value": "42%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.4225274725274726
-            },
-            {
-              "label": "tool calls",
-              "value": "11.1",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -11.083333333333334
-            },
-            {
-              "label": "answered",
-              "value": "12/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "52.5s / 240.0s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
-              "sort": null
-            }
-          ]
-        },
-        {
-          "model": "qwen/qwen3.8-max",
-          "qualityScore": 51,
-          "latencyP50Ms": 71496,
-          "latencyP95Ms": 240000,
-          "costUsd": 0.185196,
-          "costPerCaseUsd": 0.014245846153846154,
-          "tokens": 52998,
-          "casesAttempted": 13,
-          "metrics": [
-            {
-              "label": "file recall",
-              "value": "72%",
-              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
-              "sort": 0.717948717948718
-            },
-            {
-              "label": "precision",
-              "value": "35%",
-              "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.3474358974358974
-            },
-            {
-              "label": "tool calls",
-              "value": "17.0",
-              "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -17
-            },
-            {
-              "label": "answered",
-              "value": "10/13",
-              "hint": "searches that completed within the time budget",
-              "sort": null
-            },
-            {
-              "label": "latency p50/p95",
-              "value": "71.5s / 240.0s",
-              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
+              "value": "6.1s / 60.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 60s timeout",
               "sort": null
             }
           ]
