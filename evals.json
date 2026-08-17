@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-17T16:50:58.134Z",
+  "publishedAt": "2026-08-17T18:40:30.087Z",
   "evals": [
     {
       "id": "coding",
@@ -2997,7 +2997,7 @@
       "role": "explore",
       "cases": 13,
       "qualityMethod": "recall-weighted F2",
-      "updatedAt": "2026-08-17T16:38:47.411Z",
+      "updatedAt": "2026-08-17T18:32:22.779Z",
       "results": [
         {
           "model": "openai/gpt-5.6-sol@low",
@@ -3172,14 +3172,14 @@
           ]
         },
         {
-          "model": "x-ai/grok-4.6@high",
-          "qualityScore": 78,
-          "latencyP50Ms": 41786,
-          "latencyP95Ms": 119330,
-          "totalDurationMs": 604179,
-          "costUsd": 0.27269,
-          "costPerCaseUsd": 0.020976153846153846,
-          "tokens": 58146,
+          "model": "x-ai/grok-4.6@low",
+          "qualityScore": 81,
+          "latencyP50Ms": 24226,
+          "latencyP95Ms": 90633,
+          "totalDurationMs": 455871,
+          "costUsd": 0.263412,
+          "costPerCaseUsd": 0.020262461538461538,
+          "tokens": 44351,
           "casesAttempted": 13,
           "metrics": [
             {
@@ -3190,15 +3190,15 @@
             },
             {
               "label": "precision",
-              "value": "65%",
+              "value": "70%",
               "hint": "of existing files the report named, how many the fix actually touched",
-              "sort": 0.652014652014652
+              "sort": 0.6961538461538461
             },
             {
               "label": "tool calls",
-              "value": "15.7",
+              "value": "15.4",
               "hint": "average tool invocations per successful search — lower is cheaper",
-              "sort": -15.692307692307692
+              "sort": -15.384615384615385
             },
             {
               "label": "answered",
@@ -3208,7 +3208,7 @@
             },
             {
               "label": "latency p50/p95",
-              "value": "41.8s / 119.3s",
+              "value": "24.2s / 90.6s",
               "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
