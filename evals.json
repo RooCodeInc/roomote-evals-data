@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-17T18:40:30.087Z",
+  "publishedAt": "2026-08-17T20:00:17.718Z",
   "evals": [
     {
       "id": "coding",
@@ -2298,7 +2298,7 @@
       "role": "codeReview",
       "cases": 84,
       "qualityMethod": "miss-weighted informedness",
-      "updatedAt": "2026-08-08T03:08:28.347Z",
+      "updatedAt": "2026-08-17T18:47:28.831Z",
       "results": [
         {
           "model": "anthropic/claude-fable-5@high",
@@ -2811,6 +2811,49 @@
             {
               "label": "latency p50/p95",
               "value": "72.1s / 118.1s",
+              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "x-ai/grok-4.6@high",
+          "qualityScore": 33,
+          "latencyP50Ms": 32312,
+          "latencyP95Ms": 160473,
+          "totalDurationMs": 3952629,
+          "costUsd": 0.972976,
+          "costPerCaseUsd": 0.011583047619047618,
+          "tokens": 486488,
+          "casesAttempted": 84,
+          "metrics": [
+            {
+              "label": "catch rate",
+              "value": "11/22 (50%)",
+              "hint": "known flaws surfaced — higher is better",
+              "sort": 0.5
+            },
+            {
+              "label": "false alarm",
+              "value": "21/62 (34%)",
+              "hint": "clean PRs blocked — lower is better",
+              "sort": -0.3387096774193548
+            },
+            {
+              "label": "issues per review",
+              "value": "1.2",
+              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
+              "sort": null
+            },
+            {
+              "label": "issues per clean PR",
+              "value": "0.8",
+              "hint": "average issues raised on audited-clean diffs — every one is noise; lower is better",
+              "sort": -0.7741935483870968
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "32.3s / 160.5s",
               "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
               "sort": null
             }
