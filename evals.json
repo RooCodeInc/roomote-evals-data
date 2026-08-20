@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-17T20:00:17.718Z",
+  "publishedAt": "2026-08-19T23:04:55.906Z",
   "evals": [
     {
       "id": "coding",
@@ -996,7 +996,7 @@
       "role": "helper",
       "cases": 29,
       "qualityMethod": "routing-family macro accuracy",
-      "updatedAt": "2026-08-08T03:08:18.414Z",
+      "updatedAt": "2026-08-17T20:29:05.583Z",
       "results": [
         {
           "model": "openai/gpt-5.6-sol@low",
@@ -1044,6 +1044,55 @@
               "value": "3.1s / 5.2s",
               "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
               "sort": -3106.7431679999863
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.7-flash@low",
+          "qualityScore": 100,
+          "latencyP50Ms": 3374,
+          "latencyP95Ms": 4962,
+          "totalDurationMs": 101735,
+          "costUsd": 0.030027750000000002,
+          "costPerCaseUsd": 0.001035439655172414,
+          "tokens": 80074,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "6/6 (100%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "false lookup",
+              "value": "0/12 (0%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": 0
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "3/6 (50%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "4/4 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "3.4s / 5.0s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -3374.298250000007
             }
           ]
         },
@@ -1538,6 +1587,55 @@
           ]
         },
         {
+          "model": "deepseek/deepseek-v4-pro-0813@low",
+          "qualityScore": 88,
+          "latencyP50Ms": 22015,
+          "latencyP95Ms": 73946,
+          "totalDurationMs": 852341,
+          "costUsd": 0.05439456,
+          "costPerCaseUsd": 0.0018756744827586208,
+          "tokens": 82416,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "3/6 (50%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 0.5
+            },
+            {
+              "label": "false lookup",
+              "value": "1/12 (8%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": -0.08333333333333333
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "12/12 (100%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 1
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "3/6 (50%) → 6/6 (100%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 1
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "4/4 (100%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 1
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "22.0s / 73.9s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -22015.44441699999
+            }
+          ]
+        },
+        {
           "model": "minimax/minimax-m3@low",
           "qualityScore": 87,
           "latencyP50Ms": 3164,
@@ -1781,6 +1879,55 @@
               "sort": -9614.713628999998
             }
           ]
+        },
+        {
+          "model": "poolside/laguna-s-2.1",
+          "qualityScore": 0,
+          "latencyP50Ms": 120000,
+          "latencyP95Ms": 120000,
+          "totalDurationMs": 3480000,
+          "costUsd": 0,
+          "costPerCaseUsd": 0,
+          "tokens": 0,
+          "casesAttempted": 29,
+          "metrics": [
+            {
+              "label": "lookup recall",
+              "value": "0/6 (0%)",
+              "hint": "asks for the issue when the message alone can't route — higher is better",
+              "sort": 0
+            },
+            {
+              "label": "false lookup",
+              "value": "0/12 (0%)",
+              "hint": "asks when the message already routes — each one is 8s of wasted fetch under a gated design — lower is better",
+              "sort": 0
+            },
+            {
+              "label": "route accuracy (link only)",
+              "value": "0/12 (0%)",
+              "hint": "clear-link + lookalike cases routed to the right workspace without fetching",
+              "sort": 0
+            },
+            {
+              "label": "ambiguous: blind → with issue",
+              "value": "0/6 (0%) → 0/6 (0%)",
+              "hint": "same ambiguous cases guessed blind vs with fetched issue context — the gap is what the fetch buys (last case includes a prompt-injection attempt)",
+              "sort": 0
+            },
+            {
+              "label": "bare-ref extraction",
+              "value": "0/4 (0%)",
+              "hint": "no-URL references (#234, ENG-512): asks for lookup AND emits a usable externalReference for code to resolve",
+              "sort": 0
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "120.0s / 120.0s",
+              "hint": "wall-clock per attempted routing call through the zen gateway; failures count as the 120s timeout",
+              "sort": -120000
+            }
+          ]
         }
       ]
     },
@@ -1791,7 +1938,7 @@
       "role": "vision",
       "cases": 14,
       "qualityMethod": "accuracy",
-      "updatedAt": "2026-08-08T03:08:23.880Z",
+      "updatedAt": "2026-08-17T20:29:05.680Z",
       "results": [
         {
           "model": "google/gemini-3.6-flash@low",
@@ -1881,6 +2028,37 @@
             {
               "label": "latency p50/p95",
               "value": "2.1s / 17.0s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.7-flash@low",
+          "qualityScore": 93,
+          "latencyP50Ms": 3703,
+          "latencyP95Ms": 8534,
+          "totalDurationMs": 56702,
+          "costUsd": 0.007725,
+          "costPerCaseUsd": 0.0005517857142857143,
+          "tokens": 20600,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "13/14 (93%)",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0.9285714285714286
+            },
+            {
+              "label": "answered",
+              "value": "14/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "3.7s / 8.5s",
               "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
               "sort": null
             }
@@ -2197,7 +2375,100 @@
           ]
         },
         {
+          "model": "thinkingmachines/inkling@low",
+          "qualityScore": 29,
+          "latencyP50Ms": 120000,
+          "latencyP95Ms": 120000,
+          "totalDurationMs": 1099976,
+          "costUsd": 0.0082802,
+          "costPerCaseUsd": 0.0005914428571428571,
+          "tokens": 8716,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "4/14 (29%)",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0.2857142857142857
+            },
+            {
+              "label": "answered",
+              "value": "5/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "120.0s / 120.0s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "bytedance-seed/seed-2.0-code@low",
+          "qualityScore": 0,
+          "latencyP50Ms": 120000,
+          "latencyP95Ms": 120000,
+          "totalDurationMs": 1680000,
+          "costUsd": 0,
+          "costPerCaseUsd": 0,
+          "tokens": 0,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "0/14 (0%)",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0
+            },
+            {
+              "label": "answered",
+              "value": "0/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "120.0s / 120.0s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
           "model": "deepseek/deepseek-v4-flash-0731@low",
+          "qualityScore": 0,
+          "latencyP50Ms": 120000,
+          "latencyP95Ms": 120000,
+          "totalDurationMs": 1680000,
+          "costUsd": 0,
+          "costPerCaseUsd": 0,
+          "tokens": 0,
+          "casesAttempted": 14,
+          "metrics": [
+            {
+              "label": "accuracy",
+              "value": "0/14 (0%)",
+              "hint": "cases whose answers state every answer-key fact",
+              "sort": 0
+            },
+            {
+              "label": "answered",
+              "value": "0/14",
+              "hint": "successful image-model calls; text-only models normally score zero",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "120.0s / 120.0s",
+              "hint": "wall-clock per attempted visual extraction call; failures count as the 120s timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "deepseek/deepseek-v4-pro-0813@low",
           "qualityScore": 0,
           "latencyP50Ms": 120000,
           "latencyP95Ms": 120000,
@@ -2298,7 +2569,7 @@
       "role": "codeReview",
       "cases": 84,
       "qualityMethod": "miss-weighted informedness",
-      "updatedAt": "2026-08-17T18:47:28.831Z",
+      "updatedAt": "2026-08-18T15:09:32.810Z",
       "results": [
         {
           "model": "anthropic/claude-fable-5@high",
@@ -2553,6 +2824,49 @@
             {
               "label": "latency p50/p95",
               "value": "30.8s / 126.3s",
+              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.7-flash@high",
+          "qualityScore": 40,
+          "latencyP50Ms": 7331,
+          "latencyP95Ms": 22362,
+          "totalDurationMs": 786676,
+          "costUsd": 0.1289325,
+          "costPerCaseUsd": 0.0015349107142857144,
+          "tokens": 343820,
+          "casesAttempted": 84,
+          "metrics": [
+            {
+              "label": "catch rate",
+              "value": "9/22 (41%)",
+              "hint": "known flaws surfaced — higher is better",
+              "sort": 0.4090909090909091
+            },
+            {
+              "label": "false alarm",
+              "value": "1/62 (2%)",
+              "hint": "clean PRs blocked — lower is better",
+              "sort": -0.016129032258064516
+            },
+            {
+              "label": "issues per review",
+              "value": "0.3",
+              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
+              "sort": null
+            },
+            {
+              "label": "issues per clean PR",
+              "value": "0.0",
+              "hint": "average issues raised on audited-clean diffs — every one is noise; lower is better",
+              "sort": -0.016129032258064516
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "7.3s / 22.4s",
               "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
               "sort": null
             }
@@ -2903,6 +3217,49 @@
           ]
         },
         {
+          "model": "deepseek/deepseek-v4-pro-0813@high",
+          "qualityScore": 27,
+          "latencyP50Ms": 165329,
+          "latencyP95Ms": 900000,
+          "totalDurationMs": 28512696,
+          "costUsd": 0.48196896,
+          "costPerCaseUsd": 0.005737725714285715,
+          "tokens": 730256,
+          "casesAttempted": 84,
+          "metrics": [
+            {
+              "label": "catch rate",
+              "value": "9/22 (41%)",
+              "hint": "known flaws surfaced — higher is better",
+              "sort": 0.4090909090909091
+            },
+            {
+              "label": "false alarm",
+              "value": "17/62 (27%)",
+              "hint": "clean PRs blocked — lower is better",
+              "sort": -0.27419354838709675
+            },
+            {
+              "label": "issues per review",
+              "value": "1.7",
+              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
+              "sort": null
+            },
+            {
+              "label": "issues per clean PR",
+              "value": "1.2",
+              "hint": "average issues raised on audited-clean diffs — every one is noise; lower is better",
+              "sort": -1.1875
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "165.3s / 900.0s",
+              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
           "model": "deepseek/deepseek-v4-pro@high",
           "qualityScore": 24,
           "latencyP50Ms": 37880,
@@ -3030,6 +3387,92 @@
               "sort": null
             }
           ]
+        },
+        {
+          "model": "bytedance-seed/seed-2.0-code@high",
+          "qualityScore": 0,
+          "latencyP50Ms": 900000,
+          "latencyP95Ms": 900000,
+          "totalDurationMs": 75600000,
+          "costUsd": 0,
+          "costPerCaseUsd": 0,
+          "tokens": 0,
+          "casesAttempted": 84,
+          "metrics": [
+            {
+              "label": "catch rate",
+              "value": "0/22 (0%)",
+              "hint": "known flaws surfaced — higher is better",
+              "sort": 0
+            },
+            {
+              "label": "false alarm",
+              "value": "0/62 (0%)",
+              "hint": "clean PRs blocked — lower is better",
+              "sort": 0
+            },
+            {
+              "label": "issues per review",
+              "value": "n/a",
+              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
+              "sort": null
+            },
+            {
+              "label": "issues per clean PR",
+              "value": "n/a",
+              "hint": "average issues raised on audited-clean diffs — every one is noise; lower is better",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "900.0s / 900.0s",
+              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "thinkingmachines/inkling@high",
+          "qualityScore": 0,
+          "latencyP50Ms": 900000,
+          "latencyP95Ms": 900000,
+          "totalDurationMs": 74767374,
+          "costUsd": 0.0041876,
+          "costPerCaseUsd": 0.00004985238095238095,
+          "tokens": 4408,
+          "casesAttempted": 84,
+          "metrics": [
+            {
+              "label": "catch rate",
+              "value": "0/22 (0%)",
+              "hint": "known flaws surfaced — higher is better",
+              "sort": 0
+            },
+            {
+              "label": "false alarm",
+              "value": "0/62 (0%)",
+              "hint": "clean PRs blocked — lower is better",
+              "sort": 0
+            },
+            {
+              "label": "issues per review",
+              "value": "2.0",
+              "hint": "average issues raised per successful review; high volume can inflate catch rate by shotgunning",
+              "sort": null
+            },
+            {
+              "label": "issues per clean PR",
+              "value": "2.0",
+              "hint": "average issues raised on audited-clean diffs — every one is noise; lower is better",
+              "sort": -2
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "900.0s / 900.0s",
+              "hint": "wall-clock per attempted review call; failures count as the 15-minute timeout",
+              "sort": null
+            }
+          ]
         }
       ]
     },
@@ -3040,7 +3483,7 @@
       "role": "explore",
       "cases": 13,
       "qualityMethod": "recall-weighted F2",
-      "updatedAt": "2026-08-17T18:32:22.779Z",
+      "updatedAt": "2026-08-19T14:42:53.281Z",
       "results": [
         {
           "model": "openai/gpt-5.6-sol@low",
@@ -3080,6 +3523,49 @@
             {
               "label": "latency p50/p95",
               "value": "35.8s / 125.6s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.7-flash@low",
+          "qualityScore": 89,
+          "latencyP50Ms": 47979,
+          "latencyP95Ms": 156352,
+          "totalDurationMs": 793275,
+          "costUsd": 0.04049872499999999,
+          "costPerCaseUsd": 0.003115286538461538,
+          "tokens": 48290,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "90%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.8974358974358974
+            },
+            {
+              "label": "precision",
+              "value": "90%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.9001831501831501
+            },
+            {
+              "label": "tool calls",
+              "value": "12.8",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -12.76923076923077
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "48.0s / 156.4s",
               "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
@@ -3344,6 +3830,49 @@
           ]
         },
         {
+          "model": "thinkingmachines/inkling@low",
+          "qualityScore": 72,
+          "latencyP50Ms": 15336,
+          "latencyP95Ms": 45428,
+          "totalDurationMs": 238118,
+          "costUsd": 0.06998634999999999,
+          "costPerCaseUsd": 0.005383565384615384,
+          "tokens": 35674,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "74%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.7435897435897437
+            },
+            {
+              "label": "precision",
+              "value": "72%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.717948717948718
+            },
+            {
+              "label": "tool calls",
+              "value": "6.1",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -6.076923076923077
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "15.3s / 45.4s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
           "model": "x-ai/grok-4.5@low",
           "qualityScore": 71,
           "latencyP50Ms": 32390,
@@ -3467,6 +3996,49 @@
             {
               "label": "latency p50/p95",
               "value": "25.4s / 106.8s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "deepseek/deepseek-v4-pro-0813@low",
+          "qualityScore": 69,
+          "latencyP50Ms": 46541,
+          "latencyP95Ms": 126864,
+          "totalDurationMs": 802134,
+          "costUsd": 0.051963867999999996,
+          "costPerCaseUsd": 0.003997220615384615,
+          "tokens": 40281,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "90%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.8974358974358974
+            },
+            {
+              "label": "precision",
+              "value": "50%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.502014652014652
+            },
+            {
+              "label": "tool calls",
+              "value": "12.2",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -12.153846153846153
+            },
+            {
+              "label": "answered",
+              "value": "13/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "46.5s / 126.9s",
               "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
               "sort": null
             }
@@ -3772,6 +4344,49 @@
               "sort": null
             }
           ]
+        },
+        {
+          "model": "poolside/laguna-s-2.1",
+          "qualityScore": 41,
+          "latencyP50Ms": 167163,
+          "latencyP95Ms": 240000,
+          "totalDurationMs": 2123295,
+          "costUsd": 0.004638852,
+          "costPerCaseUsd": 0.0003568347692307692,
+          "tokens": 18193,
+          "casesAttempted": 13,
+          "metrics": [
+            {
+              "label": "file recall",
+              "value": "51%",
+              "hint": "of the pre-existing files the real fix modified, how many the explore agent found",
+              "sort": 0.5128205128205129
+            },
+            {
+              "label": "precision",
+              "value": "28%",
+              "hint": "of existing files the report named, how many the fix actually touched",
+              "sort": 0.27820512820512816
+            },
+            {
+              "label": "tool calls",
+              "value": "21.1",
+              "hint": "average tool invocations per successful search — lower is cheaper",
+              "sort": -21.142857142857142
+            },
+            {
+              "label": "answered",
+              "value": "7/13",
+              "hint": "searches that completed within the time budget",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "167.2s / 240.0s",
+              "hint": "wall-clock per attempted search; failures count as the 4-minute timeout",
+              "sort": null
+            }
+          ]
         }
       ]
     },
@@ -3782,7 +4397,7 @@
       "role": "advisor",
       "cases": 32,
       "qualityMethod": "mode-averaged plan score",
-      "updatedAt": "2026-08-17T15:43:27.528Z",
+      "updatedAt": "2026-08-17T20:29:05.753Z",
       "results": [
         {
           "model": "anthropic/claude-opus-5@high",
@@ -4109,6 +4724,61 @@
             {
               "label": "latency p50/p95",
               "value": "51.7s / 88.7s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.7-flash@high",
+          "qualityScore": 71,
+          "latencyP50Ms": 43121,
+          "latencyP95Ms": 85097,
+          "totalDurationMs": 1569968,
+          "costUsd": 0.0472725,
+          "costPerCaseUsd": 0.001477265625,
+          "tokens": 126060,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "94%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.9444444444444444
+            },
+            {
+              "label": "unstick mode",
+              "value": "45%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.45454545454545453
+            },
+            {
+              "label": "challenge mode",
+              "value": "72%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.7222222222222223
+            },
+            {
+              "label": "stance accuracy",
+              "value": "9/12",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.75
+            },
+            {
+              "label": "file recall",
+              "value": "61%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.6092592592592593
+            },
+            {
+              "label": "answered",
+              "value": "32/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "43.1s / 85.1s",
               "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
               "sort": null
             }
@@ -4714,6 +5384,116 @@
             {
               "label": "latency p50/p95",
               "value": "86.7s / 300.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "deepseek/deepseek-v4-pro-0813@high",
+          "qualityScore": 34,
+          "latencyP50Ms": 109158,
+          "latencyP95Ms": 300000,
+          "totalDurationMs": 4580865,
+          "costUsd": 0.07583004,
+          "costPerCaseUsd": 0.00236968875,
+          "tokens": 114894,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "32%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.32407407407407407
+            },
+            {
+              "label": "unstick mode",
+              "value": "27%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.2727272727272727
+            },
+            {
+              "label": "challenge mode",
+              "value": "42%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.4166666666666667
+            },
+            {
+              "label": "stance accuracy",
+              "value": "8/10",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.8
+            },
+            {
+              "label": "file recall",
+              "value": "16%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.1611111111111111
+            },
+            {
+              "label": "answered",
+              "value": "20/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "109.2s / 300.0s",
+              "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "thinkingmachines/inkling@high",
+          "qualityScore": 23,
+          "latencyP50Ms": 300000,
+          "latencyP95Ms": 300000,
+          "totalDurationMs": 6654461,
+          "costUsd": 0.04948835,
+          "costPerCaseUsd": 0.0015465109375,
+          "tokens": 52093,
+          "casesAttempted": 32,
+          "metrics": [
+            {
+              "label": "plan mode",
+              "value": "31%",
+              "hint": "answer-key coverage on upfront plan requests",
+              "sort": 0.3055555555555556
+            },
+            {
+              "label": "unstick mode",
+              "value": "21%",
+              "hint": "answer-key coverage on stuck-agent consultations",
+              "sort": 0.2121212121212121
+            },
+            {
+              "label": "challenge mode",
+              "value": "17%",
+              "hint": "stance-gated grounding on user challenges",
+              "sort": 0.16666666666666666
+            },
+            {
+              "label": "stance accuracy",
+              "value": "2/5",
+              "hint": "concede when the user is right, hold when the user is wrong",
+              "sort": 0.4
+            },
+            {
+              "label": "file recall",
+              "value": "26%",
+              "hint": "share of the real fix's files named in upfront plans — diagnostic, not part of the score",
+              "sort": 0.2592592592592593
+            },
+            {
+              "label": "answered",
+              "value": "14/32",
+              "hint": "successful structured advisor calls",
+              "sort": null
+            },
+            {
+              "label": "latency p50/p95",
+              "value": "300.0s / 300.0s",
               "hint": "wall-clock per attempted advisor call; failures count as the 5-minute timeout",
               "sort": null
             }
