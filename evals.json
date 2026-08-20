@@ -1,6 +1,6 @@
 {
   "format": "roomote-role-evals/v1",
-  "publishedAt": "2026-08-19T23:04:55.906Z",
+  "publishedAt": "2026-08-20T18:45:53.731Z",
   "evals": [
     {
       "id": "coding",
@@ -9,7 +9,7 @@
       "role": "coding",
       "cases": 6,
       "qualityMethod": "task-macro delivered acceptance",
-      "updatedAt": "2026-08-07T21:01:35.987Z",
+      "updatedAt": "2026-08-18T15:09:32.819Z",
       "results": [
         {
           "model": "openai/gpt-5.6-luna@medium",
@@ -362,6 +362,67 @@
               "value": "94%",
               "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
               "sort": 0.9444444444444445
+            },
+            {
+              "label": "valid attempts",
+              "value": "6/6",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "0/18 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "google/gemini-3.7-flash@medium",
+          "qualityScore": 96,
+          "latencyP50Ms": 405809,
+          "latencyP95Ms": 582199,
+          "totalDurationMs": 2400230,
+          "costUsd": 2.4116820750000008,
+          "costPerCaseUsd": 0.40194701250000014,
+          "tokens": 2950635,
+          "casesAttempted": 6,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "96%",
+              "hint": "Task-macro acceptance of delivered work; attempts that never ship a PR score zero — higher is better",
+              "sort": 0.9583333333333334
+            },
+            {
+              "label": "implementation acceptance",
+              "value": "96%",
+              "hint": "Task-macro acceptance of the produced diff regardless of delivery — diagnostic for separating coding quality from delivery reliability",
+              "sort": 0.9583333333333334
+            },
+            {
+              "label": "attempt score range",
+              "value": "75–100%",
+              "hint": "Observed delivered-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "5/6 (83%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.8333333333333334
+            },
+            {
+              "label": "PR delivery",
+              "value": "6/6 (100%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "judge agreement",
+              "value": "95%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.949074074074074
             },
             {
               "label": "valid attempts",
@@ -866,6 +927,67 @@
           ]
         },
         {
+          "model": "bytedance-seed/seed-2.0-code@medium",
+          "qualityScore": 76,
+          "latencyP50Ms": 383137,
+          "latencyP95Ms": 823929,
+          "totalDurationMs": 2676403,
+          "costUsd": 0.8534069999999999,
+          "costPerCaseUsd": 0.14223449999999999,
+          "tokens": 1268170,
+          "casesAttempted": 6,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "76%",
+              "hint": "Task-macro acceptance of delivered work; attempts that never ship a PR score zero — higher is better",
+              "sort": 0.763888888888889
+            },
+            {
+              "label": "implementation acceptance",
+              "value": "76%",
+              "hint": "Task-macro acceptance of the produced diff regardless of delivery — diagnostic for separating coding quality from delivery reliability",
+              "sort": 0.763888888888889
+            },
+            {
+              "label": "attempt score range",
+              "value": "33–100%",
+              "hint": "Observed delivered-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "3/6 (50%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.5
+            },
+            {
+              "label": "PR delivery",
+              "value": "6/6 (100%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 1
+            },
+            {
+              "label": "judge agreement",
+              "value": "97%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9675925925925926
+            },
+            {
+              "label": "valid attempts",
+              "value": "6/6",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "3/18 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
           "model": "google/gemini-3.6-flash@medium",
           "qualityScore": 74,
           "latencyP50Ms": 204975,
@@ -927,6 +1049,128 @@
           ]
         },
         {
+          "model": "poolside/laguna-s-2.1",
+          "qualityScore": 67,
+          "latencyP50Ms": 581871,
+          "latencyP95Ms": 828190,
+          "totalDurationMs": 3132050,
+          "costUsd": 0.43584992999999983,
+          "costPerCaseUsd": 0.07264165499999997,
+          "tokens": 621931,
+          "casesAttempted": 6,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "67%",
+              "hint": "Task-macro acceptance of delivered work; attempts that never ship a PR score zero — higher is better",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "implementation acceptance",
+              "value": "67%",
+              "hint": "Task-macro acceptance of the produced diff regardless of delivery — diagnostic for separating coding quality from delivery reliability",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–100%",
+              "hint": "Observed delivered-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "4/6 (67%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "PR delivery",
+              "value": "4/6 (67%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "judge agreement",
+              "value": "95%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9513888888888888
+            },
+            {
+              "label": "valid attempts",
+              "value": "6/6",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "0/18 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "deepseek/deepseek-v4-pro-0813@medium",
+          "qualityScore": 51,
+          "latencyP50Ms": 121622,
+          "latencyP95Ms": 659330,
+          "totalDurationMs": 1836165,
+          "costUsd": 1.4431007359999999,
+          "costPerCaseUsd": 0.24051678933333331,
+          "tokens": 1645917,
+          "casesAttempted": 6,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "51%",
+              "hint": "Task-macro acceptance of delivered work; attempts that never ship a PR score zero — higher is better",
+              "sort": 0.513888888888889
+            },
+            {
+              "label": "implementation acceptance",
+              "value": "51%",
+              "hint": "Task-macro acceptance of the produced diff regardless of delivery — diagnostic for separating coding quality from delivery reliability",
+              "sort": 0.513888888888889
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–100%",
+              "hint": "Observed delivered-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "2/6 (33%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0.3333333333333333
+            },
+            {
+              "label": "PR delivery",
+              "value": "4/6 (67%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0.6666666666666666
+            },
+            {
+              "label": "judge agreement",
+              "value": "97%",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": 0.9722222222222222
+            },
+            {
+              "label": "valid attempts",
+              "value": "6/6",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "2/18 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
           "model": "anthropic/claude-haiku-4.5@medium",
           "qualityScore": 36,
           "latencyP50Ms": 107947,
@@ -982,6 +1226,67 @@
             {
               "label": "gate overrides",
               "value": "5/18 criteria",
+              "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
+              "sort": null
+            }
+          ]
+        },
+        {
+          "model": "thinkingmachines/inkling@medium",
+          "qualityScore": 0,
+          "latencyP50Ms": 53031,
+          "latencyP95Ms": 357549,
+          "totalDurationMs": 721038,
+          "costUsd": 1.7658171,
+          "costPerCaseUsd": 0.29430285,
+          "tokens": 491117,
+          "casesAttempted": 6,
+          "metrics": [
+            {
+              "label": "task acceptance",
+              "value": "0%",
+              "hint": "Task-macro acceptance of delivered work; attempts that never ship a PR score zero — higher is better",
+              "sort": 0
+            },
+            {
+              "label": "implementation acceptance",
+              "value": "0%",
+              "hint": "Task-macro acceptance of the produced diff regardless of delivery — diagnostic for separating coding quality from delivery reliability",
+              "sort": 0
+            },
+            {
+              "label": "attempt score range",
+              "value": "0–0%",
+              "hint": "Observed delivered-acceptance range across repeated task attempts",
+              "sort": null
+            },
+            {
+              "label": "tasks completed",
+              "value": "0/6 (0%)",
+              "hint": "Tasks with every acceptance criterion met and a delivered PR — higher is better",
+              "sort": 0
+            },
+            {
+              "label": "PR delivery",
+              "value": "0/6 (0%)",
+              "hint": "Tasks where the coding agent completed Roomote's delivery flow — higher is better",
+              "sort": 0
+            },
+            {
+              "label": "judge agreement",
+              "value": "n/a",
+              "hint": "Average majority agreement across acceptance criteria — higher means the grading panel was more consistent",
+              "sort": null
+            },
+            {
+              "label": "valid attempts",
+              "value": "6/6",
+              "hint": "Infrastructure-valid attempts completed out of the frozen benchmark requirement",
+              "sort": 1
+            },
+            {
+              "label": "gate overrides",
+              "value": "0/18 criteria",
               "hint": "Criteria the judge majority passed but a deterministic objective gate forced to fail — review these disagreements before trusting close rankings",
               "sort": null
             }
